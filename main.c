@@ -44,6 +44,7 @@ t_what *new_what()
     storage->stack_b = 0;
     storage->max_index_stack_a = 0;
     storage->min_index_stack_a = 0;
+    storage->third_step_width = 0;
     return (storage);
 }
 
@@ -112,18 +113,16 @@ int save_argv(const char *argv, t_num **num, t_what **storage)
     return(0); ///
 }
 
-int     index_array(t_num **head)
+void     index_array(t_num **head)
 {
     int     min;
     t_num   *num_min;
     t_num   *tmp;
-    int     min_index;
     int 	num_amount;
     int		index;
 
     min = 0;
     num_min = NULL;
-    min_index = -1;
     tmp = *head;
     num_amount = 0;
     index = 1;
@@ -153,7 +152,53 @@ int     index_array(t_num **head)
             tmp = tmp->next;
         }
         num_min->index = index;
+        printf("save num = %d  index = %d\n", num_min->num, num_min->index);
         index++;
+    }
+}
+
+void    set_block(t_what **storage)
+{
+    int     num_block;
+    t_num   *tmp;
+
+    num_block = (*storage)->stack_a / 3; // по сколько элементов в блоке?
+    tmp = (*storage)->head_a;
+    while (tmp)
+    {
+        if (tmp->index >= 1 && tmp->index < 1 + num_block) /// ?
+            tmp->block = 1;
+        else if (tmp->index >= 1 + num_block && tmp->index < 1 + num_block * 2)
+            tmp->block = 2;
+        else
+        {
+            tmp->block = 3;
+            (*storage)->third_step_width += 1;
+        }
+        tmp = tmp->next;
+    }
+}
+
+int		sort_by_blocks(t_what **storage)
+{
+    int 	count;
+
+    count = (*storage)->stack_a;
+    while (count--)
+    {
+        if ((*storage)->head_a->block == 3)
+            r_rotate(&(*storage)->head_a, &(*storage)->tail_a);
+        else if ((*storage)->head_a->block == 2)
+        {
+            push('b', storage);
+            (*storage)->stack_a -= 1;
+        }
+        else if ((*storage)->head_a->block == 1)
+        {
+            push('b', storage);
+            r_rotate(&(*storage)->head_b, &(*storage)->tail_b);
+            (*storage)->stack_a -= 1;
+        }
     }
     return (0);
 }
@@ -185,12 +230,11 @@ int main(int argc, char **argv)
             argc--;
             i++;
         }
-        if ((index_array(&storage->head_a)) == -1)
-        {
-            final_free(&num);
-            return (-1);
-        }
+        index_array(&storage->head_a);
+        set_block(&storage);
+        sort_by_blocks(&storage);
+        print_stacks(storage->head_a, storage->head_b);
     }
-    final_free(&num);
+    final_free(&num); // free storage?
     return (0);
 }
