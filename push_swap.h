@@ -5,15 +5,15 @@
 # define MAX 2147483647
 # define MIN -2147483648
 
-typedef struct s_num{
+typedef struct 		s_num{
     int             num;
     int             index;
     int             block;
     struct s_num	*next;
     struct s_num	*prev;
-}               t_num;
+}               	t_num;
 
-typedef struct s_what{
+typedef struct 		s_what{
     t_num 			*head_a;
     t_num 			*head_b;
     t_num 			*tail_a;
@@ -23,7 +23,7 @@ typedef struct s_what{
     int             stack_b;
     int 			max_index_stack_a;
     int 			min_index_stack_a;
-    int 			third_step_width; //?
+  //  int 			third_step_width; // кол-во чисел в 3 блоке - самых больших  чисел
 }                   t_what;
 
 int         save_argv(const char *argv, t_num **num, t_what **storage);

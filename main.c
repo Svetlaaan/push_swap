@@ -1,7 +1,7 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-void 		final_free(t_num **head)
+void 		free_num(t_num **head)
 {
 
     while (*head)
@@ -12,8 +12,25 @@ void 		final_free(t_num **head)
         (*head)->next = NULL;
         (*head)->prev = NULL;
         (*head) = (*head)->prev;
+        *head = NULL;
     }
     free(*head);
+
+}
+
+void	free_storage(t_what **storage)
+{
+		(*storage)->head_a = NULL;
+		(*storage)->head_b = NULL;
+		(*storage)->tail_a = NULL;
+		(*storage)->tail_b = NULL;
+		(*storage)->stack_a = 0;
+		(*storage)->stack_b = 0;
+		(*storage)->max_index_stack_a = 0;
+		(*storage)->min_index_stack_a = 0;
+//		(*storage)->third_step_width = 0;
+	free(*storage);
+	*storage = NULL;
 }
 
 t_num		*new_num(void)
@@ -44,13 +61,13 @@ t_what *new_what()
     storage->stack_b = 0;
     storage->max_index_stack_a = 0;
     storage->min_index_stack_a = 0;
-    storage->third_step_width = 0;
+   // storage->third_step_width = 0;
     return (storage);
 }
 
 int     check_char(char c)
 {
-    if ((c >= '0' && c <= '9'))
+    if ((c >= '0' && c <= '9') || c == '-')
         return (1);
     return (0);
 }
@@ -58,6 +75,7 @@ int     check_char(char c)
 int save_argv(const char *argv, t_num **num, t_what **storage)
 {
     t_num *tmp;
+    int flag = 0;
 
     if (argv == NULL || *num == NULL)
         return (-1);
@@ -74,9 +92,10 @@ int save_argv(const char *argv, t_num **num, t_what **storage)
                 if(((*num)->num = ft_atoi(argv)) == -1) /// выделить память?
                 {
                     printf("incorrect number: MIN_INT > || MAX_INT < "); //
-                    //final_free(num);
                     return (-1);
                 }
+                if ((*num)->num < 0)
+                	flag = 1;
             }
             else
                 {
@@ -88,12 +107,13 @@ int save_argv(const char *argv, t_num **num, t_what **storage)
                     if(((*num)->num = ft_atoi(argv)) == -1) /// выделить память?
                     {
                         printf("incorrect number: MIN_INT > || MAX_INT < "); //
-                       // final_free(num);
                         return (-1);
                     }
+					if ((*num)->num < 0)
+						flag = 1;
                 }
             printf("save num = %d\n", (*num)->num);
-            argv += ft_len_of_number(ft_atoi(argv));
+            argv += (ft_len_of_number((*num)->num) + flag); // добавила условие в функцию для чисел > 0
             (*storage)->stack_a += 1;
             while (ft_iswhitespace(*argv))
                 argv += 1;
@@ -106,7 +126,6 @@ int save_argv(const char *argv, t_num **num, t_what **storage)
         else
             {
                 write(1, "Incorrect data\n", 15);
-                //final_free(num);
                     return (-1);
             }
     }
@@ -171,10 +190,8 @@ void    set_block(t_what **storage)
         else if (tmp->index >= 1 + num_block && tmp->index < 1 + num_block * 2)
             tmp->block = 2;
         else
-        {
             tmp->block = 3;
-            (*storage)->third_step_width += 1;
-        }
+            //(*storage)->third_step_width += 1;
         tmp = tmp->next;
     }
 }
@@ -208,6 +225,7 @@ int main(int argc, char **argv)
     t_num *num = NULL;
     t_what *storage = NULL;
     int i = 1;
+t_num *head = num;
 
     if (argc < 2)
     {
@@ -224,7 +242,7 @@ int main(int argc, char **argv)
         {
             if (save_argv(argv[i], &num, &storage) == -1)
             {
-                final_free(&num);
+                free_num(&num);
                 return (-1);
             }
             argc--;
@@ -235,6 +253,9 @@ int main(int argc, char **argv)
         sort_by_blocks(&storage);
         print_stacks(storage->head_a, storage->head_b);
     }
-    final_free(&num); // free storage?
+    if (num)
+    	free_num(&num);
+    if (storage)
+    	free_storage(&storage);
     return (0);
 }
