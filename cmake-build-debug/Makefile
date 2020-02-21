@@ -123,6 +123,60 @@ push_swap/fast:
 	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/build
 .PHONY : push_swap/fast
 
+check_smthng.o: check_smthng.c.o
+
+.PHONY : check_smthng.o
+
+# target to build an object file
+check_smthng.c.o:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/check_smthng.c.o
+.PHONY : check_smthng.c.o
+
+check_smthng.i: check_smthng.c.i
+
+.PHONY : check_smthng.i
+
+# target to preprocess a source file
+check_smthng.c.i:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/check_smthng.c.i
+.PHONY : check_smthng.c.i
+
+check_smthng.s: check_smthng.c.s
+
+.PHONY : check_smthng.s
+
+# target to generate assembly for a file
+check_smthng.c.s:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/check_smthng.c.s
+.PHONY : check_smthng.c.s
+
+checker.o: checker.c.o
+
+.PHONY : checker.o
+
+# target to build an object file
+checker.c.o:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/checker.c.o
+.PHONY : checker.c.o
+
+checker.i: checker.c.i
+
+.PHONY : checker.i
+
+# target to preprocess a source file
+checker.c.i:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/checker.c.i
+.PHONY : checker.c.i
+
+checker.s: checker.c.s
+
+.PHONY : checker.s
+
+# target to generate assembly for a file
+checker.c.s:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/checker.c.s
+.PHONY : checker.c.s
+
 libft/ft_atoi.o: libft/ft_atoi.c.o
 
 .PHONY : libft/ft_atoi.o
@@ -1770,32 +1824,59 @@ libft/ft_toupper.c.s:
 	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/libft/ft_toupper.c.s
 .PHONY : libft/ft_toupper.c.s
 
-main.o: main.c.o
+libft/get_next_line.o: libft/get_next_line.c.o
 
-.PHONY : main.o
+.PHONY : libft/get_next_line.o
 
 # target to build an object file
-main.c.o:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/main.c.o
-.PHONY : main.c.o
+libft/get_next_line.c.o:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/libft/get_next_line.c.o
+.PHONY : libft/get_next_line.c.o
 
-main.i: main.c.i
+libft/get_next_line.i: libft/get_next_line.c.i
 
-.PHONY : main.i
+.PHONY : libft/get_next_line.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/main.c.i
-.PHONY : main.c.i
+libft/get_next_line.c.i:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/libft/get_next_line.c.i
+.PHONY : libft/get_next_line.c.i
 
-main.s: main.c.s
+libft/get_next_line.s: libft/get_next_line.c.s
 
-.PHONY : main.s
+.PHONY : libft/get_next_line.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/main.c.s
-.PHONY : main.c.s
+libft/get_next_line.c.s:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/libft/get_next_line.c.s
+.PHONY : libft/get_next_line.c.s
+
+new_and_free.o: new_and_free.c.o
+
+.PHONY : new_and_free.o
+
+# target to build an object file
+new_and_free.c.o:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/new_and_free.c.o
+.PHONY : new_and_free.c.o
+
+new_and_free.i: new_and_free.c.i
+
+.PHONY : new_and_free.i
+
+# target to preprocess a source file
+new_and_free.c.i:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/new_and_free.c.i
+.PHONY : new_and_free.c.i
+
+new_and_free.s: new_and_free.c.s
+
+.PHONY : new_and_free.s
+
+# target to generate assembly for a file
+new_and_free.c.s:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/new_and_free.c.s
+.PHONY : new_and_free.c.s
 
 operations.o: operations.c.o
 
@@ -1824,6 +1905,33 @@ operations.c.s:
 	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/operations.c.s
 .PHONY : operations.c.s
 
+set_index.o: set_index.c.o
+
+.PHONY : set_index.o
+
+# target to build an object file
+set_index.c.o:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/set_index.c.o
+.PHONY : set_index.c.o
+
+set_index.i: set_index.c.i
+
+.PHONY : set_index.i
+
+# target to preprocess a source file
+set_index.c.i:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/set_index.c.i
+.PHONY : set_index.c.i
+
+set_index.s: set_index.c.s
+
+.PHONY : set_index.s
+
+# target to generate assembly for a file
+set_index.c.s:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/set_index.c.s
+.PHONY : set_index.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1833,6 +1941,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... push_swap"
+	@echo "... check_smthng.o"
+	@echo "... check_smthng.i"
+	@echo "... check_smthng.s"
+	@echo "... checker.o"
+	@echo "... checker.i"
+	@echo "... checker.s"
 	@echo "... libft/ft_atoi.o"
 	@echo "... libft/ft_atoi.i"
 	@echo "... libft/ft_atoi.s"
@@ -2016,12 +2130,18 @@ help:
 	@echo "... libft/ft_toupper.o"
 	@echo "... libft/ft_toupper.i"
 	@echo "... libft/ft_toupper.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... libft/get_next_line.o"
+	@echo "... libft/get_next_line.i"
+	@echo "... libft/get_next_line.s"
+	@echo "... new_and_free.o"
+	@echo "... new_and_free.i"
+	@echo "... new_and_free.s"
 	@echo "... operations.o"
 	@echo "... operations.i"
 	@echo "... operations.s"
+	@echo "... set_index.o"
+	@echo "... set_index.i"
+	@echo "... set_index.s"
 .PHONY : help
 
 

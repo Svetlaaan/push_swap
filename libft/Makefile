@@ -73,6 +73,7 @@ SRC = ft_atoi.c \
 	ft_strtrim.c \
 	ft_tolower.c \
 	ft_toupper.c \
+	get_next_line.c \
 
 OBJ = ft_atoi.o \
 	ft_bzero.o \
@@ -135,6 +136,7 @@ OBJ = ft_atoi.o \
 	ft_strtrim.o \
 	ft_tolower.o \
 	ft_toupper.o \
+	get_next_line.o \
 
 all: $(NAME)
 

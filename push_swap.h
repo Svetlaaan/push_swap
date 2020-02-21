@@ -2,13 +2,12 @@
 #define PUSH_SWAP_H
 
 # include "libft.h"
-# define MAX 2147483647
-# define MIN -2147483648
 
 typedef struct 		s_num{
     int             num;
     int             index;
     int             block;
+
     struct s_num	*next;
     struct s_num	*prev;
 }               	t_num;
@@ -29,9 +28,16 @@ typedef struct 		s_what{
 int         save_argv(const char *argv, t_num **num, t_what **storage);
 t_what      *new_what();
 t_num		*new_num(void);
+
+void	    print_stacks(t_num *head_a, t_num *head_b);
+void 		free_num(t_num **head);
+void		free_storage(t_what **storage);
+void     	index_array(t_num **head);
+int     	check_char(char c);
+
+int 		s_swap(t_num **head);
 int         r_rotate(t_num **head, t_num **tail);
 int         push(char c, t_what **storage);
-void	    print_stacks(t_num *head_a, t_num *head_b);
-
+int 		rr_reverse(t_num **head, t_num **tail);
 
 #endif //PUSH_SWAP_PUSH_SWAP_H

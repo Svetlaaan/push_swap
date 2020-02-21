@@ -4,6 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/Users/fboggs/Desktop/push_swap/check_smthng.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/check_smthng.c.o"
+  "/Users/fboggs/Desktop/push_swap/checker.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/checker.c.o"
   "/Users/fboggs/Desktop/push_swap/libft/ft_atoi.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/libft/ft_atoi.c.o"
   "/Users/fboggs/Desktop/push_swap/libft/ft_bzero.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/libft/ft_bzero.c.o"
   "/Users/fboggs/Desktop/push_swap/libft/ft_cntwrds.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/libft/ft_cntwrds.c.o"
@@ -65,8 +67,10 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/fboggs/Desktop/push_swap/libft/ft_strtrim.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/libft/ft_strtrim.c.o"
   "/Users/fboggs/Desktop/push_swap/libft/ft_tolower.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/libft/ft_tolower.c.o"
   "/Users/fboggs/Desktop/push_swap/libft/ft_toupper.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/libft/ft_toupper.c.o"
-  "/Users/fboggs/Desktop/push_swap/main.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/main.c.o"
+  "/Users/fboggs/Desktop/push_swap/libft/get_next_line.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/libft/get_next_line.c.o"
+  "/Users/fboggs/Desktop/push_swap/new_and_free.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/new_and_free.c.o"
   "/Users/fboggs/Desktop/push_swap/operations.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/operations.c.o"
+  "/Users/fboggs/Desktop/push_swap/set_index.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/set_index.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

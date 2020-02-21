@@ -13,8 +13,10 @@ unistd.h
 -
 stdlib.h
 -
+fcntl.h
+-
 
-/Users/fboggs/Desktop/push_swap/main.c
+/Users/fboggs/Desktop/push_swap/operations.c
 push_swap.h
 /Users/fboggs/Desktop/push_swap/push_swap.h
 stdio.h

@@ -6,7 +6,7 @@
 /*   By: fboggs <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 14:12:00 by fboggs            #+#    #+#             */
-/*   Updated: 2019/09/07 22:36:00 by fboggs           ###   ########.fr       */
+/*   Updated: 2020/02/21 15:36:31 by fboggs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
+# define BUFF_SIZE 1
+# define MAX_FD 12000
 
 char				*ft_strcat(char *s1, const char *s2);
 int					ft_strcmp(const char *s1, const char *s2);
@@ -70,7 +73,7 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_itoa(int n);
-int		ft_len_of_number(int n);
+int					ft_len_of_number(int n);
 
 typedef struct		s_list
 {
@@ -89,5 +92,7 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					ft_cntwrds(char *s, char c);
 int					ft_iswhitespace(char c);
 void				ft_deltwodimarray(char **words, size_t i);
+
+int					get_next_line(const int fd, char **line);
 
 #endif

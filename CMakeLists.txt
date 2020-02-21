@@ -68,7 +68,12 @@ add_executable(push_swap
         libft/ft_strtrim.c
         libft/ft_tolower.c
         libft/ft_toupper.c
+        libft/get_next_line.c
         libft/libft.h
-        main.c
+#        push_swap.c
+        new_and_free.c
+        check_smthng.c
+        set_index.c
         operations.c
+        checker.c
         push_swap.h)
