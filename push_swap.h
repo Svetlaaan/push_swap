@@ -36,9 +36,9 @@ void 		final_free(t_what **storage, t_num **num);
 void     	index_array(t_num **head);
 int     	check_char(char c);
 
-int 		s_swap(t_num **head);
-int         r_rotate(t_num **head, t_num **tail);
+int 		s_swap(t_num **head, t_what **storage);
+int         r_rotate(t_num **head, t_num **tail, t_what **storage);
 int         push(char c, t_what **storage);
-int 		rr_reverse(t_num **head, t_num **tail);
+int 		rr_reverse(t_num **head, t_num **tail, t_what **storage);
 
 #endif //PUSH_SWAP_PUSH_SWAP_H

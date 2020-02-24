@@ -17,10 +17,6 @@ int push(char c, t_what **storage)
     {
         from = &(*storage)->head_a;
         to = &(*storage)->head_b;
-       /* if ((*storage)->tail_b == NULL)
-            (*storage)->tail_b = (*storage)->head_a;*/ // если стэк В пуст, то верхушка А = низ В//
-
-        //return (1);
     }
     if (*from)
 	{
@@ -34,6 +30,7 @@ int push(char c, t_what **storage)
 			//(*to)->prev = NULL;
 			(*to)->next = NULL;
 			*from = tmp_next;
+			(*storage)->tail_b = (*to); /////////// сегается если всего 1 элемент туда - сюда
 		}
 		else
 		{
@@ -45,7 +42,23 @@ int push(char c, t_what **storage)
 			*to = tmp;
 			*from = tmp_next;
 		}
+		if (c == 'a')
+		{
+			(*storage)->stack_a += 1;
+			(*storage)->stack_b -= 1;
+			if ((*storage)->stack_b == 0)
+				(*storage)->tail_b = NULL;
+		}
+
+		else if (c == 'b')
+		{
+			(*storage)->stack_a -= 1;
+			(*storage)->stack_b += 1;
+			if ((*storage)->stack_a == 0)
+				(*storage)->tail_a = NULL;
+		}
 	}
+	print_stacks((*storage)->head_a, (*storage)->head_b);
     return (1);
 }
 
@@ -80,7 +93,7 @@ void	print_stacks(t_num *head_a, t_num *head_b)
     printf("%7s | %7s\n", "stack A", "stack B");
 }
 
-int s_swap(t_num **head)
+int s_swap(t_num **head, t_what **storage)
 {
 	t_num	*tmp;
 	t_num 	*tmp_next;
@@ -98,6 +111,7 @@ int s_swap(t_num **head)
 		tmp->prev = (*head);
 		tmp_next->prev = (*head)->next;
 	}
+	print_stacks((*storage)->head_a, (*storage)->head_b);
 /*	tmp = *head;
 	while (tmp != NULL)
 	{
@@ -107,7 +121,7 @@ int s_swap(t_num **head)
 	return (1);
 }
 
-int r_rotate(t_num **head, t_num **tail)
+int r_rotate(t_num **head, t_num **tail, t_what **storage)
 {
 	t_num *tmp;
 
@@ -122,11 +136,12 @@ int r_rotate(t_num **head, t_num **tail)
 		*tail = tmp;
 
 	}
+	print_stacks((*storage)->head_a, (*storage)->head_b);
 	return (1);
 }
 
 
-int rr_reverse(t_num **head, t_num **tail)
+int rr_reverse(t_num **head, t_num **tail, t_what **storage)
 {
 	t_num *tmp;
 	//t_num *lol;
@@ -147,6 +162,7 @@ int rr_reverse(t_num **head, t_num **tail)
 		tmp->next = *head;
 		*head = tmp;
 	}
+	print_stacks((*storage)->head_a, (*storage)->head_b);
 /*	tmp = *head;
 	while (tmp != NULL)
 	{

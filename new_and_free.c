@@ -1,37 +1,6 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-/*void 		free_num(t_num **head)
-{
-
-	while (*head)
-	{
-		(*head)->num = 0;
-		(*head)->index = 0;
-		(*head)->block = 0;
-		(*head)->next = NULL;
-		(*head)->prev = NULL;
-		(*head) = (*head)->prev;
-		*head = NULL;
-	}
-	free(*head);
-
-}
-
-void	free_storage(t_what **storage)
-{
-	(*storage)->head_a = NULL;
-	(*storage)->head_b = NULL;
-	(*storage)->tail_a = NULL;
-	(*storage)->tail_b = NULL;
-	(*storage)->stack_a = 0;
-	(*storage)->stack_b = 0;
-	(*storage)->max_index_stack_a = 0;
-	(*storage)->min_index_stack_a = 0;
-//		(*storage)->third_step_width = 0;
-	free(*storage);
-	*storage = NULL;
-}*/
 
 void 	final_free(t_what **storage, t_num **num)
 {
@@ -40,9 +9,10 @@ void 	final_free(t_what **storage, t_num **num)
 
 	if ((*storage)->head_a)
 	{
-		tmp = (*storage)->tail_a;
-		/*while (tmp)
-			tmp = tmp->next;*/
+		if ((*storage)->tail_a)
+			tmp = (*storage)->tail_a;
+		else
+			tmp = (*storage)->head_a;
 		while (tmp)
 		{
 			tmp_prev = tmp->prev;
@@ -60,10 +30,11 @@ void 	final_free(t_what **storage, t_num **num)
 	}
 	if ((*storage)->head_b)
 	{
-		tmp = (*storage)->tail_b;
-//		while (tmp)
-//			tmp = tmp->next;
-		while (tmp->prev)
+		if ((*storage)->tail_b)
+			tmp = (*storage)->tail_b;
+		else
+			tmp = (*storage)->head_b;
+		while (tmp)
 		{
 			tmp_prev = tmp->prev;
 			tmp->num = 0;
@@ -76,15 +47,11 @@ void 	final_free(t_what **storage, t_num **num)
 			tmp = tmp_prev;
 		}
 	}
-	/*storage->head_a = NULL;
-	storage->head_b = NULL;
-	storage->tail_a = NULL;
-	storage->tail_b = NULL;*/
 	(*storage)->stack_a = 0;
 	(*storage)->stack_b = 0;
 	(*storage)->max_index_stack_a = 0;
 	(*storage)->min_index_stack_a = 0;
-	//free(&storage);
+	free(*storage);
 }
 
 

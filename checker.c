@@ -18,12 +18,12 @@ int 	parse_args(t_what *storage, char *line)
 	if (line == NULL)
 		return (0);
 	if (!(ft_strcmp("sa", line)))
-		return (s_swap(&storage->head_a));
+		return (s_swap(&storage->head_a, &storage));
 	else if (!(ft_strcmp("sb", line)))
-		return (s_swap(&storage->head_b));
+		return (s_swap(&storage->head_b, &storage));
 	else if (!(ft_strcmp("ss", line)))
 	{
-		if (s_swap(&storage->head_a) && s_swap(&storage->head_b))
+		if (s_swap(&storage->head_a, &storage) && s_swap(&storage->head_b, &storage))
 			return (1);
 	}
 	else if (!(ft_strcmp("pa", line)))
@@ -31,23 +31,23 @@ int 	parse_args(t_what *storage, char *line)
 	else if (!(ft_strcmp("pb", line)))
 		return (push('b', &storage));
 	else if (!(ft_strcmp("ra", line)))
-		return (r_rotate(&storage->head_a, &storage->tail_a));
+		return (r_rotate(&storage->head_a, &storage->tail_a, &storage));
 	else if (!(ft_strcmp("rb", line)))
-		return (r_rotate(&storage->head_b, &storage->tail_b));
+		return (r_rotate(&storage->head_b, &storage->tail_b, &storage));
 	else if (!(ft_strcmp("rr", line)))
 	{
-		if (r_rotate(&storage->head_a, &storage->tail_a)
-			&& r_rotate(&storage->head_b, &storage->tail_b))
+		if (r_rotate(&storage->head_a, &storage->tail_a, &storage)
+			&& r_rotate(&storage->head_b, &storage->tail_b, &storage))
 			return (1);
 	}
 	else if (!(ft_strcmp("rra", line)))
-		return (rr_reverse(&storage->head_a, &storage->tail_a));
+		return (rr_reverse(&storage->head_a, &storage->tail_a, &storage));
 	else if (!(ft_strcmp("rrb", line)))
-		return (rr_reverse(&storage->head_b, &storage->tail_b));
+		return (rr_reverse(&storage->head_b, &storage->tail_b, &storage));
 	else if (!(ft_strcmp("rrr", line)))
 	{
-		if (rr_reverse(&storage->head_a, &storage->tail_a)
-			&& rr_reverse(&storage->head_b, &storage->tail_b))
+		if (rr_reverse(&storage->head_a, &storage->tail_a, &storage)
+			&& rr_reverse(&storage->head_b, &storage->tail_b, &storage))
 			return (1);
 	}
 	else
@@ -158,4 +158,4 @@ int 	main(int argc, char **argv)
 }
 
 /// при запуске теста из сабджекта 3 2 1 0 теряется '3' - DONE - добавлено условие связывания 3 элемента с предыдущим, до этого связь оставалась со старым элементом
-// течет storage
+/// течет storage - DONE вроде как -> надо еще потестить!
