@@ -30,8 +30,9 @@ t_what      *new_what();
 t_num		*new_num(void);
 
 void	    print_stacks(t_num *head_a, t_num *head_b);
-void 		free_num(t_num **head);
-void		free_storage(t_what **storage);
+//void 		free_num(t_num **head);
+//void		free_storage(t_what **storage);
+void 		final_free(t_what **storage, t_num **num);
 void     	index_array(t_num **head);
 int     	check_char(char c);
 

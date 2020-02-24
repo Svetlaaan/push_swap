@@ -31,7 +31,7 @@ int push(char c, t_what **storage)
 			*to = *from;
 			if (tmp_next)
 				tmp_next->prev = NULL;
-			(*to)->prev = NULL;
+			//(*to)->prev = NULL;
 			(*to)->next = NULL;
 			*from = tmp_next;
 		}
@@ -83,17 +83,20 @@ void	print_stacks(t_num *head_a, t_num *head_b)
 int s_swap(t_num **head)
 {
 	t_num	*tmp;
+	t_num 	*tmp_next;
 
 	/*if (!(*head)->next)
 		return (1);*/
 	if ((*head) && (*head)->next)
 	{
 		tmp = *head;
+		tmp_next = (*head)->next->next;
 		*head = (*head)->next;
 		(*head)->prev = NULL;
 		tmp->next = (*head)->next;
 		(*head)->next = tmp;
 		tmp->prev = (*head);
+		tmp_next->prev = (*head)->next;
 	}
 /*	tmp = *head;
 	while (tmp != NULL)

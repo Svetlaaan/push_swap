@@ -1,7 +1,8 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-void 		final_free(t_num **head)
+
+/*void 		final_free(t_num **head)
 {
 	t_num *tmp;
 	while (*head)
@@ -10,7 +11,7 @@ void 		final_free(t_num **head)
 		free(*head);
 		*head = tmp;
 	}
-}
+}*/
 
 int 	parse_args(t_what *storage, char *line)
 {
@@ -112,17 +113,22 @@ int 	main(int argc, char **argv)
 	else
 	{
 		if (!(new = new_num()))
+		{
+			final_free(&storage, &new);
 			return (-1);
+		}
+
 		if (!(storage = new_what()))
+		{
+			final_free(&storage, &new);
 			return (-1);
+		}
 		while (argc > 1)
 		{
 			if (save_argv(argv[i], &new, &storage) == -1)
 			{
 				if (storage->head_a)
-					final_free(&storage->head_a);
-				/*free_num(&new);
-				free_storage(&storage);*/
+					final_free(&storage, &new);
 				return (-1);
 			}
 			argc--;
@@ -130,6 +136,12 @@ int 	main(int argc, char **argv)
 		}
 		index_array(&storage->head_a);
 	}
+	/*rr_reverse(&storage->head_a, &storage->tail_a);
+	push('b', &storage);
+	s_swap(&storage->head_a);
+	rr_reverse(&storage->head_a, &storage->tail_a);
+	push('a', &storage);
+	print_stacks(storage->head_a, storage->head_b);*/
 	print_stacks(storage->head_a, storage->head_b);
 	if (valid_and_parse_args(storage) == 1)
 	{
@@ -140,8 +152,10 @@ int 	main(int argc, char **argv)
 	{
 		print_stacks(storage->head_a, storage->head_b);
 		printf("KO");
-	}
+	} ///
+	final_free(&storage, &new);
 	return (0);
 }
 
-/// при запуске теста из сабджекта 3 2 1 0 теряется '3'
+/// при запуске теста из сабджекта 3 2 1 0 теряется '3' - DONE - добавлено условие связывания 3 элемента с предыдущим, до этого связь оставалась со старым элементом
+// течет storage
