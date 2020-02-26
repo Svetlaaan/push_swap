@@ -58,7 +58,8 @@ int push(char c, t_what **storage)
 				(*storage)->tail_a = NULL;
 		}
 	}
-	print_stacks((*storage)->head_a, (*storage)->head_b);
+    if ((*storage)->fluff == 1)
+		print_stacks((*storage)->head_a, (*storage)->head_b);
     return (1);
 }
 
@@ -109,9 +110,15 @@ int s_swap(t_num **head, t_what **storage)
 		tmp->next = (*head)->next;
 		(*head)->next = tmp;
 		tmp->prev = (*head);
-		tmp_next->prev = (*head)->next;
+		if (tmp_next)
+			tmp_next->prev = (*head)->next;
+		if ((*storage)->stack_a == 2)
+			(*storage)->tail_a = (*head)->next;
+		else if ((*storage)->stack_b == 2)
+			(*storage)->tail_b = (*head)->next;
 	}
-	print_stacks((*storage)->head_a, (*storage)->head_b);
+	if ((*storage)->fluff == 1)
+		print_stacks((*storage)->head_a, (*storage)->head_b);
 /*	tmp = *head;
 	while (tmp != NULL)
 	{
@@ -136,7 +143,8 @@ int r_rotate(t_num **head, t_num **tail, t_what **storage)
 		*tail = tmp;
 
 	}
-	print_stacks((*storage)->head_a, (*storage)->head_b);
+	if ((*storage)->fluff == 1)
+		print_stacks((*storage)->head_a, (*storage)->head_b);
 	return (1);
 }
 
@@ -162,7 +170,8 @@ int rr_reverse(t_num **head, t_num **tail, t_what **storage)
 		tmp->next = *head;
 		*head = tmp;
 	}
-	print_stacks((*storage)->head_a, (*storage)->head_b);
+	if ((*storage)->fluff == 1)
+		print_stacks((*storage)->head_a, (*storage)->head_b);
 /*	tmp = *head;
 	while (tmp != NULL)
 	{

@@ -1,18 +1,6 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-
-/*void 		final_free(t_num **head)
-{
-	t_num *tmp;
-	while (*head)
-	{
-		tmp = (*head)->next;
-		free(*head);
-		*head = tmp;
-	}
-}*/
-
 int 	parse_args(t_what *storage, char *line)
 {
 	if (line == NULL)
@@ -89,6 +77,7 @@ int 	valid_and_parse_args(t_what *storage)
 		}
 		if (parse_args(storage, line) == -1)
 		{
+			free(line);
 			printf("Error\n");
 			return (0);
 		}
@@ -103,6 +92,7 @@ int 	main(int argc, char **argv)
 {
 	t_num 	*new;
 	t_what 	*storage;
+
 	int i = 1;
 
 	if (argc < 2)
@@ -117,7 +107,6 @@ int 	main(int argc, char **argv)
 			final_free(&storage, &new);
 			return (-1);
 		}
-
 		if (!(storage = new_what()))
 		{
 			final_free(&storage, &new);
@@ -125,6 +114,12 @@ int 	main(int argc, char **argv)
 		}
 		while (argc > 1)
 		{
+			if (storage->fluff == 0 && (!(ft_strcmp(argv[i], "-v"))))
+			{
+				storage->fluff = 1;
+				argc--;
+				i++;
+			}
 			if (save_argv(argv[i], &new, &storage) == -1)
 			{
 				if (storage->head_a)
@@ -134,14 +129,12 @@ int 	main(int argc, char **argv)
 			argc--;
 			i++;
 		}
-		index_array(&storage->head_a);
+		if (index_array(&storage->head_a) == -1)
+		{
+			final_free(&storage, &new);
+			return (-1);
+		}
 	}
-	/*rr_reverse(&storage->head_a, &storage->tail_a);
-	push('b', &storage);
-	s_swap(&storage->head_a);
-	rr_reverse(&storage->head_a, &storage->tail_a);
-	push('a', &storage);
-	print_stacks(storage->head_a, storage->head_b);*/
 	print_stacks(storage->head_a, storage->head_b);
 	if (valid_and_parse_args(storage) == 1)
 	{

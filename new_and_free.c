@@ -49,9 +49,63 @@ void 	final_free(t_what **storage, t_num **num)
 	}
 	(*storage)->stack_a = 0;
 	(*storage)->stack_b = 0;
-	(*storage)->max_index_stack_a = 0;
-	(*storage)->min_index_stack_a = 0;
 	free(*storage);
+	/*t_num *tmp = NULL;
+	t_num *tmp_next = NULL;
+
+	if ((*storage)->head_a)
+	{
+		if ((*storage)->tail_a)
+			tmp = (*storage)->tail_a;
+		else
+			tmp = (*storage)->head_a;
+		while (tmp)
+		{
+			if (tmp->prev)
+				tmp_next = tmp->prev;
+			else if (tmp->next->index != 0)
+				tmp_next = tmp->next;
+			else
+				tmp_next = NULL;
+			tmp->num = 0;
+			tmp->index = 0;
+			tmp->block = 0;
+			if (tmp->next)
+				tmp->next = NULL;
+			tmp->prev = NULL;
+			free(tmp); ///
+			tmp = tmp_next;
+		}
+	}
+	if ((*storage)->head_b)
+	{
+		if ((*storage)->tail_b)
+			tmp = (*storage)->tail_b;
+		else
+			tmp = (*storage)->head_b;
+		while (tmp)
+		{
+			if (tmp == (*storage)->tail_b)
+				tmp_next = tmp->prev;
+			else
+				tmp_next = tmp->next;
+			tmp_next = tmp->prev;
+			tmp->num = 0;
+			tmp->index = 0;
+			tmp->block = 0;
+			if (tmp->next)
+				tmp->next = NULL;
+			tmp->prev = NULL;
+			//free(tmp);
+			tmp = tmp_next;
+		}
+	}
+	free(tmp);
+	free(tmp_next);
+	(*storage)->stack_a = 0;
+	(*storage)->stack_b = 0;
+	free(*storage);
+	*storage = NULL;*/
 }
 
 
@@ -81,8 +135,9 @@ t_what *new_what()
 	storage->tail_b = NULL;
 	storage->stack_a = 0;
 	storage->stack_b = 0;
-	storage->max_index_stack_a = 0;
-	storage->min_index_stack_a = 0;
+	storage->fluff = 0;
+//	storage->max_index_stack_a = 0;
+//	storage->min_index_stack_a = 0;
 	return (storage);
 }
 
@@ -92,11 +147,15 @@ int save_argv(const char *argv, t_num **num, t_what **storage)
 	int flag = 0;
 
 	if (argv == NULL || *num == NULL)
+	{
+		printf("LALALALALA");
 		return (-1);
+	}
 	while (*argv != '\0')
 	{
 		while (*argv == ' ' || *argv == '\t')
 			argv += 1;
+
 		if (check_char(*argv)) //нужна ли проверка на пробелы и тд?
 		{
 			if ((*storage)->head_a == NULL)
@@ -108,6 +167,7 @@ int save_argv(const char *argv, t_num **num, t_what **storage)
 					printf("incorrect number: MIN_INT > || MAX_INT < "); //
 					return (-1);
 				}
+				(*storage)->tail_a = (*num);
 				if ((*num)->num < 0)
 					flag = 1;
 			}
@@ -123,6 +183,7 @@ int save_argv(const char *argv, t_num **num, t_what **storage)
 					printf("incorrect number: MIN_INT > || MAX_INT < "); //
 					return (-1);
 				}
+				(*storage)->tail_a = (*num);
 				if ((*num)->num < 0)
 					flag = 1;
 			}

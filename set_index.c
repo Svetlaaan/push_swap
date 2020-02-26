@@ -1,13 +1,14 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-void     index_array(t_num **head)
+int index_array(t_num **head)
 {
 	int     min;
 	t_num   *num_min;
 	t_num   *tmp;
 	int 	num_amount;
 	int		index;
+	int 	tmp_min = 0;
 
 	min = 0;
 	num_min = NULL;
@@ -39,8 +40,15 @@ void     index_array(t_num **head)
 			}
 			tmp = tmp->next;
 		}
+		if (min == tmp_min)
+		{
+			printf("Error\n");
+			return (-1);
+		}
 		num_min->index = index;
-		printf("save num = %d  index = %d\n", num_min->num, num_min->index);
+		ft_printf("save num = %d  index = %d\n", num_min->num, num_min->index);
 		index++;
+		tmp_min = num_min->num;
 	}
+	return (1);
 }

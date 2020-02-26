@@ -1,7 +1,9 @@
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
 
-# include "libft.h"
+//# include "libft.h"
+
+#include "../printf/inc/ft_printf.h"
 
 typedef struct 		s_num{
     int             num;
@@ -20,8 +22,9 @@ typedef struct 		s_what{
 
     int             stack_a;
     int             stack_b;
-    int 			max_index_stack_a;
-    int 			min_index_stack_a;
+    int 			fluff;
+//    int 			max_index_stack_a;
+//    int 			min_index_stack_a;
   //  int 			third_step_width; // кол-во чисел в 3 блоке - самых больших  чисел
 }                   t_what;
 
@@ -30,10 +33,8 @@ t_what      *new_what();
 t_num		*new_num(void);
 
 void	    print_stacks(t_num *head_a, t_num *head_b);
-//void 		free_num(t_num **head);
-//void		free_storage(t_what **storage);
 void 		final_free(t_what **storage, t_num **num);
-void     	index_array(t_num **head);
+int index_array(t_num **head);
 int     	check_char(char c);
 
 int 		s_swap(t_num **head, t_what **storage);
