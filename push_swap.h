@@ -20,9 +20,10 @@ typedef struct 		s_what{
     t_num 			*tail_a;
     t_num 			*tail_b;
 
+    int 			flag_kol_op;
     int             stack_a;
     int             stack_b;
-    int 			fluff;
+    int 			flag_v;
 //    int 			max_index_stack_a;
 //    int 			min_index_stack_a;
   //  int 			third_step_width; // кол-во чисел в 3 блоке - самых больших  чисел

@@ -57,8 +57,9 @@ int push(char c, t_what **storage)
 			if ((*storage)->stack_a == 0)
 				(*storage)->tail_a = NULL;
 		}
+		(*storage)->flag_kol_op += 1;
 	}
-    if ((*storage)->fluff == 1)
+    if ((*storage)->flag_v == 1)
 		print_stacks((*storage)->head_a, (*storage)->head_b);
     return (1);
 }
@@ -116,8 +117,9 @@ int s_swap(t_num **head, t_what **storage)
 			(*storage)->tail_a = (*head)->next;
 		else if ((*storage)->stack_b == 2)
 			(*storage)->tail_b = (*head)->next;
+		(*storage)->flag_kol_op += 1;
 	}
-	if ((*storage)->fluff == 1)
+	if ((*storage)->flag_v == 1)
 		print_stacks((*storage)->head_a, (*storage)->head_b);
 /*	tmp = *head;
 	while (tmp != NULL)
@@ -141,9 +143,9 @@ int r_rotate(t_num **head, t_num **tail, t_what **storage)
 		tmp->prev = *tail;
 		tmp->next = NULL;
 		*tail = tmp;
-
+		(*storage)->flag_kol_op += 1;
 	}
-	if ((*storage)->fluff == 1)
+	if ((*storage)->flag_v == 1)
 		print_stacks((*storage)->head_a, (*storage)->head_b);
 	return (1);
 }
@@ -169,8 +171,9 @@ int rr_reverse(t_num **head, t_num **tail, t_what **storage)
 		tmp->prev = NULL;
 		tmp->next = *head;
 		*head = tmp;
+		(*storage)->flag_kol_op += 1;
 	}
-	if ((*storage)->fluff == 1)
+	if ((*storage)->flag_v == 1)
 		print_stacks((*storage)->head_a, (*storage)->head_b);
 /*	tmp = *head;
 	while (tmp != NULL)

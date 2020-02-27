@@ -1,5 +1,6 @@
 #include "push_swap.h"
 #include <stdio.h>
+#include <libft/libft.h>
 
 
 void 	final_free(t_what **storage, t_num **num)
@@ -9,6 +10,15 @@ void 	final_free(t_what **storage, t_num **num)
 
 	if ((*storage)->head_a)
 	{
+		if ((*storage)->tail_a->next && (*storage)->tail_a->next->num == -1)
+		{
+			(*storage)->tail_a->next->num = 0;
+			(*storage)->tail_a->next->index = 0;
+			(*storage)->tail_a->next->block = 0;
+			(*storage)->tail_a->next->prev = NULL;
+			free((*storage)->tail_a->next);
+			(*storage)->tail_a->next = NULL;
+		}
 		if ((*storage)->tail_a)
 			tmp = (*storage)->tail_a;
 		else
@@ -47,6 +57,8 @@ void 	final_free(t_what **storage, t_num **num)
 			tmp = tmp_prev;
 		}
 	}
+	(*storage)->flag_v = 0;
+	(*storage)->flag_kol_op = 0;
 	(*storage)->stack_a = 0;
 	(*storage)->stack_b = 0;
 	free(*storage);
@@ -135,7 +147,8 @@ t_what *new_what()
 	storage->tail_b = NULL;
 	storage->stack_a = 0;
 	storage->stack_b = 0;
-	storage->fluff = 0;
+	storage->flag_v = 0;
+	storage->flag_kol_op = 0;
 //	storage->max_index_stack_a = 0;
 //	storage->min_index_stack_a = 0;
 	return (storage);
@@ -147,10 +160,7 @@ int save_argv(const char *argv, t_num **num, t_what **storage)
 	int flag = 0;
 
 	if (argv == NULL || *num == NULL)
-	{
-		printf("LALALALALA");
 		return (-1);
-	}
 	while (*argv != '\0')
 	{
 		while (*argv == ' ' || *argv == '\t')
@@ -164,7 +174,7 @@ int save_argv(const char *argv, t_num **num, t_what **storage)
 			{
 				if(((*num)->num = ft_atoi(argv)) == -1) /// выделить память?
 				{
-					printf("incorrect number: MIN_INT > || MAX_INT < "); //
+					printf("Error\n"); //
 					return (-1);
 				}
 				(*storage)->tail_a = (*num);
@@ -180,7 +190,7 @@ int save_argv(const char *argv, t_num **num, t_what **storage)
 				(*num)->prev = tmp;
 				if(((*num)->num = ft_atoi(argv)) == -1) /// выделить память?
 				{
-					printf("incorrect number: MIN_INT > || MAX_INT < "); //
+					printf("Error\n"); //
 					return (-1);
 				}
 				(*storage)->tail_a = (*num);

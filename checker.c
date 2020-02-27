@@ -92,7 +92,7 @@ int 	main(int argc, char **argv)
 {
 	t_num 	*new;
 	t_what 	*storage;
-
+	int tmp = 0;
 	int i = 1;
 
 	if (argc < 2)
@@ -114,9 +114,9 @@ int 	main(int argc, char **argv)
 		}
 		while (argc > 1)
 		{
-			if (storage->fluff == 0 && (!(ft_strcmp(argv[i], "-v"))))
+			if (storage->flag_v == 0 && (!(ft_strcmp(argv[i], "-v"))))
 			{
-				storage->fluff = 1;
+				storage->flag_v = 1;
 				argc--;
 				i++;
 			}
@@ -136,15 +136,17 @@ int 	main(int argc, char **argv)
 		}
 	}
 	print_stacks(storage->head_a, storage->head_b);
-	if (valid_and_parse_args(storage) == 1)
+	if ((tmp = valid_and_parse_args(storage)) == 1)
 	{
 		print_stacks(storage->head_a, storage->head_b);
-		printf("OK");
+		printf("\nfinal operations: %d\n", storage->flag_kol_op);
+		printf("OK\n");
 	}
-	else
+	else if (tmp == -1)
 	{
 		print_stacks(storage->head_a, storage->head_b);
-		printf("KO");
+		printf("\nfinal operations: %d\n", storage->flag_kol_op);
+		printf("KO\n");
 	} ///
 	final_free(&storage, &new);
 	return (0);

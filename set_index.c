@@ -8,8 +8,9 @@ int index_array(t_num **head)
 	t_num   *tmp;
 	int 	num_amount;
 	int		index;
-	int 	tmp_min = 0;
+	int 	tmp_min; /////
 
+	tmp_min = -1;
 	min = 0;
 	num_min = NULL;
 	tmp = *head;
@@ -40,13 +41,13 @@ int index_array(t_num **head)
 			}
 			tmp = tmp->next;
 		}
-		if (min == tmp_min)
+		if (min == tmp_min) ////// исправила tmp_min на -1
 		{
 			printf("Error\n");
 			return (-1);
 		}
 		num_min->index = index;
-		ft_printf("save num = %d  index = %d\n", num_min->num, num_min->index);
+		printf("save num = %d  index = %d\n", num_min->num, num_min->index);
 		index++;
 		tmp_min = num_min->num;
 	}
