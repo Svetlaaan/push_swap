@@ -42,26 +42,6 @@ int 	parse_args(t_what *storage, char *line)
 		return (-1);
 }
 
-int		is_sorted(t_what *storage)
-{
-	t_num	*tmp;
-	int 	prev_index;
-
-	if (storage->head_b != NULL)
-		return (-1);
-	else if (storage->head_a == NULL)
-		return (-1);
-	tmp = storage->head_a->next;
-	prev_index = storage->head_a->index;
-	while (tmp)
-	{
-		if (prev_index > tmp->index)
-			return (-1);
-		prev_index = tmp->index;
-		tmp = tmp->next;
-	}
-	return (1);
-}
 
 int 	valid_and_parse_args(t_what *storage)
 {
@@ -85,7 +65,7 @@ int 	valid_and_parse_args(t_what *storage)
 		free(line);
 		line = NULL;
 	}
-	return ((is_sorted(storage) == 1) ? 1 : -1);
+	return ((is_sorted_final(storage) == 1) ? 1 : -1);
 }
 
 int 	main(int argc, char **argv)

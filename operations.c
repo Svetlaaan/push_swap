@@ -49,7 +49,6 @@ int push(char c, t_what **storage)
 			if ((*storage)->stack_b == 0)
 				(*storage)->tail_b = NULL;
 		}
-
 		else if (c == 'b')
 		{
 			(*storage)->stack_a -= 1;
@@ -95,7 +94,7 @@ void	print_stacks(t_num *head_a, t_num *head_b)
     printf("%7s | %7s\n", "stack A", "stack B");
 }
 
-int s_swap(t_num **head, t_what **storage)
+int s_swap(t_num **head, t_what **storage, char c)
 {
 	t_num	*tmp;
 	t_num 	*tmp_next;
@@ -111,9 +110,9 @@ int s_swap(t_num **head, t_what **storage)
 		tmp->prev = (*head);
 		if (tmp_next)
 			tmp_next->prev = (*head)->next;
-		if ((*storage)->stack_a == 2)
+		if ((*storage)->stack_a == 2 && c == 'a') ///
 			(*storage)->tail_a = (*head)->next;
-		else if ((*storage)->stack_b == 2)
+		else if ((*storage)->stack_b == 2 && c == 'b')
 			(*storage)->tail_b = (*head)->next;
 		(*storage)->flag_kol_op += 1;
 	}

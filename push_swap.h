@@ -36,12 +36,16 @@ t_num		*new_num(void);
 
 void	    print_stacks(t_num *head_a, t_num *head_b);
 void 		final_free(t_what **storage, t_num **num);
-int index_array(t_num **head);
+int 		index_array(t_num **head);
 int     	check_char(char c);
 
-int 		s_swap(t_num **head, t_what **storage);
+int 		s_swap(t_num **head, t_what **storage, char c);
 int         r_rotate(t_num **head, t_num **tail, t_what **storage);
 int         push(char c, t_what **storage);
 int 		rr_reverse(t_num **head, t_num **tail, t_what **storage);
+void		sort_by_blocks(t_what **storage);
+void    	set_block(t_what **storage);
+int			is_sorted_final(t_what *storage);
+int 		is_sorted(t_num *head);
 
 #endif //PUSH_SWAP_PUSH_SWAP_H

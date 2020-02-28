@@ -33,7 +33,7 @@ void 	final_free(t_what **storage, t_num **num)
 			if (tmp->next)
 				tmp->next = NULL;
 			tmp->prev = NULL;
-			free(tmp);
+//			free(tmp);
 			tmp = tmp_prev;
 		}
 		free(tmp);
@@ -180,7 +180,7 @@ int save_argv(const char *argv, t_num **num, t_what **storage)
 					flag += 1;
 					argv += 1;
 				}
-				if(((*num)->num = ft_atoi(argv)) == -1) /// выделить память?
+				if(((*num)->num = ft_atoi(argv)) == -1) ///
 				{
 					printf("Error\n"); //
 					return (-1);

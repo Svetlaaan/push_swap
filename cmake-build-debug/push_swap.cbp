@@ -89,9 +89,6 @@
 		<Unit filename="/Users/fboggs/Desktop/push_swap/check_smthng.c">
 			<Option target="push_swap"/>
 		</Unit>
-		<Unit filename="/Users/fboggs/Desktop/push_swap/checker.c">
-			<Option target="push_swap"/>
-		</Unit>
 		<Unit filename="/Users/fboggs/Desktop/push_swap/libft/ft_atoi.c">
 			<Option target="push_swap"/>
 		</Unit>
@@ -287,10 +284,16 @@
 		<Unit filename="/Users/fboggs/Desktop/push_swap/operations.c">
 			<Option target="push_swap"/>
 		</Unit>
+		<Unit filename="/Users/fboggs/Desktop/push_swap/push_swap.c">
+			<Option target="push_swap"/>
+		</Unit>
 		<Unit filename="/Users/fboggs/Desktop/push_swap/push_swap.h">
 			<Option target="push_swap"/>
 		</Unit>
 		<Unit filename="/Users/fboggs/Desktop/push_swap/set_index.c">
+			<Option target="push_swap"/>
+		</Unit>
+		<Unit filename="/Users/fboggs/Desktop/push_swap/sorting.c">
 			<Option target="push_swap"/>
 		</Unit>
 		<Unit filename="/Users/fboggs/Desktop/push_swap/CMakeLists.txt">

@@ -73,11 +73,12 @@ add_executable(push_swap
          libft/get_next_line.c
         libft/libft.h
         check_smthng.c
-        checker.c
+        #checker.c
         new_and_free.c
         operations.c
         push_swap.h
-        set_index.c)
-       # push_swap.c)
+        set_index.c
+        sorting.c
+        push_swap.c)
 
 # target_link_libraries(push_swap /Users/fboggs/Desktop/push_swap/printf/libftprintf.a)

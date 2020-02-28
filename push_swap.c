@@ -1,48 +1,55 @@
 #include "push_swap.h"
 #include <stdio.h>
 
+int 	sorting(t_what **storage)
+{
+	sort_by_blocks(&(*storage));
+	if (is_sorted((*storage)->head_b) == 1)
+	{
+		while ((*storage)->stack_b > 0)
+		{
+			push('a', &(*storage));
+			r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
+		}
+	}
+	else if ((*storage)->stack_b == 2)
+		s_swap(&(*storage)->head_b, &(*storage), 'b');
+	return (1);
+}
+
 void    set_block(t_what **storage)
 {
     int     num_block;
     t_num   *tmp;
 
-    num_block = (*storage)->stack_a / 3; // по сколько элементов в блоке?
+    num_block = (*storage)->stack_a / 2; // по сколько элементов в блоке?
     tmp = (*storage)->head_a;
     while (tmp)
     {
-        if (tmp->index >= 1 && tmp->index < 1 + num_block) /// ?
+        if (tmp->index >= 1 && tmp->index < 1 + num_block)
             tmp->block = 1;
-        else if (tmp->index >= 1 + num_block && tmp->index < 1 + num_block * 2)
-            tmp->block = 2;
         else
-            tmp->block = 3;
-            //(*storage)->third_step_width += 1;
+            tmp->block = 2;
         tmp = tmp->next;
     }
 }
 
-int		sort_by_blocks(t_what **storage)
+void		sort_by_blocks(t_what **storage)
 {
     int 	count;
 
     count = (*storage)->stack_a;
     while (count--)
     {
-        if ((*storage)->head_a->block == 3)
-            r_rotate(&(*storage)->head_a, &(*storage)->tail_a);
-        else if ((*storage)->head_a->block == 2)
-        {
-            push('b', storage);
-            (*storage)->stack_a -= 1;
-        }
+        if ((*storage)->head_a->block == 2)
+            r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
         else if ((*storage)->head_a->block == 1)
         {
             push('b', storage);
-            r_rotate(&(*storage)->head_b, &(*storage)->tail_b);
-            (*storage)->stack_a -= 1;
+            if ((*storage)->stack_b > 1)
+            	r_rotate(&(*storage)->head_b, &(*storage)->tail_b, &(*storage));
         }
     }
-    return (0);
 }
 
 int main(int argc, char **argv)
@@ -74,16 +81,21 @@ int main(int argc, char **argv)
         {
             if (save_argv(argv[i], &num, &storage) == -1)
             {
-            	if (storage->head_a)
+            	//if (storage->head_a)
             		final_free(&storage, &num);
             	return (-1);
             }
             argc--;
             i++;
         }
-        index_array(&storage->head_a);
-        set_block(&storage); ///
-        sort_by_blocks(&storage); ///
+        if (index_array(&storage->head_a) == -1)
+        {
+        	final_free(&storage, &num);
+        	return (-1);
+        }
+        set_block(&storage); /// делим на 2 части
+        sorting(&storage);
+       // sort_by_blocks(&storage); ///
         print_stacks(storage->head_a, storage->head_b);
     }
 	final_free(&storage, &num);

@@ -150,33 +150,6 @@ check_smthng.c.s:
 	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/check_smthng.c.s
 .PHONY : check_smthng.c.s
 
-checker.o: checker.c.o
-
-.PHONY : checker.o
-
-# target to build an object file
-checker.c.o:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/checker.c.o
-.PHONY : checker.c.o
-
-checker.i: checker.c.i
-
-.PHONY : checker.i
-
-# target to preprocess a source file
-checker.c.i:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/checker.c.i
-.PHONY : checker.c.i
-
-checker.s: checker.c.s
-
-.PHONY : checker.s
-
-# target to generate assembly for a file
-checker.c.s:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/checker.c.s
-.PHONY : checker.c.s
-
 libft/ft_atoi.o: libft/ft_atoi.c.o
 
 .PHONY : libft/ft_atoi.o
@@ -1905,6 +1878,33 @@ operations.c.s:
 	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/operations.c.s
 .PHONY : operations.c.s
 
+push_swap.o: push_swap.c.o
+
+.PHONY : push_swap.o
+
+# target to build an object file
+push_swap.c.o:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/push_swap.c.o
+.PHONY : push_swap.c.o
+
+push_swap.i: push_swap.c.i
+
+.PHONY : push_swap.i
+
+# target to preprocess a source file
+push_swap.c.i:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/push_swap.c.i
+.PHONY : push_swap.c.i
+
+push_swap.s: push_swap.c.s
+
+.PHONY : push_swap.s
+
+# target to generate assembly for a file
+push_swap.c.s:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/push_swap.c.s
+.PHONY : push_swap.c.s
+
 set_index.o: set_index.c.o
 
 .PHONY : set_index.o
@@ -1932,6 +1932,33 @@ set_index.c.s:
 	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/set_index.c.s
 .PHONY : set_index.c.s
 
+sorting.o: sorting.c.o
+
+.PHONY : sorting.o
+
+# target to build an object file
+sorting.c.o:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/sorting.c.o
+.PHONY : sorting.c.o
+
+sorting.i: sorting.c.i
+
+.PHONY : sorting.i
+
+# target to preprocess a source file
+sorting.c.i:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/sorting.c.i
+.PHONY : sorting.c.i
+
+sorting.s: sorting.c.s
+
+.PHONY : sorting.s
+
+# target to generate assembly for a file
+sorting.c.s:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/sorting.c.s
+.PHONY : sorting.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1944,9 +1971,6 @@ help:
 	@echo "... check_smthng.o"
 	@echo "... check_smthng.i"
 	@echo "... check_smthng.s"
-	@echo "... checker.o"
-	@echo "... checker.i"
-	@echo "... checker.s"
 	@echo "... libft/ft_atoi.o"
 	@echo "... libft/ft_atoi.i"
 	@echo "... libft/ft_atoi.s"
@@ -2139,9 +2163,15 @@ help:
 	@echo "... operations.o"
 	@echo "... operations.i"
 	@echo "... operations.s"
+	@echo "... push_swap.o"
+	@echo "... push_swap.i"
+	@echo "... push_swap.s"
 	@echo "... set_index.o"
 	@echo "... set_index.i"
 	@echo "... set_index.s"
+	@echo "... sorting.o"
+	@echo "... sorting.i"
+	@echo "... sorting.s"
 .PHONY : help
 
 

@@ -62,10 +62,11 @@ file(REMOVE_RECURSE
   "CMakeFiles/push_swap.dir/libft/ft_toupper.c.o"
   "CMakeFiles/push_swap.dir/libft/get_next_line.c.o"
   "CMakeFiles/push_swap.dir/check_smthng.c.o"
-  "CMakeFiles/push_swap.dir/checker.c.o"
   "CMakeFiles/push_swap.dir/new_and_free.c.o"
   "CMakeFiles/push_swap.dir/operations.c.o"
   "CMakeFiles/push_swap.dir/set_index.c.o"
+  "CMakeFiles/push_swap.dir/sorting.c.o"
+  "CMakeFiles/push_swap.dir/push_swap.c.o"
   "push_swap.pdb"
   "push_swap"
 )

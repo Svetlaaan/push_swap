@@ -6,11 +6,6 @@ CMakeFiles/push_swap.dir/check_smthng.c.o: /Users/fboggs/Desktop/printf/libft/li
 CMakeFiles/push_swap.dir/check_smthng.c.o: ../check_smthng.c
 CMakeFiles/push_swap.dir/check_smthng.c.o: ../push_swap.h
 
-CMakeFiles/push_swap.dir/checker.c.o: /Users/fboggs/Desktop/printf/inc/ft_printf.h
-CMakeFiles/push_swap.dir/checker.c.o: /Users/fboggs/Desktop/printf/libft/libft.h
-CMakeFiles/push_swap.dir/checker.c.o: ../checker.c
-CMakeFiles/push_swap.dir/checker.c.o: ../push_swap.h
-
 CMakeFiles/push_swap.dir/libft/ft_atoi.c.o: ../libft/ft_atoi.c
 CMakeFiles/push_swap.dir/libft/ft_atoi.c.o: ../libft/libft.h
 
@@ -208,8 +203,18 @@ CMakeFiles/push_swap.dir/operations.c.o: /Users/fboggs/Desktop/printf/libft/libf
 CMakeFiles/push_swap.dir/operations.c.o: ../operations.c
 CMakeFiles/push_swap.dir/operations.c.o: ../push_swap.h
 
+CMakeFiles/push_swap.dir/push_swap.c.o: /Users/fboggs/Desktop/printf/inc/ft_printf.h
+CMakeFiles/push_swap.dir/push_swap.c.o: /Users/fboggs/Desktop/printf/libft/libft.h
+CMakeFiles/push_swap.dir/push_swap.c.o: ../push_swap.c
+CMakeFiles/push_swap.dir/push_swap.c.o: ../push_swap.h
+
 CMakeFiles/push_swap.dir/set_index.c.o: /Users/fboggs/Desktop/printf/inc/ft_printf.h
 CMakeFiles/push_swap.dir/set_index.c.o: /Users/fboggs/Desktop/printf/libft/libft.h
 CMakeFiles/push_swap.dir/set_index.c.o: ../push_swap.h
 CMakeFiles/push_swap.dir/set_index.c.o: ../set_index.c
+
+CMakeFiles/push_swap.dir/sorting.c.o: /Users/fboggs/Desktop/printf/inc/ft_printf.h
+CMakeFiles/push_swap.dir/sorting.c.o: /Users/fboggs/Desktop/printf/libft/libft.h
+CMakeFiles/push_swap.dir/sorting.c.o: ../push_swap.h
+CMakeFiles/push_swap.dir/sorting.c.o: ../sorting.c
 
