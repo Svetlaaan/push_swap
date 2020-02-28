@@ -1,21 +1,6 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-int 	sorting(t_what **storage)
-{
-	sort_by_blocks(&(*storage));
-	if (is_sorted((*storage)->head_b) == 1)
-	{
-		while ((*storage)->stack_b > 0)
-		{
-			push('a', &(*storage));
-			r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
-		}
-	}
-	else if ((*storage)->stack_b == 2)
-		s_swap(&(*storage)->head_b, &(*storage), 'b');
-	return (1);
-}
 
 void    set_block(t_what **storage)
 {
@@ -81,7 +66,7 @@ int main(int argc, char **argv)
         {
             if (save_argv(argv[i], &num, &storage) == -1)
             {
-            	//if (storage->head_a)
+            	if (storage->head_a)
             		final_free(&storage, &num);
             	return (-1);
             }
@@ -96,7 +81,16 @@ int main(int argc, char **argv)
         set_block(&storage); /// делим на 2 части
         sorting(&storage);
        // sort_by_blocks(&storage); ///
-        print_stacks(storage->head_a, storage->head_b);
+        if (is_sorted_final(storage) == 1)
+		{
+        	printf("\n<3 OK <3\n");
+			print_stacks(storage->head_a, storage->head_b);
+		}
+        else
+		{
+			printf("\n!!! NOOOOO !!!\n");
+			print_stacks(storage->head_a, storage->head_b);
+		}
     }
 	final_free(&storage, &num);
     return (0);

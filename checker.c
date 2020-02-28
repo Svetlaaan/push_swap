@@ -6,12 +6,12 @@ int 	parse_args(t_what *storage, char *line)
 	if (line == NULL)
 		return (0);
 	if (!(ft_strcmp("sa", line)))
-		return (s_swap(&storage->head_a, &storage));
+		return (s_swap(&storage->head_a, &storage, 'a'));
 	else if (!(ft_strcmp("sb", line)))
-		return (s_swap(&storage->head_b, &storage));
+		return (s_swap(&storage->head_b, &storage, 'b'));
 	else if (!(ft_strcmp("ss", line)))
 	{
-		if (s_swap(&storage->head_a, &storage) && s_swap(&storage->head_b, &storage))
+		if (s_swap(&storage->head_a, &storage, 'a') && s_swap(&storage->head_b, &storage, 'b'))
 			return (1);
 	}
 	else if (!(ft_strcmp("pa", line)))
@@ -99,6 +99,11 @@ int 	main(int argc, char **argv)
 				storage->flag_v = 1;
 				argc--;
 				i++;
+				if (argc < 2)
+				{
+					final_free(&storage, &new);
+					return (-1);
+				}
 			}
 			if (save_argv(argv[i], &new, &storage) == -1)
 			{

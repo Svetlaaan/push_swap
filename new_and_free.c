@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <libft/libft.h>
 
-
 void 	final_free(t_what **storage, t_num **num)
 {
 	t_num *tmp = NULL;
@@ -33,7 +32,7 @@ void 	final_free(t_what **storage, t_num **num)
 			if (tmp->next)
 				tmp->next = NULL;
 			tmp->prev = NULL;
-//			free(tmp);
+			free(tmp);  // нужно фришить когда push_swap.c
 			tmp = tmp_prev;
 		}
 		free(tmp);
@@ -55,9 +54,21 @@ void 	final_free(t_what **storage, t_num **num)
 			if (tmp->next)
 				tmp->next = NULL;
 			tmp->prev = NULL;
-			free(tmp);
+			free(tmp); // нужно фришить когда push_swap.c
 			tmp = tmp_prev;
 		}
+		free(tmp);
+		free(tmp_prev);
+	}
+	else if ((*storage)->head_a == NULL && (*storage)->head_b == NULL)
+	{
+		(*num)->num = -1;
+		(*num)->sign = 0;
+		(*num)->index = -1;
+		(*num)->block = 0;
+		(*num)->next = NULL;
+		(*num)->prev = NULL;
+		free(*num);
 	}
 	(*storage)->flag_v = 0;
 	(*storage)->flag_kol_op = 0;

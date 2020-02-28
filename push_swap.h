@@ -46,6 +46,10 @@ int 		rr_reverse(t_num **head, t_num **tail, t_what **storage);
 void		sort_by_blocks(t_what **storage);
 void    	set_block(t_what **storage);
 int			is_sorted_final(t_what *storage);
+
+int 		sorting(t_what **storage);
 int 		is_sorted(t_num *head);
+int 		sorting_three(t_what **storage);
+int 		sorting_five(t_what **storage);
 
 #endif //PUSH_SWAP_PUSH_SWAP_H
