@@ -10,7 +10,7 @@ void 	final_free(t_what **storage, t_num **num)
 
 	if ((*storage)->head_a)
 	{
-		if ((*storage)->tail_a->next && (*storage)->tail_a->next->num == -1)
+		if ((*storage)->tail_a && (*storage)->tail_a->next && (*storage)->tail_a->next->num == -1)
 		{
 			(*storage)->tail_a->next->num = 0;
 			(*storage)->tail_a->next->index = 0;
@@ -26,6 +26,7 @@ void 	final_free(t_what **storage, t_num **num)
 		while (tmp)
 		{
 			tmp_prev = tmp->prev;
+			tmp->sign = 0;
 			tmp->num = 0;
 			tmp->index = 0;
 			tmp->block = 0;
@@ -47,6 +48,7 @@ void 	final_free(t_what **storage, t_num **num)
 		while (tmp)
 		{
 			tmp_prev = tmp->prev;
+			tmp->sign = 0;
 			tmp->num = 0;
 			tmp->index = 0;
 			tmp->block = 0;
@@ -128,6 +130,7 @@ t_num		*new_num(void)
 	if (!(new = (t_num *)malloc(sizeof(t_num))))
 		return (NULL);
 	new->num = -1;
+	new->sign = 0;
 	new->index = -1;
 	new->block = 0;
 	new->next = NULL;
@@ -170,16 +173,25 @@ int save_argv(const char *argv, t_num **num, t_what **storage)
 		{
 			if ((*storage)->head_a == NULL)
 				(*storage)->head_a = *num;
-			if ((*num)->num == -1)
+			if ((*num)->num == -1 && (*num)->sign == 0)
 			{
+				if (*argv == '-') ////////////
+				{
+					flag += 1;
+					argv += 1;
+				}
 				if(((*num)->num = ft_atoi(argv)) == -1) /// выделить память?
 				{
 					printf("Error\n"); //
 					return (-1);
 				}
+				if (flag == 1) ////////////
+					(*num)->num *= -1;
+				if ((*num)->num == -1)
+					(*num)->sign = 1;
 				(*storage)->tail_a = (*num);
 				if ((*num)->num < 0)
-					flag = 1;
+					flag += 1;
 			}
 			else
 			{
@@ -188,16 +200,27 @@ int save_argv(const char *argv, t_num **num, t_what **storage)
 				tmp = *num;
 				*num = (*num)->next;
 				(*num)->prev = tmp;
-				if(((*num)->num = ft_atoi(argv)) == -1) /// выделить память?
+				if (*argv == '-') ////////////
+				{
+					flag += 1;
+					argv += 1;
+				}
+				if(((*num)->num = ft_atoi(argv)) == -1) //// -1 argv
 				{
 					printf("Error\n"); //
 					return (-1);
 				}
+				if (flag == 1)
+					(*num)->num *= -1;
+				if ((*num)->num == -1)
+					(*num)->sign = 1;
 				(*storage)->tail_a = (*num);
 				if ((*num)->num < 0)
-					flag = 1;
+					flag += 1;
 			}
 			printf("save num = %d\n", (*num)->num);
+			if (flag > 1) //////////////////
+				flag = 0;
 			argv += (ft_len_of_number((*num)->num) + flag); // добавила условие в функцию для чисел > 0
 			(*storage)->stack_a += 1;
 			while (ft_iswhitespace(*argv))

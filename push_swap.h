@@ -9,6 +9,7 @@ typedef struct 		s_num{
     int             num;
     int             index;
     int             block;
+    int				sign;
 
     struct s_num	*next;
     struct s_num	*prev;

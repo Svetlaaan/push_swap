@@ -27,10 +27,10 @@ int push(char c, t_what **storage)
 			*to = *from;
 			if (tmp_next)
 				tmp_next->prev = NULL;
-			//(*to)->prev = NULL;
+			(*to)->prev = NULL;
 			(*to)->next = NULL;
 			*from = tmp_next;
-			(*storage)->tail_b = (*to); /////////// сегается если всего 1 элемент туда - сюда
+			(*storage)->tail_b = (*to);
 		}
 		else
 		{
@@ -100,8 +100,6 @@ int s_swap(t_num **head, t_what **storage)
 	t_num	*tmp;
 	t_num 	*tmp_next;
 
-	/*if (!(*head)->next)
-		return (1);*/
 	if ((*head) && (*head)->next)
 	{
 		tmp = *head;
@@ -121,12 +119,6 @@ int s_swap(t_num **head, t_what **storage)
 	}
 	if ((*storage)->flag_v == 1)
 		print_stacks((*storage)->head_a, (*storage)->head_b);
-/*	tmp = *head;
-	while (tmp != NULL)
-	{
-		ft_printf("%2i %2i\n", tmp->number, tmp->index);
-		tmp = tmp->next;
-	}*/
 	return (1);
 }
 
@@ -154,17 +146,11 @@ int r_rotate(t_num **head, t_num **tail, t_what **storage)
 int rr_reverse(t_num **head, t_num **tail, t_what **storage)
 {
 	t_num *tmp;
-	//t_num *lol;
 
 	if ((*head) && (*head)->next)
 	{
 		tmp = (*tail);
-	/*	while (tmp->next->next)
-			tmp = tmp->next;
-		lol = tmp->next;
-		tmp->next = NULL;
-		lol->next = *head;
-		(*head) = lol;*/
+
 		*tail = (*tail)->prev;
 		(*tail)->next = NULL;
 		(*head)->prev = tmp;
@@ -175,11 +161,5 @@ int rr_reverse(t_num **head, t_num **tail, t_what **storage)
 	}
 	if ((*storage)->flag_v == 1)
 		print_stacks((*storage)->head_a, (*storage)->head_b);
-/*	tmp = *head;
-	while (tmp != NULL)
-	{
-		ft_printf("%2i %2i\n", tmp->number, tmp->index);
-		tmp = tmp->next;
-	}*/
 	return (1);
 }

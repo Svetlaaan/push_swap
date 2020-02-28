@@ -47,11 +47,12 @@ int		sort_by_blocks(t_what **storage)
 
 int main(int argc, char **argv)
 {
-    t_num *num = NULL;
-    t_what *storage = NULL;
-    int i = 1;
-	t_num *head = num;
+    t_num *num;
+    t_what *storage;
+    int i;
+	//t_num *head = num;
 
+	i = 1;
     if (argc < 2)
     {
         ft_putstr("need more arguments!");
@@ -60,27 +61,31 @@ int main(int argc, char **argv)
     else
         {
         if (!(num = new_num()))
-            return (-1);
+		{
+			final_free(&storage, &num);
+			return (-1);
+		}
         if (!(storage = new_what()))
-            return (-1);
+		{
+			final_free(&storage, &num);
+			return (-1);
+		}
         while (argc > 1)
         {
             if (save_argv(argv[i], &num, &storage) == -1)
             {
-                free_num(&num);
-                return (-1);
+            	if (storage->head_a)
+            		final_free(&storage, &num);
+            	return (-1);
             }
             argc--;
             i++;
         }
         index_array(&storage->head_a);
-        set_block(&storage);
-        sort_by_blocks(&storage);
+        set_block(&storage); ///
+        sort_by_blocks(&storage); ///
         print_stacks(storage->head_a, storage->head_b);
     }
-    if (num)
-    	free_num(&num);
-    if (storage)
-    	free_storage(&storage);
+	final_free(&storage, &num);
     return (0);
 }

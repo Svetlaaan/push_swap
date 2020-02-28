@@ -78,5 +78,6 @@ add_executable(push_swap
         operations.c
         push_swap.h
         set_index.c)
+       # push_swap.c)
 
 # target_link_libraries(push_swap /Users/fboggs/Desktop/push_swap/printf/libftprintf.a)

@@ -8,9 +8,8 @@ int index_array(t_num **head)
 	t_num   *tmp;
 	int 	num_amount;
 	int		index;
-	int 	tmp_min; /////
+	int 	tmp_min = -1; ///// если оставить -1 то ломается проверка на дубли с -1 -1
 
-	tmp_min = -1;
 	min = 0;
 	num_min = NULL;
 	tmp = *head;
@@ -25,7 +24,10 @@ int index_array(t_num **head)
 	{
 		tmp = *head;
 		if (tmp->index == -1)
+		{
 			min = tmp->num;
+			//tmp_min = min; ///
+		}
 		else
 		{
 			while (tmp->index != -1)
@@ -41,7 +43,7 @@ int index_array(t_num **head)
 			}
 			tmp = tmp->next;
 		}
-		if (min == tmp_min) ////// исправила tmp_min на -1
+		if (min == tmp_min && num_min->sign == 0) ////// исправила tmp_min на -1
 		{
 			printf("Error\n");
 			return (-1);
