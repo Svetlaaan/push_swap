@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+.././libft/libft.h
+string.h
+-
+unistd.h
+-
+stdlib.h
+-
+fcntl.h
+-
+
 /Users/fboggs/Desktop/printf/inc/ft_printf.h
 stdio.h
 -
@@ -30,9 +40,39 @@ fcntl.h
 limits.h
 -
 
+/Users/fboggs/Desktop/push_swap/check_smthng.c
+push_swap.h
+/Users/fboggs/Desktop/push_swap/push_swap.h
+
+/Users/fboggs/Desktop/push_swap/new_and_free.c
+push_swap.h
+/Users/fboggs/Desktop/push_swap/push_swap.h
+stdio.h
+-
+libft/libft.h
+-
+
+/Users/fboggs/Desktop/push_swap/operations.c
+push_swap.h
+/Users/fboggs/Desktop/push_swap/push_swap.h
+stdio.h
+-
+
+/Users/fboggs/Desktop/push_swap/push_swap.c
+push_swap.h
+/Users/fboggs/Desktop/push_swap/push_swap.h
+stdio.h
+-
+
 /Users/fboggs/Desktop/push_swap/push_swap.h
 ../printf/inc/ft_printf.h
 /Users/fboggs/Desktop/printf/inc/ft_printf.h
+
+/Users/fboggs/Desktop/push_swap/set_index.c
+push_swap.h
+/Users/fboggs/Desktop/push_swap/push_swap.h
+stdio.h
+-
 
 /Users/fboggs/Desktop/push_swap/sorting.c
 push_swap.h

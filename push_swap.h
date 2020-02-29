@@ -51,5 +51,7 @@ int 		sorting(t_what **storage);
 int 		is_sorted(t_num *head);
 int 		sorting_three(t_what **storage);
 int 		sorting_five(t_what **storage);
+int 		sorting_two(t_what **storage);
+int 		sorting_four(t_what **storage);
 
 #endif //PUSH_SWAP_PUSH_SWAP_H

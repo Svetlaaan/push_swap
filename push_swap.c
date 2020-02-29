@@ -42,7 +42,6 @@ int main(int argc, char **argv)
     t_num *num;
     t_what *storage;
     int i;
-	//t_num *head = num;
 
 	i = 1;
     if (argc < 2)
@@ -79,19 +78,26 @@ int main(int argc, char **argv)
         	return (-1);
         }
         set_block(&storage); /// делим на 2 части
-        sorting(&storage);
-       // sort_by_blocks(&storage); ///
+        if (is_sorted((&(*storage))->head_a) == -1)
+		{
+			if (sorting(&storage) == -1)
+			{
+				final_free(&storage, &num);
+				return (-1);
+			}
+		}
         if (is_sorted_final(storage) == 1)
-		{
+        {
         	printf("\n<3 OK <3\n");
-			print_stacks(storage->head_a, storage->head_b);
-		}
+        	print_stacks(storage->head_a, storage->head_b);
+        }
         else
-		{
-			printf("\n!!! NOOOOO !!!\n");
-			print_stacks(storage->head_a, storage->head_b);
-		}
+        	{
+        	printf("\n!!! NOOOOO !!!\n");
+        	print_stacks(storage->head_a, storage->head_b);
+        	}
     }
+	printf("\nfinal operations: %d\n", storage->flag_kol_op);
 	final_free(&storage, &num);
     return (0);
 }

@@ -1,21 +1,42 @@
 #include "push_swap.h"
 
+int 	sorting_four(t_what **storage)
+{
+	sort_by_blocks(&(*storage));
+	if (sorting_two(&(*storage)) == 1)
+	{
+		while ((*storage)->stack_b > 0)
+			push('a', &(*storage));
+	}
+	if (is_sorted((*storage)->head_a) == 1)
+		return (1);
+	return (-1);
+}
+
+int 	sorting_two(t_what **storage)
+{
+	if ((*storage)->stack_b == 2)
+	{
+		if ((*storage)->head_b->index < (*storage)->tail_b->index)
+			s_swap(&(*storage)->head_b, &(*storage), 'b');
+	}
+	if ((*storage)->stack_a == 2)
+	{
+		if ((*storage)->head_a->index > (*storage)->tail_a->index)
+			s_swap(&(*storage)->head_a, &(*storage), 'a');
+	}
+	return (1); ////////////
+}
+
 int 	sorting_five(t_what **storage)
 {
-	push('b', &(*storage));
-	push('b', &(*storage));
+	sort_by_blocks(&(*storage));
 	if (sorting_three(&(*storage)) == -1)
 		return (-1);
 	if ((*storage)->head_b->index < (*storage)->tail_b->index)
 		s_swap(&(*storage)->head_b, &(*storage), 'b');
-	else
-	{
-		while ((*storage)->stack_b > 0)
-		{
-			push('a', &(*storage));
-			r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
-		}
-	}
+	while ((*storage)->stack_b > 0)
+		push('a', &(*storage));
 	if (is_sorted((*storage)->head_a) == 1)
 		return (1);
 	return (-1);
@@ -105,27 +126,31 @@ int 	sorting(t_what **storage)
 	}
 	else if ((*storage)->stack_a == 3)
 	{
-		if (is_sorted((*storage)->head_a) == 1)
-			return (1);
-		else
-		{
 			if (sorting_three(&(*storage)) == 1)
 				return (1);
 			else
 				return (-1);
-		}
 	}
 	else if ((*storage)->stack_a == 5)
 	{
-		if (is_sorted((*storage)->head_a) == 1)
-			return (1);
-		else
-		{
 			if (sorting_five(&(*storage)) == 1)
 				return (1);
 			else
 				return (-1);
-		}
+	}
+	else if ((*storage)->stack_a == 2)
+	{
+		if (sorting_two(&(*storage)) == 1)
+			return (1);
+		else
+			return (-1);
+	}
+	else if ((*storage)->stack_a == 4)
+	{
+		if (sorting_four(&(*storage)) == 1)
+			return (1);
+		else
+			return (-1);
 	}
 	return (0);
 }
