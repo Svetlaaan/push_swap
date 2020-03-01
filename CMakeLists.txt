@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.15)
 project(push_swap C)
 
 set(CMAKE_C_STANDARD 11)
@@ -68,18 +68,13 @@ add_executable(push_swap
         libft/ft_strtrim.c
         libft/ft_tolower.c
         libft/ft_toupper.c
-#        printf/libft/get_next_line.c
-#        printf/libft/ft_strdup.c
-         libft/get_next_line.c
+        libft/get_next_line.c
         libft/libft.h
         check_smthng.c
-        #checker.c
+#        checker.c
         new_and_free.c
         operations.c
+        push_swap.c
         push_swap.h
         set_index.c
-        sorting.c
-        push_swap.c
-        )
-
-# target_link_libraries(push_swap /Users/fboggs/Desktop/push_swap/printf/libftprintf.a)
+        sorting.c)

@@ -2,15 +2,38 @@
 
 int 	sorting_four(t_what **storage)
 {
-	sort_by_blocks(&(*storage));
-	if (sorting_two(&(*storage)) == 1)
-	{
-		while ((*storage)->stack_b > 0)
-			push('a', &(*storage));
-	}
-	if (is_sorted((*storage)->head_a) == 1)
-		return (1);
-	return (-1);
+    while ((*storage)->head_a)
+    {
+        if ((*storage)->head_a->index == 1 || (*storage)->head_a->index == 4)
+        {
+            push('b', &(*storage));
+            break ;
+        }
+        r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
+    }
+    if (sorting_three(&(*storage)) == -1)
+        return (-1);
+    if ((*storage)->head_b->index == 1)
+        push('a', &(*storage));
+    else if ((*storage)->head_b->index == 4)
+    {
+        push('a', &(*storage));
+        r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
+    }
+    if (is_sorted((*storage)->head_a) == 1)
+        return (1);
+    return (-1);
+
+    /// max operations - 5
+//	sort_by_blocks(&(*storage));
+//	if (sorting_two(&(*storage)) == 1)
+//	{
+//		while ((*storage)->stack_b > 0)
+//			push('a', &(*storage));
+//	}
+//	if (is_sorted((*storage)->head_a) == 1)
+//		return (1);
+//	return (-1);
 }
 
 int 	sorting_two(t_what **storage)
@@ -113,16 +136,16 @@ int 	sorting(t_what **storage)
 	if ((*storage)->stack_a > 5)
 	{
 		sort_by_blocks(&(*storage));
-		if (is_sorted((*storage)->head_b) == 1)
-		{
-			while ((*storage)->stack_b > 0)
-			{
-				push('a', &(*storage));
-				r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
-			}
-		}
-		else if ((*storage)->stack_b >= 2 && (*storage)->stack_b <= 3)
-			s_swap(&(*storage)->head_b, &(*storage), 'b');
+//		if (is_sorted((*storage)->head_b) == 1)
+//		{
+//			while ((*storage)->stack_b > 0)
+//			{
+//				push('a', &(*storage));
+//				r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
+//			}
+//		}
+//		else if ((*storage)->stack_b >= 2 && (*storage)->stack_b <= 3)
+//			s_swap(&(*storage)->head_b, &(*storage), 'b');
 	}
 	else if ((*storage)->stack_a == 3)
 	{
