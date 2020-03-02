@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/xiaom/Desktop/push_swap
+# Install script for directory: /Users/fboggs/Desktop/push_swap
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/push_swap")
+  set(CMAKE_INSTALL_PREFIX "/usr/local")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/xiaom/Desktop/push_swap/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/fboggs/Desktop/push_swap/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

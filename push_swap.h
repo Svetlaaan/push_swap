@@ -9,6 +9,7 @@ typedef struct 		s_num{
     int             num;
     int             index;
     int             block;
+    int 			podblock;
     int				sign;
 
     struct s_num	*next;
@@ -20,6 +21,8 @@ typedef struct 		s_what{
     t_num 			*head_b;
     t_num 			*tail_a;
     t_num 			*tail_b;
+
+    char			curr_stack;
 
     int 			flag_kol_op;
     int             stack_a;
@@ -46,12 +49,17 @@ int 		rr_reverse(t_num **head, t_num **tail, t_what **storage);
 void		sort_by_blocks(t_what **storage);
 void    	set_block(t_what **storage);
 int			is_sorted_final(t_what *storage);
+int 	is_sorted_rev(t_num *head);
+int 	sort_3_mov_rev(t_what **storage, t_num **head_tmp, t_num **tail_tmp);
 
 int 		sorting(t_what **storage);
+int 	main_sort(t_what **storage);
 int 		is_sorted(t_num *head);
 int 		sorting_three(t_what **storage);
 int 		sorting_five(t_what **storage);
 int 		sorting_two(t_what **storage);
 int 		sorting_four(t_what **storage);
+
+int len_of_block(t_what **storage, int num);
 
 #endif //PUSH_SWAP_PUSH_SWAP_H

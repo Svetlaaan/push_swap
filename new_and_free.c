@@ -29,6 +29,7 @@ void 	final_free(t_what **storage, t_num **num)
 			tmp->num = 0;
 			tmp->index = 0;
 			tmp->block = 0;
+			tmp->podblock = 0;
 			if (tmp->next)
 				tmp->next = NULL;
 			tmp->prev = NULL;
@@ -51,6 +52,7 @@ void 	final_free(t_what **storage, t_num **num)
 			tmp->num = 0;
 			tmp->index = 0;
 			tmp->block = 0;
+			tmp->podblock = 0;
 			if (tmp->next)
 				tmp->next = NULL;
 			tmp->prev = NULL;
@@ -74,6 +76,7 @@ void 	final_free(t_what **storage, t_num **num)
 	(*storage)->flag_kol_op = 0;
 	(*storage)->stack_a = 0;
 	(*storage)->stack_b = 0;
+	(*storage)->curr_stack = 0;
 	free(*storage);
 	/*t_num *tmp = NULL;
 	t_num *tmp_next = NULL;
@@ -146,6 +149,7 @@ t_num		*new_num(void)
 	new->block = 0;
 	new->next = NULL;
 	new->prev = NULL;
+	new->podblock = 0;
 	return (new);
 }
 
@@ -159,6 +163,7 @@ t_what *new_what()
 	storage->head_b = NULL;
 	storage->tail_a = NULL;
 	storage->tail_b = NULL;
+	storage->curr_stack = 0;
 	storage->stack_a = 0;
 	storage->stack_b = 0;
 	storage->flag_v = 0;
@@ -179,7 +184,6 @@ int save_argv(const char *argv, t_num **num, t_what **storage)
 	{
 		while (*argv == ' ' || *argv == '\t')
 			argv += 1;
-
 		if (check_char(*argv)) //нужна ли проверка на пробелы и тд?
 		{
 			if ((*storage)->head_a == NULL)

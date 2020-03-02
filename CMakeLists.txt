@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.14)
 project(push_swap C)
 
 set(CMAKE_C_STANDARD 11)
@@ -77,4 +77,5 @@ add_executable(push_swap
         push_swap.c
         push_swap.h
         set_index.c
+        sort_2_5.c
         sorting.c)

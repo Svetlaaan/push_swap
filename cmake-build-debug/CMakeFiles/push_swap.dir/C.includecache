@@ -6,29 +6,19 @@
 
 #IncludeRegexTransform: 
 
-../libft/libft.h
-string.h
--
-unistd.h
--
-stdlib.h
--
-fcntl.h
--
-
-../printf/inc/ft_printf.h
+/Users/fboggs/Desktop/printf/inc/ft_printf.h
 stdio.h
 -
 stdarg.h
 -
 ../libft/libft.h
-../printf/libft/libft.h
+/Users/fboggs/Desktop/printf/libft/libft.h
 limits.h
 -
 math.h
 -
 
-../printf/libft/libft.h
+/Users/fboggs/Desktop/printf/libft/libft.h
 stdlib.h
 -
 unistd.h
@@ -40,41 +30,11 @@ fcntl.h
 limits.h
 -
 
-C:/Users/xiaom/Desktop/push_swap/check_smthng.c
-push_swap.h
-C:/Users/xiaom/Desktop/push_swap/push_swap.h
-
-C:/Users/xiaom/Desktop/push_swap/new_and_free.c
-push_swap.h
-C:/Users/xiaom/Desktop/push_swap/push_swap.h
-stdio.h
--
-libft/libft.h
--
-
-C:/Users/xiaom/Desktop/push_swap/operations.c
-push_swap.h
-C:/Users/xiaom/Desktop/push_swap/push_swap.h
-stdio.h
--
-
-C:/Users/xiaom/Desktop/push_swap/push_swap.c
-push_swap.h
-C:/Users/xiaom/Desktop/push_swap/push_swap.h
-stdio.h
--
-
-C:/Users/xiaom/Desktop/push_swap/push_swap.h
+/Users/fboggs/Desktop/push_swap/push_swap.h
 ../printf/inc/ft_printf.h
-C:/Users/xiaom/Desktop/printf/inc/ft_printf.h
+/Users/fboggs/Desktop/printf/inc/ft_printf.h
 
-C:/Users/xiaom/Desktop/push_swap/set_index.c
+/Users/fboggs/Desktop/push_swap/sorting.c
 push_swap.h
-C:/Users/xiaom/Desktop/push_swap/push_swap.h
-stdio.h
--
-
-C:/Users/xiaom/Desktop/push_swap/sorting.c
-push_swap.h
-C:/Users/xiaom/Desktop/push_swap/push_swap.h
+/Users/fboggs/Desktop/push_swap/push_swap.h
 

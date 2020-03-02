@@ -141,7 +141,6 @@ int r_rotate(t_num **head, t_num **tail, t_what **storage)
 	return (1);
 }
 
-
 int rr_reverse(t_num **head, t_num **tail, t_what **storage)
 {
 	t_num *tmp;

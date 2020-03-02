@@ -1,20 +1,33 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-
 void    set_block(t_what **storage)
 {
     int     num_block;
     t_num   *tmp;
 
-    num_block = (*storage)->stack_a / 2; // по сколько элементов в блоке?
-    tmp = (*storage)->head_a;
+    if ((*storage)->curr_stack == 0)
+		(*storage)->curr_stack = 'A';
+    else if ((*storage)->curr_stack != 0)
+		(*storage)->curr_stack = 'B';
+	num_block = (((*storage)->curr_stack == 'A') ? (*storage)->stack_a / 2 : (*storage)->stack_b / 2); // по сколько элементов в блоке?
+    tmp = ((*storage)->curr_stack == 'A') ? ((*storage)->head_a) : ((*storage)->head_b);
     while (tmp)
     {
         if (tmp->index >= 1 && tmp->index < 1 + num_block)
-            tmp->block = 1;
+		{
+        	if (tmp->block == 0)
+				tmp->block = 1;
+        	else
+        		tmp->podblock = 1;
+		}
         else
-            tmp->block = 2;
+		{
+			if (tmp->block == 0)
+				tmp->block = 2;
+			else
+				tmp->podblock = 2;
+		}
         tmp = tmp->next;
     }
 }
@@ -22,17 +35,46 @@ void    set_block(t_what **storage)
 void		sort_by_blocks(t_what **storage)
 {
     int 	count;
+	t_num **head_tmp = NULL;
+	t_num **tail_tmp = NULL;
+	t_num **head_where = NULL;
+	t_num **tail_where = NULL;
 
-    count = (*storage)->stack_a;
+	if ((*storage)->curr_stack == 'A')
+	{
+		head_tmp = &(*storage)->head_a;
+		tail_tmp = &(*storage)->tail_a;
+		head_where = &(*storage)->head_b;
+		tail_where = &(*storage)->tail_b;
+	}
+	else if ((*storage)->curr_stack == 'B')
+	{
+		head_tmp = &(*storage)->head_b;
+		tail_tmp = &(*storage)->tail_b;
+		head_where = &(*storage)->head_a;
+		tail_where = &(*storage)->tail_a;
+	}
+	count = ((*storage)->curr_stack == 'A') ? (*storage)->stack_a : (*storage)->stack_b;
     while (count--)
     {
-        if ((*storage)->head_a->block == 2)
-            r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
-        else if ((*storage)->head_a->block == 1)
+        if ((*head_tmp)->block == 2 || (*head_tmp)->podblock == 2)
+            r_rotate(&(*head_tmp), &(*tail_tmp), &(*storage));
+        else if ((*head_tmp)->block == 1 || (*head_tmp)->podblock == 1)
         {
-            push('b', storage);
-            if ((*storage)->stack_b > 1)
-            	r_rotate(&(*storage)->head_b, &(*storage)->tail_b, &(*storage));
+			((*storage)->curr_stack == 'A') ? push('b', storage) : push('a', storage);
+			if ((*head_tmp)->podblock == 0)
+			{
+				if ((*storage)->curr_stack == 'A')
+				{
+					if ((*storage)->stack_b > 1)
+						r_rotate(&(*storage)->head_b, &(*storage)->tail_b, &(*storage));
+				}
+				else if ((*storage)->curr_stack == 'B')
+				{
+					if ((*storage)->stack_a > 1)
+						r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
+				}
+			}
         }
     }
 }
