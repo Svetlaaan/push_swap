@@ -23,17 +23,6 @@ int 	sorting_four(t_what **storage)
 	if (is_sorted((*storage)->head_a) == 1)
 		return (1);
 	return (-1);
-
-	/// max operations - 5
-//	sort_by_blocks(&(*storage));
-//	if (sorting_two(&(*storage)) == 1)
-//	{
-//		while ((*storage)->stack_b > 0)
-//			push('a', &(*storage));
-//	}
-//	if (is_sorted((*storage)->head_a) == 1)
-//		return (1);
-//	return (-1);
 }
 
 int 	sorting_two(t_what **storage) ///
@@ -53,23 +42,6 @@ int 	sorting_two(t_what **storage) ///
 
 int 	sorting_five(t_what **storage)
 {
-	t_num **head_tmp = NULL;
-	t_num **tail_tmp = NULL;
-
-	/*if ((*storage)->stack_b > 0)
-	{
-		set_block(&(*storage));
-	}*/
-	/*if (c == 'a')
-	{
-		head_tmp = &(*storage)->head_b;
-		tail_tmp = &(*storage)->tail_b;
-	}
-	else if (c == 'b')
-	{
-		head_tmp = &(*storage)->head_b;
-		tail_tmp = &(*storage)->tail_b;
-	}*/
 	sort_by_blocks(&(*storage));
 	if (sorting_three(&(*storage)) == -1)
 		return (-1);
@@ -131,6 +103,11 @@ int 	sort_3_mov(t_what **storage, t_num **head_tmp, t_num **tail_tmp)
 		if (is_sorted((*storage)->head_a) == 1)
 			return (1);
 	}
+	else if ((*storage)->curr_stack == 'B')
+	{
+		if (is_sorted((*storage)->head_b) == 1)
+			return (1);
+	}
 	if ((*head_tmp)->index > (*head_tmp)->next->index && (*head_tmp)->index < (*tail_tmp)->index)
 		s_swap(&(*head_tmp), &(*storage), 'a');
 	else if ((*head_tmp)->index > (*head_tmp)->next->index && (*head_tmp)->index > (*tail_tmp)->index)
@@ -168,21 +145,31 @@ int 	sorting_three(t_what **storage)
 		if (sort_3_mov(&(*storage), &(*head_tmp), &(*tail_tmp)) == -1)
 			return (-1);
 	}
-	if ((*storage)->stack_b == 3)
+	if ((*storage)->stack_b == 3 && is_sorted((*storage)->head_a) == 1)
 	{
 		head_tmp = &(*storage)->head_b;
 		tail_tmp = &(*storage)->tail_b;
 		if (sort_3_mov_rev(&(*storage), &(*head_tmp), &(*tail_tmp)) == -1)
 			return (-1);
 	}
-	if ((*storage)->stack_b > 0 && is_sorted((*storage)->head_a) == 1)
+	else if (((*storage)->stack_b == 3 && is_sorted((*storage)->head_a) == -1))
+	{
+		head_tmp = &(*storage)->head_b;
+		tail_tmp = &(*storage)->tail_b;
+		if (sort_3_mov(&(*storage), &(*head_tmp), &(*tail_tmp)) == -1)
+			return (-1);
+	}
+	/*if ((*storage)->stack_b > 0 && is_sorted((*storage)->head_a) == 1)
 	{
 		while ((*storage)->stack_b > 0)
 		{
 			push('a', &(*storage));
-
 		}
-
+	}*/
+	else if ((*storage)->stack_b > 0 && is_sorted((*storage)->head_a) == 1)
+	{
+		push('a', &(*storage));
+		r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
 	}
 	return (1);
 }

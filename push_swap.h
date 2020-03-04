@@ -28,6 +28,9 @@ typedef struct 		s_what{
     int             stack_a;
     int             stack_b;
     int 			flag_v;
+    int 			curr_block;
+    int 			sort_block_1;
+	int 			sort_block_2;
 //    int 			max_index_stack_a;
 //    int 			min_index_stack_a;
   //  int 			third_step_width; // кол-во чисел в 3 блоке - самых больших  чисел
@@ -59,6 +62,8 @@ int 		sorting_three(t_what **storage);
 int 		sorting_five(t_what **storage);
 int 		sorting_two(t_what **storage);
 int 		sorting_four(t_what **storage);
+void 		sort_by_subblocks(t_what **storage, t_num **head_tmp, t_num **tail_tmp);
+int			find_mid(t_num **stack);
 
 int len_of_block(t_what **storage, int num);
 

@@ -57,7 +57,8 @@ int 	is_sorted(t_num *head)
 
 int 	main_sort(t_what **storage)
 {
-	sort_by_blocks(&(*storage));
+	//(*storage)->curr_block = ((*storage)->curr_block < 2) ? (*storage)->curr_block + 1 : (*storage)->curr_block - 1;
+	sort_by_blocks(&(*storage)); /// сортирует еще раз то что не надо сортировать
 	if ((*storage)->stack_b == 3 || (*storage)->stack_a == 3)
 	{
 		sorting_three(&(*storage));
@@ -66,7 +67,7 @@ int 	main_sort(t_what **storage)
 			push('a', &(*storage));
 			r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
 		}
-		if ((*storage)->head_a->index == (*storage)->tail_a->index - 1)
+		/*if ((*storage)->head_a->index == (*storage)->tail_a->index - 1)
 		{
 			while ((*storage)->head_a->podblock == 1)
 				r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
@@ -76,11 +77,22 @@ int 	main_sort(t_what **storage)
 			s_swap(&(*storage)->head_a, &(*storage), 'a');
 			while ((*storage)->head_a->podblock == 1)
 				r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage)); /////// закончила тут!
-		}
+		}*/
 	}
 	else
 	{
+		if ((*storage)->head_b && is_sorted((*storage)->head_b) == 1)
+		{
+			(*storage)->sort_block_1 = 1;
+			while ((*storage)->stack_b > 0)
+			{
+				push('a', &(*storage));
+				r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
+			}
+			return (1);
+		}
 		set_block(&(*storage));
+//		(*storage)->curr_block = ((*storage)->curr_block < 2) ? (*storage)->curr_block + 1 : (*storage)->curr_block - 1;
 		sort_by_blocks(&(*storage));
 		sorting(&(*storage));
 	}
@@ -114,7 +126,10 @@ int len_of_block(t_what **storage, int num)
 int 	sorting(t_what **storage)
 {
 	if ((*storage)->stack_a > 5)
-		main_sort(&(*storage));
+	{
+		while (is_sorted_final(*storage) == -1)
+			main_sort(&(*storage));
+	}
 	else if ((*storage)->stack_a == 3)
 	{
 			if (sorting_three(&(*storage)) == 1)

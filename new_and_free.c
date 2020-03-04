@@ -77,6 +77,9 @@ void 	final_free(t_what **storage, t_num **num)
 	(*storage)->stack_a = 0;
 	(*storage)->stack_b = 0;
 	(*storage)->curr_stack = 0;
+	(*storage)->curr_block = 0;
+	(*storage)->sort_block_1 = 0;
+	(*storage)->sort_block_2 = 0;
 	free(*storage);
 	/*t_num *tmp = NULL;
 	t_num *tmp_next = NULL;
@@ -168,6 +171,9 @@ t_what *new_what()
 	storage->stack_b = 0;
 	storage->flag_v = 0;
 	storage->flag_kol_op = 0;
+	storage->curr_block = 1;
+	storage->sort_block_1 = 0;
+	storage->sort_block_2 = 0;
 //	storage->max_index_stack_a = 0;
 //	storage->min_index_stack_a = 0;
 	return (storage);
