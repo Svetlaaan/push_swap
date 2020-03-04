@@ -30,6 +30,7 @@ void 	final_free(t_what **storage, t_num **num)
 			tmp->index = 0;
 			tmp->block = 0;
 			tmp->podblock = 0;
+			tmp->flag = 0;
 			if (tmp->next)
 				tmp->next = NULL;
 			tmp->prev = NULL;
@@ -53,6 +54,7 @@ void 	final_free(t_what **storage, t_num **num)
 			tmp->index = 0;
 			tmp->block = 0;
 			tmp->podblock = 0;
+			tmp->flag = 0;
 			if (tmp->next)
 				tmp->next = NULL;
 			tmp->prev = NULL;
@@ -70,6 +72,7 @@ void 	final_free(t_what **storage, t_num **num)
 		(*num)->block = 0;
 		(*num)->next = NULL;
 		(*num)->prev = NULL;
+        (*num)->flag = 0;
 		free(*num);
 	}
 	(*storage)->flag_v = 0;
@@ -153,6 +156,7 @@ t_num		*new_num(void)
 	new->next = NULL;
 	new->prev = NULL;
 	new->podblock = 0;
+	new->flag = 0;
 	return (new);
 }
 

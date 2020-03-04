@@ -29,7 +29,7 @@ int 	sorting_two(t_what **storage) ///
 {
 	if ((*storage)->stack_b == 2)
 	{
-		if ((*storage)->head_b->index < (*storage)->tail_b->index)
+		if ((*storage)->head_b->index > (*storage)->tail_b->index)
 			s_swap(&(*storage)->head_b, &(*storage), 'b');
 	}
 	if ((*storage)->stack_a == 2)
@@ -166,10 +166,10 @@ int 	sorting_three(t_what **storage)
 			push('a', &(*storage));
 		}
 	}*/
-	else if ((*storage)->stack_b > 0 && is_sorted((*storage)->head_a) == 1)
-	{
-		push('a', &(*storage));
-		r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
-	}
+//	else if ((*storage)->stack_b > 0 && is_sorted((*storage)->head_a) == 1 && is_sorted((*storage)->head_b) == 1)
+//	{
+//		push('a', &(*storage));
+//		r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
+//	}
 	return (1);
 }

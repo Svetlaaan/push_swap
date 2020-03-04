@@ -58,15 +58,18 @@ int 	is_sorted(t_num *head)
 int 	main_sort(t_what **storage)
 {
 	//(*storage)->curr_block = ((*storage)->curr_block < 2) ? (*storage)->curr_block + 1 : (*storage)->curr_block - 1;
-	sort_by_blocks(&(*storage)); /// сортирует еще раз то что не надо сортировать
-	if ((*storage)->stack_b == 3 || (*storage)->stack_a == 3)
+	//sort_by_blocks(&(*storage)); /// сортирует еще раз то что не надо сортировать
+	if ((*storage)->stack_b == 3) //|| (*storage)->stack_a == 3)
 	{
 		sorting_three(&(*storage));
-		while ((*storage)->stack_b > 0)
-		{
-			push('a', &(*storage));
-			r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
-		}
+		if (is_sorted((*storage)->head_b) == 1)
+        {
+            while ((*storage)->stack_b > 0)
+            {
+                push('a', &(*storage));
+                r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
+            }
+        }
 		/*if ((*storage)->head_a->index == (*storage)->tail_a->index - 1)
 		{
 			while ((*storage)->head_a->podblock == 1)
@@ -128,30 +131,55 @@ int 	sorting(t_what **storage)
 	if ((*storage)->stack_a > 5)
 	{
 		while (is_sorted_final(*storage) == -1)
-			main_sort(&(*storage));
+        {
+            set_block(&(*storage));
+            sort_by_blocks(&(*storage));
+            main_sort(&(*storage));
+        }
 	}
-	else if ((*storage)->stack_a == 3)
+	else if ((*storage)->stack_b == 3)
 	{
 			if (sorting_three(&(*storage)) == 1)
-				return (1);
+            {
+                while ((*storage)->stack_b > 0)
+                {
+                    push('a', &(*storage));
+                    r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
+                }
+                return (1);
+            }
 			return (-1);
 	}
-	else if ((*storage)->stack_a == 5)
+	else if ((*storage)->stack_a == 5 && (*storage)->stack_b == 0)
 	{
 			if (sorting_five(&(*storage)) == 1)
 				return (1);
 			return (-1);
 	}
-	else if ((*storage)->stack_a == 2)
+	else if ((*storage)->stack_b == 2)
 	{
 		if (sorting_two(&(*storage)) == 1)
-			return (1);
+        {
+		    while ((*storage)->stack_b > 0)
+            {
+                push('a', &(*storage));
+                r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
+            }
+            return (1);
+        }
 		return (-1);
 	}
-	else if ((*storage)->stack_a == 4)
+	else if ((*storage)->stack_b == 4)
 	{
-		if (sorting_four(&(*storage)) == 1)
-			return (1);
+        if (sorting_four(&(*storage)) == 1)
+        {
+            while ((*storage)->stack_b > 0)
+            {
+                push('a', &(*storage));
+                r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
+            }
+            return (1);
+        }
 		return (-1);
 	}
 	return (0);

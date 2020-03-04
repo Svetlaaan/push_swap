@@ -1,12 +1,12 @@
-cmake_minimum_required(VERSION 3.14)
-project(push_swap C)
+cmake_minimum_required(VERSION 3.15)
+project(new_push C)
 
 set(CMAKE_C_STANDARD 11)
 
 include_directories(.)
 include_directories(libft)
 
-add_executable(push_swap
+add_executable(new_push
         libft/ft_atoi.c
         libft/ft_bzero.c
         libft/ft_cntwrds.c
@@ -71,7 +71,7 @@ add_executable(push_swap
         libft/get_next_line.c
         libft/libft.h
         check_smthng.c
-#        checker.c
+        #checker.c
         new_and_free.c
         operations.c
         push_swap.c

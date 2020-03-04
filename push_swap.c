@@ -189,7 +189,7 @@ int main(int argc, char **argv)
         	final_free(&storage, &num);
         	return (-1);
         }
-        set_block(&storage); /// делим на 2 части
+        //set_block(&storage); /// делим на 2 части
         if (is_sorted((&(*storage))->head_a) == -1)
 		{
 			if (sorting(&storage) == -1)

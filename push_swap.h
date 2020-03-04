@@ -11,6 +11,7 @@ typedef struct 		s_num{
     int             block;
     int 			podblock;
     int				sign;
+    int             flag;
 
     struct s_num	*next;
     struct s_num	*prev;
