@@ -291,10 +291,7 @@
 		<Unit filename="/Users/fboggs/Desktop/push_swap/set_index.c">
 			<Option target="push_swap"/>
 		</Unit>
-		<Unit filename="/Users/fboggs/Desktop/push_swap/sort_2_5.c">
-			<Option target="push_swap"/>
-		</Unit>
-		<Unit filename="/Users/fboggs/Desktop/push_swap/sorting.c">
+		<Unit filename="/Users/fboggs/Desktop/push_swap/sorting_al.c">
 			<Option target="push_swap"/>
 		</Unit>
 		<Unit filename="/Users/fboggs/Desktop/push_swap/CMakeLists.txt">

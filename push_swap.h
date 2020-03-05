@@ -8,10 +8,10 @@
 typedef struct 		s_num{
     int             num;
     int             index;
-    int             block;
-    int 			podblock;
     int				sign;
     int             flag;
+    int 			sort;
+    int 			flag_st_b; // сколько раз число было в стеке В
 
     struct s_num	*next;
     struct s_num	*prev;
@@ -29,12 +29,9 @@ typedef struct 		s_what{
     int             stack_a;
     int             stack_b;
     int 			flag_v;
-    int 			curr_block;
-    int 			sort_block_1;
-	int 			sort_block_2;
-//    int 			max_index_stack_a;
-//    int 			min_index_stack_a;
-  //  int 			third_step_width; // кол-во чисел в 3 блоке - самых больших  чисел
+    int 			next;
+    int 			max;
+    int				flag; // актуальный раз работы в стеке В
 }                   t_what;
 
 int         save_argv(const char *argv, t_num **num, t_what **storage);
@@ -65,7 +62,11 @@ int 		sorting_two(t_what **storage);
 int 		sorting_four(t_what **storage);
 void 		sort_by_subblocks(t_what **storage, t_num **head_tmp, t_num **tail_tmp);
 int			find_mid(t_num **stack);
+int		find_min(t_num **stack, t_what **storage);
+int		find_max(t_num **stack, t_what **storage);
 
 int len_of_block(t_what **storage, int num);
+
+int 	sorting_al(t_what **storage);
 
 #endif //PUSH_SWAP_PUSH_SWAP_H

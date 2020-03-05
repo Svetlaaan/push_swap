@@ -1,3 +1,3 @@
-C:/Users/xiaom/Desktop/new_push/cmake-build-debug/CMakeFiles/new_push.dir
-C:/Users/xiaom/Desktop/new_push/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/xiaom/Desktop/new_push/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir

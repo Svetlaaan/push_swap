@@ -40,7 +40,7 @@ int 	sorting_two(t_what **storage) ///
 	return (1); ////////////
 }
 
-int 	sorting_five(t_what **storage)
+/*int 	sorting_five(t_what **storage)
 {
 	sort_by_blocks(&(*storage));
 	if (sorting_three(&(*storage)) == -1)
@@ -54,8 +54,8 @@ int 	sorting_five(t_what **storage)
 	{
 		if ((*storage)->head_a->index < (*storage)->head_a->next->index)
 			s_swap(&(*storage)->head_a, &(*storage), 'a');
-		while ((*storage)->stack_a > 0 && (*storage)->head_a->podblock == 1)
-			push('b', &(*storage));
+		*//*while ((*storage)->stack_a > 0 && (*storage)->head_a->podblock == 1)
+			push('b', &(*storage));*//*
 	}
 	print_stacks((*storage)->head_a, (*storage)->head_b);
 	if ((*storage)->curr_stack == 'A')
@@ -69,7 +69,7 @@ int 	sorting_five(t_what **storage)
 			return (1);
 	}
 	return (-1);
-}
+}*/
 
 int 	sort_3_mov_rev(t_what **storage, t_num **head_tmp, t_num **tail_tmp)
 {

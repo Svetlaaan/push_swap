@@ -13,7 +13,6 @@ void 	final_free(t_what **storage, t_num **num)
 		{
 			(*storage)->tail_a->next->num = 0;
 			(*storage)->tail_a->next->index = 0;
-			(*storage)->tail_a->next->block = 0;
 			(*storage)->tail_a->next->prev = NULL;
 			free((*storage)->tail_a->next);
 			(*storage)->tail_a->next = NULL;
@@ -28,8 +27,6 @@ void 	final_free(t_what **storage, t_num **num)
 			tmp->sign = 0;
 			tmp->num = 0;
 			tmp->index = 0;
-			tmp->block = 0;
-			tmp->podblock = 0;
 			tmp->flag = 0;
 			if (tmp->next)
 				tmp->next = NULL;
@@ -52,8 +49,6 @@ void 	final_free(t_what **storage, t_num **num)
 			tmp->sign = 0;
 			tmp->num = 0;
 			tmp->index = 0;
-			tmp->block = 0;
-			tmp->podblock = 0;
 			tmp->flag = 0;
 			if (tmp->next)
 				tmp->next = NULL;
@@ -69,7 +64,6 @@ void 	final_free(t_what **storage, t_num **num)
 		(*num)->num = -1;
 		(*num)->sign = 0;
 		(*num)->index = -1;
-		(*num)->block = 0;
 		(*num)->next = NULL;
 		(*num)->prev = NULL;
         (*num)->flag = 0;
@@ -80,66 +74,7 @@ void 	final_free(t_what **storage, t_num **num)
 	(*storage)->stack_a = 0;
 	(*storage)->stack_b = 0;
 	(*storage)->curr_stack = 0;
-	(*storage)->curr_block = 0;
-	(*storage)->sort_block_1 = 0;
-	(*storage)->sort_block_2 = 0;
 	free(*storage);
-	/*t_num *tmp = NULL;
-	t_num *tmp_next = NULL;
-
-	if ((*storage)->head_a)
-	{
-		if ((*storage)->tail_a)
-			tmp = (*storage)->tail_a;
-		else
-			tmp = (*storage)->head_a;
-		while (tmp)
-		{
-			if (tmp->prev)
-				tmp_next = tmp->prev;
-			else if (tmp->next->index != 0)
-				tmp_next = tmp->next;
-			else
-				tmp_next = NULL;
-			tmp->num = 0;
-			tmp->index = 0;
-			tmp->block = 0;
-			if (tmp->next)
-				tmp->next = NULL;
-			tmp->prev = NULL;
-			free(tmp); ///
-			tmp = tmp_next;
-		}
-	}
-	if ((*storage)->head_b)
-	{
-		if ((*storage)->tail_b)
-			tmp = (*storage)->tail_b;
-		else
-			tmp = (*storage)->head_b;
-		while (tmp)
-		{
-			if (tmp == (*storage)->tail_b)
-				tmp_next = tmp->prev;
-			else
-				tmp_next = tmp->next;
-			tmp_next = tmp->prev;
-			tmp->num = 0;
-			tmp->index = 0;
-			tmp->block = 0;
-			if (tmp->next)
-				tmp->next = NULL;
-			tmp->prev = NULL;
-			//free(tmp);
-			tmp = tmp_next;
-		}
-	}
-	free(tmp);
-	free(tmp_next);
-	(*storage)->stack_a = 0;
-	(*storage)->stack_b = 0;
-	free(*storage);
-	*storage = NULL;*/
 }
 
 
@@ -152,11 +87,12 @@ t_num		*new_num(void)
 	new->num = -1;
 	new->sign = 0;
 	new->index = -1;
-	new->block = 0;
+	///new->block = 0;
 	new->next = NULL;
 	new->prev = NULL;
-	new->podblock = 0;
+	new->sort = 0;
 	new->flag = 0;
+	new->flag_st_b = 0;
 	return (new);
 }
 
@@ -175,11 +111,9 @@ t_what *new_what()
 	storage->stack_b = 0;
 	storage->flag_v = 0;
 	storage->flag_kol_op = 0;
-	storage->curr_block = 1;
-	storage->sort_block_1 = 0;
-	storage->sort_block_2 = 0;
-//	storage->max_index_stack_a = 0;
-//	storage->min_index_stack_a = 0;
+	storage->max = 0;
+	storage->next = 0;
+	storage->flag = 0;
 	return (storage);
 }
 

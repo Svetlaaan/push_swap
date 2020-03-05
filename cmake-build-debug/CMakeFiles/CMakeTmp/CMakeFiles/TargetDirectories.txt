@@ -1,3 +1,0 @@
-C:/Users/xiaom/Desktop/new_push/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_acb49.dir
-C:/Users/xiaom/Desktop/new_push/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/edit_cache.dir
-C:/Users/xiaom/Desktop/new_push/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/rebuild_cache.dir
