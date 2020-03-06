@@ -1,67 +1,5 @@
 #include "push_swap.h"
 
-int 	sort_3_mov_rev(t_what **storage, t_num **head_tmp, t_num **tail_tmp)
-{
-	if (is_sorted_rev((*storage)->head_b) == 1)
-		return (1);
-	if ((*head_tmp)->index < (*head_tmp)->next->index && (*head_tmp)->index > (*tail_tmp)->index)
-		s_swap(&(*head_tmp), &(*storage), 'b');
-	else if ((*head_tmp)->index > (*head_tmp)->next->index && (*head_tmp)->index < (*tail_tmp)->index)
-		rr_reverse(&(*head_tmp), &(*tail_tmp), &(*storage));
-	else if ((*head_tmp)->index < (*head_tmp)->next->index && (*head_tmp)->next->index < (*tail_tmp)->index)
-	{
-		s_swap(&(*head_tmp), &(*storage), 'b');
-		rr_reverse(&(*head_tmp), &(*tail_tmp), &(*storage));
-	}
-	else if ((*head_tmp)->next->index > (*tail_tmp)->index && (*head_tmp)->next->index > (*head_tmp)->index && (*tail_tmp)->index > (*head_tmp)->index)
-		r_rotate(&(*head_tmp), &(*tail_tmp), &(*storage));
-	else if((*head_tmp)->index > (*head_tmp)->next->index && (*head_tmp)->next->index < (*tail_tmp)->index)
-	{
-		rr_reverse(&(*head_tmp), &(*tail_tmp), &(*storage));
-		s_swap(&(*head_tmp), &(*storage), 'b');
-	}
-	if (is_sorted_rev(*head_tmp) == 1)
-		return (1);
-	return (-1);
-}
-
-int 	sort_3_mov(t_what **storage, t_num **head_tmp, t_num **tail_tmp)
-{
-	if ((*storage)->curr_stack == 'A')
-	{
-		if (is_sorted((*storage)->head_a) == 1)
-			return (1);
-	}
-	else if ((*storage)->curr_stack == 'B')
-	{
-		if (is_sorted((*storage)->head_b) == 1)
-			return (1);
-	}
-	if ((*head_tmp)->index > (*head_tmp)->next->index && (*head_tmp)->index < (*tail_tmp)->index)
-		s_swap(&(*head_tmp), &(*storage), 'a');
-	else if ((*head_tmp)->index > (*head_tmp)->next->index && (*head_tmp)->index > (*tail_tmp)->index)
-	{
-		if ((*tail_tmp)->index < (*tail_tmp)->prev->index)
-		{
-			s_swap(&(*head_tmp), &(*storage), 'a');
-			rr_reverse(&(*head_tmp), &(*tail_tmp), &(*storage));
-		}
-		else if ((*tail_tmp)->index > (*tail_tmp)->prev->index)
-			r_rotate(&(*head_tmp), &(*tail_tmp), &(*storage));
-	}
-	else if ((*head_tmp)->index < (*head_tmp)->next->index && (*tail_tmp)->index < (*head_tmp)->index)
-		rr_reverse(&(*head_tmp), &(*tail_tmp), &(*storage));
-	else if ((*head_tmp)->index < (*head_tmp)->next->index && (*tail_tmp)->index > (*head_tmp)->index)
-	{
-		if ((*storage)->curr_stack == 'A')
-			s_swap(&(*head_tmp), &(*storage), 'a');
-		r_rotate(&(*head_tmp), &(*tail_tmp), &(*storage));
-	}
-	if (is_sorted(*head_tmp) == 1)
-		return (1);
-	return (-1);
-}
-
 int 	is_sorted_rev(t_num *head)
 {
 	t_num	*tmp;
@@ -75,35 +13,6 @@ int 	is_sorted_rev(t_num *head)
 			return (-1);
 		prev_index = tmp->index;
 		tmp = tmp->next;
-	}
-	return (1);
-}
-
-int 	sorting_three(t_what **storage)
-{
-	t_num **head_tmp = NULL;
-	t_num **tail_tmp = NULL;
-
-	if ((*storage)->stack_a == 3)
-	{
-		head_tmp = &(*storage)->head_a;
-		tail_tmp = &(*storage)->tail_a;
-		if (sort_3_mov(&(*storage), &(*head_tmp), &(*tail_tmp)) == -1)
-			return (-1);
-	}
-	if ((*storage)->stack_b == 3 && is_sorted((*storage)->head_a) == 1)
-	{
-		head_tmp = &(*storage)->head_b;
-		tail_tmp = &(*storage)->tail_b;
-		if (sort_3_mov_rev(&(*storage), &(*head_tmp), &(*tail_tmp)) == -1)
-			return (-1);
-	}
-	else if (((*storage)->stack_b == 3 && is_sorted((*storage)->head_a) == -1))
-	{
-		head_tmp = &(*storage)->head_b;
-		tail_tmp = &(*storage)->tail_b;
-		if (sort_3_mov(&(*storage), &(*head_tmp), &(*tail_tmp)) == -1)
-			return (-1);
 	}
 	return (1);
 }
@@ -146,7 +55,7 @@ int 	is_sorted(t_num *head)
 	return (1);
 }
 
-int len_of_block(t_what **storage, int num)
+/*int len_of_block(t_what **storage, int num)
 {
 	t_num *tmp;
 	int len = 0;
@@ -166,7 +75,7 @@ int len_of_block(t_what **storage, int num)
 		tmp = tmp->next;
 	}
 	return (len);
-}
+}*/
 
 void    set_block(t_what **storage)
 {
@@ -220,8 +129,8 @@ void    set_block(t_what **storage)
 				(*storage)->tail_b->flag_st_b += 1;
 			}
 		}
-		else if (tmp->index < min)
-			break ;
+		/*else if (tmp->index < min)
+			break ;*/
 		else
 		{
 			if ((*storage)->curr_stack == 'A')
@@ -233,52 +142,86 @@ void    set_block(t_what **storage)
 	}
 }
 
+int	push_from_b_if_sort(t_what **storage)
+{
+	if (is_sorted((*storage)->head_b) == 1)
+	{
+		(*storage)->flag += 1;
+		while ((*storage)->stack_b > 0)
+		{
+			push('a', &(*storage));
+			if ((*storage)->head_a->index == (*storage)->next)
+			{
+				r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
+				(*storage)->tail_a->sort = 1;
+				(*storage)->next += 1;
+			}
+		}
+		return (1);
+	}
+	/*else
+		return (-1);*/
+	printf("lalalalal");
+	return (1); //////////////
+}
 
 int 	sorting_al(t_what **storage)
 {
-	while ((*storage)->stack_a > 5)
+	if ((*storage)->stack_a <= 5)
 	{
-		if ((*storage)->stack_a >= 5)
+		(*storage)->curr_stack = 'A';
+		if ((*storage)->stack_a == 5) // no
+			sorting_five(&(*storage));
+		else if ((*storage)->stack_a == 4)
+			sorting_four(&(*storage));
+		else if ((*storage)->stack_a == 3)
+			sorting_three(&(*storage));
+		else if ((*storage)->stack_a == 2)
+			sorting_two(&(*storage));
+	}
+	while (is_sorted_final(*storage) == -1)
+	{
+		set_block(&(*storage));
+		while ((*storage)->stack_b >= 4)
 		{
-			set_block(&(*storage));
-			while ((*storage)->stack_b >= 4)
+			if ((*storage)->stack_b == 4)
 			{
-				if ((*storage)->stack_b == 4)
+				while ((*storage)->head_b->index > (*storage)->next)
+					r_rotate(&(*storage)->head_b, &(*storage)->tail_b, &(*storage));
+				push('a', &(*storage));
+				if ((*storage)->head_a->index == (*storage)->next)
 				{
-					while ((*storage)->head_b->index > 1)
-						r_rotate(&(*storage)->head_b, &(*storage)->tail_b, &(*storage));
-					push('a', &(*storage));
-					if ((*storage)->head_a->index == (*storage)->next)
-					{
-						r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
-						(*storage)->next += 1;
-						break ;
-					}
+					r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
+					(*storage)->tail_a->sort = 1;
+					(*storage)->next += 1;
+					break ;
 				}
-				set_block(&(*storage));
 			}
-			if ((*storage)->stack_b  == 3)
+			set_block(&(*storage));
+		}
+		if ((*storage)->stack_b  == 3)
+		{
+			(*storage)->curr_stack = 'B';
+			sorting_three(&(*storage));
+			if (push_from_b_if_sort(&(*storage)) == -1)
+				return (-1);
+		}
+		else if ((*storage)->stack_b == 2)
+		{
+			sorting_two(&(*storage));
+			if (push_from_b_if_sort(&(*storage)) == -1)
+				return (-1);
+		}
+		else if ((*storage)->stack_b == 1)
+		{
+			push('a', &(*storage));
+			if ((*storage)->head_a->index == (*storage)->next)
 			{
-				(*storage)->curr_stack = 'B';
-				sorting_three(&(*storage));
-				if (is_sorted((*storage)->head_b) == 1)
-				{
-					(*storage)->flag += 1;
-					while ((*storage)->stack_b > 0)
-					{
-						push('a', &(*storage));
-						if ((*storage)->head_a->index == (*storage)->next)
-						{
-							r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
-							(*storage)->next += 1;
-
-						}
-
-					}
-				}
+				r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
+				(*storage)->tail_a->sort = 1;
+				(*storage)->next += 1;
 			}
 		}
 	}
-
 	return (0);
 }

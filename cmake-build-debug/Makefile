@@ -1932,6 +1932,33 @@ set_index.c.s:
 	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/set_index.c.s
 .PHONY : set_index.c.s
 
+sort_small.o: sort_small.c.o
+
+.PHONY : sort_small.o
+
+# target to build an object file
+sort_small.c.o:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/sort_small.c.o
+.PHONY : sort_small.c.o
+
+sort_small.i: sort_small.c.i
+
+.PHONY : sort_small.i
+
+# target to preprocess a source file
+sort_small.c.i:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/sort_small.c.i
+.PHONY : sort_small.c.i
+
+sort_small.s: sort_small.c.s
+
+.PHONY : sort_small.s
+
+# target to generate assembly for a file
+sort_small.c.s:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/sort_small.c.s
+.PHONY : sort_small.c.s
+
 sorting_al.o: sorting_al.c.o
 
 .PHONY : sorting_al.o
@@ -2169,6 +2196,9 @@ help:
 	@echo "... set_index.o"
 	@echo "... set_index.i"
 	@echo "... set_index.s"
+	@echo "... sort_small.o"
+	@echo "... sort_small.i"
+	@echo "... sort_small.s"
 	@echo "... sorting_al.o"
 	@echo "... sorting_al.i"
 	@echo "... sorting_al.s"

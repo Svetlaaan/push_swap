@@ -54,18 +54,19 @@ int 	is_sorted_rev(t_num *head);
 int 	sort_3_mov_rev(t_what **storage, t_num **head_tmp, t_num **tail_tmp);
 
 int 		sorting(t_what **storage);
-int 	main_sort(t_what **storage);
 int 		is_sorted(t_num *head);
 int 		sorting_three(t_what **storage);
 int 		sorting_five(t_what **storage);
 int 		sorting_two(t_what **storage);
 int 		sorting_four(t_what **storage);
+int 	sorting_five(t_what **storage);
 void 		sort_by_subblocks(t_what **storage, t_num **head_tmp, t_num **tail_tmp);
 int			find_mid(t_num **stack);
 int		find_min(t_num **stack, t_what **storage);
 int		find_max(t_num **stack, t_what **storage);
 
 int len_of_block(t_what **storage, int num);
+int	push_from_b_if_sort(t_what **storage);
 
 int 	sorting_al(t_what **storage);
 

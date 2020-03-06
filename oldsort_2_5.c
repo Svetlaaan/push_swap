@@ -1,75 +1,22 @@
 #include "push_swap.h"
 
-int 	sorting_four(t_what **storage)
-{
-	while ((*storage)->head_a)
-	{
-		if ((*storage)->head_a->index == 1 || (*storage)->head_a->index == 4)
-		{
-			push('b', &(*storage));
-			break ;
-		}
-		r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
-	}
-	if (sorting_three(&(*storage)) == -1)
-		return (-1);
-	if ((*storage)->head_b->index == 1)
-		push('a', &(*storage));
-	else if ((*storage)->head_b->index == 4)
-	{
-		push('a', &(*storage));
-		r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
-	}
-	if (is_sorted((*storage)->head_a) == 1)
-		return (1);
-	return (-1);
-}
 
-int 	sorting_two(t_what **storage) ///
-{
-	if ((*storage)->stack_b == 2)
-	{
-		if ((*storage)->head_b->index > (*storage)->tail_b->index)
-			s_swap(&(*storage)->head_b, &(*storage), 'b');
-	}
-	if ((*storage)->stack_a == 2)
-	{
-		if ((*storage)->head_a->index > (*storage)->tail_a->index)
-			s_swap(&(*storage)->head_a, &(*storage), 'a');
-	}
-	return (1); ////////////
-}
+//int 	sorting_two(t_what **storage) ///
+//{
+//	if ((*storage)->stack_b == 2)
+//	{
+//		if ((*storage)->head_b->index > (*storage)->tail_b->index)
+//			s_swap(&(*storage)->head_b, &(*storage), 'b');
+//	}
+//	if ((*storage)->stack_a == 2)
+//	{
+//		if ((*storage)->head_a->index > (*storage)->tail_a->index)
+//			s_swap(&(*storage)->head_a, &(*storage), 'a');
+//	}
+//	return (1); ////////////
+//}
 
-/*int 	sorting_five(t_what **storage)
-{
-	sort_by_blocks(&(*storage));
-	if (sorting_three(&(*storage)) == -1)
-		return (-1);
-	if ((*storage)->head_b->index < (*storage)->tail_b->index && (*storage)->stack_b == 2)
-		s_swap(&(*storage)->head_b, &(*storage), 'b');
-	if ((*storage)->curr_stack == 'A' && (*storage)->stack_a == 3)
-		while ((*storage)->stack_b > 0)
-			push('a', &(*storage));
-	else if ((*storage)->curr_stack == 'B')
-	{
-		if ((*storage)->head_a->index < (*storage)->head_a->next->index)
-			s_swap(&(*storage)->head_a, &(*storage), 'a');
-		*//*while ((*storage)->stack_a > 0 && (*storage)->head_a->podblock == 1)
-			push('b', &(*storage));*//*
-	}
-	print_stacks((*storage)->head_a, (*storage)->head_b);
-	if ((*storage)->curr_stack == 'A')
-	{
-		if (is_sorted((*storage)->head_a) == 1)
-			return (1);
-	}
-	else if ((*storage)->curr_stack == 'B')
-	{
-		if (is_sorted((*storage)->head_b) == 1)
-			return (1);
-	}
-	return (-1);
-}*/
+/**/
 
 int 	sort_3_mov_rev(t_what **storage, t_num **head_tmp, t_num **tail_tmp)
 {
@@ -159,17 +106,5 @@ int 	sorting_three(t_what **storage)
 		if (sort_3_mov(&(*storage), &(*head_tmp), &(*tail_tmp)) == -1)
 			return (-1);
 	}
-	/*if ((*storage)->stack_b > 0 && is_sorted((*storage)->head_a) == 1)
-	{
-		while ((*storage)->stack_b > 0)
-		{
-			push('a', &(*storage));
-		}
-	}*/
-//	else if ((*storage)->stack_b > 0 && is_sorted((*storage)->head_a) == 1 && is_sorted((*storage)->head_b) == 1)
-//	{
-//		push('a', &(*storage));
-//		r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
-//	}
 	return (1);
 }

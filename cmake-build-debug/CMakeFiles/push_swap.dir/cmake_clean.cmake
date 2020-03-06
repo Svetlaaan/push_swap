@@ -66,6 +66,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/push_swap.dir/operations.c.o"
   "CMakeFiles/push_swap.dir/push_swap.c.o"
   "CMakeFiles/push_swap.dir/set_index.c.o"
+  "CMakeFiles/push_swap.dir/sort_small.c.o"
   "CMakeFiles/push_swap.dir/sorting_al.c.o"
   "push_swap.pdb"
   "push_swap"

@@ -71,6 +71,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/fboggs/Desktop/push_swap/operations.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/operations.c.o"
   "/Users/fboggs/Desktop/push_swap/push_swap.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/push_swap.c.o"
   "/Users/fboggs/Desktop/push_swap/set_index.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/set_index.c.o"
+  "/Users/fboggs/Desktop/push_swap/sort_small.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/sort_small.c.o"
   "/Users/fboggs/Desktop/push_swap/sorting_al.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/sorting_al.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")

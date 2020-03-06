@@ -79,4 +79,5 @@ add_executable(push_swap
         push_swap.h
         set_index.c
         #sort_2_5.c
+        sort_small.c
         sorting_al.c)

@@ -50,9 +50,9 @@ int		find_min(t_num **stack, t_what **storage)
 	}
 	else
 	{
-		while (tmp && tmp->flag_st_b <= (*storage)->flag)
+		while (tmp)// && tmp->flag_st_b <= (*storage)->flag)
 		{
-			if (tmp->index < minimum)
+			if (tmp->index < minimum && tmp->sort == 0)
 			{
 				minimum = tmp->index;
 				min = tmp;
@@ -89,9 +89,9 @@ int		find_max(t_num **stack, t_what **storage)
 	}
 	else
 	{
-		while (tmp && tmp->flag_st_b <= (*storage)->flag)
+		while (tmp)// && tmp->flag_st_b <= (*storage)->flag)
 		{
-			if (tmp->index > maximum)
+			if (tmp->index > maximum && tmp->sort == 0)
 			{
 				maximum = tmp->index;
 				max = tmp;

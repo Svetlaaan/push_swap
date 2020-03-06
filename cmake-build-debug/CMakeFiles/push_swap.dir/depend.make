@@ -213,6 +213,11 @@ CMakeFiles/push_swap.dir/set_index.c.o: /Users/fboggs/Desktop/printf/libft/libft
 CMakeFiles/push_swap.dir/set_index.c.o: ../push_swap.h
 CMakeFiles/push_swap.dir/set_index.c.o: ../set_index.c
 
+CMakeFiles/push_swap.dir/sort_small.c.o: /Users/fboggs/Desktop/printf/inc/ft_printf.h
+CMakeFiles/push_swap.dir/sort_small.c.o: /Users/fboggs/Desktop/printf/libft/libft.h
+CMakeFiles/push_swap.dir/sort_small.c.o: ../push_swap.h
+CMakeFiles/push_swap.dir/sort_small.c.o: ../sort_small.c
+
 CMakeFiles/push_swap.dir/sorting_al.c.o: /Users/fboggs/Desktop/printf/inc/ft_printf.h
 CMakeFiles/push_swap.dir/sorting_al.c.o: /Users/fboggs/Desktop/printf/libft/libft.h
 CMakeFiles/push_swap.dir/sorting_al.c.o: ../push_swap.h
