@@ -1,8 +1,5 @@
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
-
-//# include "libft.h"
-
 #include "../printf/inc/ft_printf.h"
 
 typedef struct 		s_num{
@@ -65,9 +62,10 @@ int			find_mid(t_num **stack);
 int		find_min(t_num **stack, t_what **storage);
 int		find_max(t_num **stack, t_what **storage);
 
-int len_of_block(t_what **storage, int num);
+int how_much_nonsort(t_what **storage);
 int	push_from_b_if_sort(t_what **storage);
 
 int 	sorting_al(t_what **storage);
+int how_much_sort(t_what **storage);
 
 #endif //PUSH_SWAP_PUSH_SWAP_H

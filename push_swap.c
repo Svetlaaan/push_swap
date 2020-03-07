@@ -40,7 +40,7 @@ int		find_min(t_num **stack, t_what **storage)
 	{
 		while (tmp)// && tmp->block == block)
 		{
-			if (tmp->index < minimum)
+			if (tmp->index < minimum && tmp->sort == 0)
 			{
 				minimum = tmp->index;
 				min = tmp;
@@ -143,7 +143,6 @@ int main(int argc, char **argv)
         	final_free(&storage, &num);
         	return (-1);
         }
-        //set_block(&storage); /// делим на 2 части
         if (is_sorted((&(*storage))->head_a) == -1)
 		{
 			if (sorting_al(&storage) == -1)
