@@ -285,10 +285,10 @@
 		<Unit filename="C:/Users/xiaom/Desktop/new_push/set_index.c">
 			<Option target="new_push"/>
 		</Unit>
-		<Unit filename="C:/Users/xiaom/Desktop/new_push/sort_2_5.c">
+		<Unit filename="C:/Users/xiaom/Desktop/new_push/sort_small.c">
 			<Option target="new_push"/>
 		</Unit>
-		<Unit filename="C:/Users/xiaom/Desktop/new_push/sorting.c">
+		<Unit filename="C:/Users/xiaom/Desktop/new_push/sorting_al.c">
 			<Option target="new_push"/>
 		</Unit>
 		<Unit filename="C:/Users/xiaom/Desktop/new_push/CMakeLists.txt">

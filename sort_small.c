@@ -19,31 +19,6 @@ int 	sorting_two(t_what **storage)
 	return (-1);
 }
 
-int 	sort_3_mov_rev(t_what **storage, t_num **head_tmp, t_num **tail_tmp)
-{
-	if (is_sorted_rev((*storage)->head_b) == 1)
-		return (1);
-	if ((*head_tmp)->index < (*head_tmp)->next->index && (*head_tmp)->index > (*tail_tmp)->index)
-		s_swap(&(*head_tmp), &(*storage), 'b');
-	else if ((*head_tmp)->index > (*head_tmp)->next->index && (*head_tmp)->index < (*tail_tmp)->index)
-		rr_reverse(&(*head_tmp), &(*tail_tmp), &(*storage));
-	else if ((*head_tmp)->index < (*head_tmp)->next->index && (*head_tmp)->next->index < (*tail_tmp)->index)
-	{
-		s_swap(&(*head_tmp), &(*storage), 'b');
-		rr_reverse(&(*head_tmp), &(*tail_tmp), &(*storage));
-	}
-	else if ((*head_tmp)->next->index > (*tail_tmp)->index && (*head_tmp)->next->index > (*head_tmp)->index && (*tail_tmp)->index > (*head_tmp)->index)
-		r_rotate(&(*head_tmp), &(*tail_tmp), &(*storage));
-	else if((*head_tmp)->index > (*head_tmp)->next->index && (*head_tmp)->next->index < (*tail_tmp)->index)
-	{
-		rr_reverse(&(*head_tmp), &(*tail_tmp), &(*storage));
-		s_swap(&(*head_tmp), &(*storage), 'b');
-	}
-	if (is_sorted_rev(*head_tmp) == 1)
-		return (1);
-	return (-1);
-}
-
 int 	sort_3_mov(t_what **storage, t_num **head_tmp, t_num **tail_tmp)
 {
 	if ((*storage)->curr_stack == 'A')
@@ -95,13 +70,6 @@ int 	sorting_three(t_what **storage)
 		if (sort_3_mov(&(*storage), &(*head_tmp), &(*tail_tmp)) == -1)
 			return (-1);
 	}
-	/*if ((*storage)->curr_stack == 'B' && is_sorted((*storage)->head_a) == 1)
-	{
-		head_tmp = &(*storage)->head_b;
-		tail_tmp = &(*storage)->tail_b;
-		if (sort_3_mov_rev(&(*storage), &(*head_tmp), &(*tail_tmp)) == -1)
-			return (-1);
-	}*/
 	else if ((*storage)->curr_stack == 'B')// && is_sorted((*storage)->head_a) == -1))
 	{
 		head_tmp = &(*storage)->head_b;
@@ -137,7 +105,7 @@ int 	sorting_four(t_what **storage)
 	return (-1);
 }
 
-int 	sorting_five(t_what **storage) // max = 12
+int 	sorting_five(t_what **storage)
 {
 	push('b', &(*storage));
 	push('b', &(*storage));

@@ -1,73 +1,53 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-int		find_mid(t_num **stack)
-{
-	int		mid;
-	int		count;
-	t_num	*tmp;
-	int		block;
+//int		find_mid(t_num **stack)
+//{
+//	int		mid;
+//	int		count;
+//	t_num	*tmp;
+//
+//	mid = 0;
+//	count = 0;
+//	if (!(*stack))
+//		return (0);
+//	tmp = (*stack);
+//	while (tmp)
+//	{
+//		count++;
+//		mid = mid + tmp->index;
+//		tmp = tmp->next;
+//	}
+//	return (mid / count);
+//}
 
-	mid = 0;
-	count = 0;
-	if (!(*stack))
-		return (0);
-	tmp = (*stack);
-	//block = (*stack)->block;
-	while (tmp) //&& tmp->block == block)
-	{
-		count++;
-		mid = mid + tmp->index;
-		tmp = tmp->next;
-	}
-	return (mid / count);
-}
-
-int		find_min(t_num **stack, t_what **storage)
+int		find_min(t_num **stack, t_what **storage, int i)
 {
 	t_num	*tmp;
 	t_num	*min;
-	int		block;
 	int		minimum;
 
 	if (NULL == (*stack))
 		return (0);
 	tmp = (*stack);
 	min = (*stack);
-	//block = (*stack)->block;
 	minimum = (*stack)->index;
-	if ((*storage)->flag == 0)
-	{
-		while (tmp)// && tmp->block == block)
-		{
-			if (tmp->index < minimum && tmp->sort == 0)
-			{
-				minimum = tmp->index;
-				min = tmp;
-			}
-			tmp = tmp->next;
-		}
-	}
-	else
-	{
-		while (tmp)// && tmp->flag_st_b <= (*storage)->flag)
-		{
-			if (tmp->index < minimum && tmp->sort == 0)
-			{
-				minimum = tmp->index;
-				min = tmp;
-			}
-			tmp = tmp->next;
-		}
-	}
+    while (tmp)
+    {
+        if (tmp->index < minimum && tmp->sort == 0 && tmp->flag_st_b == i)
+        {
+            minimum = tmp->index;
+            min = tmp;
+        }
+        tmp = tmp->next;
+    }
 	return (min->index);
 }
 
-int		find_max(t_num **stack, t_what **storage)
+int		find_max(t_num **stack, t_what **storage, int i)
 {
 	t_num	*tmp;
 	t_num	*max;
-	//int		block;
 	int		maximum;
 
 	if (NULL == (*stack))
@@ -77,7 +57,7 @@ int		find_max(t_num **stack, t_what **storage)
 	maximum = (*stack)->index;
 	if ((*storage)->flag == 0)
 	{
-		while (tmp)// && tmp->flag_st_b < (*storage)->flag)
+		while (tmp)
 		{
 			if (tmp->index > maximum)
 			{
@@ -89,9 +69,9 @@ int		find_max(t_num **stack, t_what **storage)
 	}
 	else
 	{
-		while (tmp)// && tmp->flag_st_b <= (*storage)->flag)
+		while (tmp)
 		{
-			if (tmp->index > maximum && tmp->sort == 0)
+			if (tmp->index > maximum && tmp->sort == 0 && tmp->flag_st_b == i)
 			{
 				maximum = tmp->index;
 				max = tmp;

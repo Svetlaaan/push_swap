@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../printf/inc/ft_printf.h
+stdio.h
+-
+stdarg.h
+-
+../libft/libft.h
+../printf/libft/libft.h
+limits.h
+-
+math.h
+-
+
+../printf/libft/libft.h
+stdlib.h
+-
+unistd.h
+-
+string.h
+-
+fcntl.h
+-
+limits.h
+-
+
+C:/Users/xiaom/Desktop/new_push/push_swap.h
+../printf/inc/ft_printf.h
+C:/Users/xiaom/Desktop/printf/inc/ft_printf.h
+
+C:/Users/xiaom/Desktop/new_push/sorting_al.c
+push_swap.h
+C:/Users/xiaom/Desktop/new_push/push_swap.h
+

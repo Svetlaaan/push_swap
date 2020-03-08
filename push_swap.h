@@ -59,10 +59,10 @@ int 		sorting_four(t_what **storage);
 int 	sorting_five(t_what **storage);
 void 		sort_by_subblocks(t_what **storage, t_num **head_tmp, t_num **tail_tmp);
 int			find_mid(t_num **stack);
-int		find_min(t_num **stack, t_what **storage);
-int		find_max(t_num **stack, t_what **storage);
+int		find_min(t_num **stack, t_what **storage, int i);
+int		find_max(t_num **stack, t_what **storage, int i);
 
-int how_much_nonsort(t_what **storage);
+int how_much_nonsort(t_what **storage, int i);
 int	push_from_b_if_sort(t_what **storage);
 
 int 	sorting_al(t_what **storage);

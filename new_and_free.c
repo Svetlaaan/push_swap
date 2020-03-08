@@ -112,7 +112,7 @@ t_what *new_what()
 	storage->flag_v = 0;
 	storage->flag_kol_op = 0;
 	storage->max = 0;
-	storage->next = 0;
+	storage->next = 1;
 	storage->flag = 0;
 	return (storage);
 }
