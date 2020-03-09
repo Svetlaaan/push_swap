@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.15)
-project(new_push C)
+project(next_try C)
 
 set(CMAKE_C_STANDARD 11)
 
 include_directories(.)
 include_directories(libft)
 
-add_executable(new_push
+add_executable(next_try
         libft/ft_atoi.c
         libft/ft_bzero.c
         libft/ft_cntwrds.c

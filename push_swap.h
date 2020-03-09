@@ -67,5 +67,6 @@ int	push_from_b_if_sort(t_what **storage);
 
 int 	sorting_al(t_what **storage);
 int how_much_sort(t_what **storage);
+void    what_curr_and_max_min(t_what **storage, int *i, int *mid);
 
 #endif //PUSH_SWAP_PUSH_SWAP_H
