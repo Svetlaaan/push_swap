@@ -28,45 +28,56 @@ typedef struct 		s_what{
     int 			flag_v;
     int 			next;
     int 			max;
-    int				flag; // актуальный раз работы в стеке В
+    int 			mid;
+    int				flag; // сколько раз стэк В делился
+    int				argc;
 }                   t_what;
 
+/* all */
 int         save_argv(const char *argv, t_num **num, t_what **storage);
 t_what      *new_what();
 t_num		*new_num(void);
-
 void	    print_stacks(t_num *head_a, t_num *head_b);
 void 		final_free(t_what **storage, t_num **num);
 int 		index_array(t_num **head);
 int     	check_char(char c);
+void    	set_block(t_what **storage);
 
+/* operations */
 int 		s_swap(t_num **head, t_what **storage, char c);
 int         r_rotate(t_num **head, t_num **tail, t_what **storage);
 int         push(char c, t_what **storage);
 int 		rr_reverse(t_num **head, t_num **tail, t_what **storage);
-void		sort_by_blocks(t_what **storage);
-void    	set_block(t_what **storage);
-int			is_sorted_final(t_what *storage);
-int 	is_sorted_rev(t_num *head);
-int 	sort_3_mov_rev(t_what **storage, t_num **head_tmp, t_num **tail_tmp);
 
-int 		sorting(t_what **storage);
+/* check sort */
+int			is_sorted_final(t_what *storage);
 int 		is_sorted(t_num *head);
+
+/* push swap */
+
+/* sort small */
 int 		sorting_three(t_what **storage);
 int 		sorting_five(t_what **storage);
 int 		sorting_two(t_what **storage);
 int 		sorting_four(t_what **storage);
-int 	sorting_five(t_what **storage);
-void 		sort_by_subblocks(t_what **storage, t_num **head_tmp, t_num **tail_tmp);
-int			find_mid(t_num **stack);
-int		find_min(t_num **stack, t_what **storage, int i);
-int		find_max(t_num **stack, t_what **storage, int i);
 
-int how_much_nonsort(t_what **storage, int i);
-int	push_from_b_if_sort(t_what **storage);
+int			find_min(t_num **stack, int i);
+int			find_max(t_num **stack, int i);
 
-int 	sorting_al(t_what **storage);
-int how_much_sort(t_what **storage);
-void    what_curr_and_max_min(t_what **storage, int *i, int *mid);
+int			how_much_nonsort(t_what **storage, int i);
+int			push_from_b_if_sort(t_what **storage);
 
-#endif //PUSH_SWAP_PUSH_SWAP_H
+int 		sorting_al(t_what **storage);
+void    	what_curr_and_max_min(t_what **storage, int *i);//, int *mid);
+
+int 		new_num_storage(t_num **num, t_what **storage);
+int			sort(t_what **storage);
+int 		sort_al_small(t_what **storage);
+
+void 		rotate_while_heada_next(t_what **storage);
+void		rotate_if_next(t_what **storage, t_num **tmp);
+void		if_small_block_in_a(t_what **storage, int count, t_num *tmp);
+void		usual_set_block(t_what **storage, int count, t_num *tmp);
+
+
+#endif

@@ -75,12 +75,12 @@ void	print_stacks(t_num *head_a, t_num *head_b)
     {
         if (tmp_b == NULL && tmp_a)
         {
-            printf("%7i | %7c\n", tmp_a->num, ' '); ///
+            printf("%13i | %7c\n", tmp_a->num, ' '); ///
             tmp_a = tmp_a->next;
         }
         else if (tmp_a == NULL && tmp_b)
         {
-            printf("%7c | %7i\n", ' ', tmp_b->num); ///
+            printf("%13c | %7i\n", ' ', tmp_b->num); ///
             tmp_b = tmp_b->next;
         }
         else if (tmp_a && tmp_b)
@@ -91,7 +91,7 @@ void	print_stacks(t_num *head_a, t_num *head_b)
         }
 
     }
-    printf("%7s | %7s\n", "stack A", "stack B");
+    printf("%13s | %7s\n", "stack A", "stack B");
 }
 
 int s_swap(t_num **head, t_what **storage, char c)

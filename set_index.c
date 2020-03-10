@@ -8,7 +8,7 @@ int index_array(t_num **head)
 	t_num   *tmp;
 	int 	num_amount;
 	int		index;
-	int 	tmp_min; ///// если оставить -1 то ломается проверка на дубли с -1 -1
+	int 	tmp_min; ///// если оставить -1 то ломается проверка на дубли с -1 -1 НАДО ЧТО-ТО ДЕЛАТЬ!!!!!!!!!!!!!!
 
 	min = 0;
 	num_min = NULL;
