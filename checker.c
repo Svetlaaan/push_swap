@@ -1,5 +1,4 @@
 #include "push_swap.h"
-#include <stdio.h>
 
 int 	parse_args(t_what *storage, char *line)
 {
@@ -107,8 +106,7 @@ int 	main(int argc, char **argv)
 			}
 			if (save_argv(argv[i], &new, &storage) == -1)
 			{
-				if (storage->head_a)
-					final_free(&storage, &new);
+				final_free(&storage, &new);
 				return (-1);
 			}
 			argc--;
@@ -124,14 +122,14 @@ int 	main(int argc, char **argv)
 	if ((tmp = valid_and_parse_args(storage)) == 1)
 	{
 		print_stacks(storage->head_a, storage->head_b);
-		printf("\nfinal operations: %d\n", storage->flag_kol_op);
-		printf("OK\n");
+		ft_printf("\nfinal operations: %d\n", storage->flag_kol_op);
+		ft_printf("OK\n");
 	}
 	else if (tmp == -1)
 	{
 		print_stacks(storage->head_a, storage->head_b);
-		printf("\nfinal operations: %d\n", storage->flag_kol_op);
-		printf("KO\n");
+		ft_printf("\nfinal operations: %d\n", storage->flag_kol_op);
+		ft_printf("KO\n");
 	} ///
 	final_free(&storage, &new);
 	return (0);

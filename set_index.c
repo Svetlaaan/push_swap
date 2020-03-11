@@ -1,5 +1,4 @@
 #include "push_swap.h"
-#include <stdio.h>
 
 int index_array(t_num **head)
 {
@@ -8,7 +7,7 @@ int index_array(t_num **head)
 	t_num   *tmp;
 	int 	num_amount;
 	int		index;
-	int 	tmp_min; ///// если оставить -1 то ломается проверка на дубли с -1 -1 НАДО ЧТО-ТО ДЕЛАТЬ!!!!!!!!!!!!!!
+	int 	tmp_min = 100; ///// если оставить -1 то ломается проверка на дубли с -1 -1 НАДО ЧТО-ТО ДЕЛАТЬ!!!!!!!!!!!!!!
 
 	min = 0;
 	num_min = NULL;
@@ -42,11 +41,11 @@ int index_array(t_num **head)
 		}
 		if (min == tmp_min) //////
 		{
-			printf("Error\n");
+			ft_printf("Error\n");
 			return (-1);
 		}
 		num_min->index = index;
-		printf("save num = %d  index = %d\n", num_min->num, num_min->index);
+		ft_printf("save num = %d  index = %d\n", num_min->num, num_min->index);
 		index++;
 		tmp_min = num_min->num;
 	}

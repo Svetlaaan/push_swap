@@ -6,7 +6,7 @@
 /*   By: tamarant <tamarant@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 21:44:24 by tamarant          #+#    #+#             */
-/*   Updated: 2019/12/17 17:43:10 by tamarant         ###   ########.fr       */
+/*   Updated: 2020/03/11 19:07:27 by fboggs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,6 @@ ULL					ft_pow(ULL n, ULL pow);
 LD					ft_pow_double(LD n, ULL pow);
 int					ft_iswhitespace(char c);
 
+int					ft_len_of_number_int(int n);
 
 #endif

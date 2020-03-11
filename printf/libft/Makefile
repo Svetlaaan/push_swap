@@ -6,7 +6,7 @@
 #    By: tamarant <tamarant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/09 18:10:20 by tamarant          #+#    #+#              #
-#    Updated: 2020/02/26 19:47:20 by fboggs           ###   ########.fr        #
+#    Updated: 2020/03/11 19:07:27 by fboggs           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ SRC = ft_putchar.c ft_putstr.c ft_strcmp.c ft_strcpy.c ft_strdup.c \
 	  number_len_ll.c number_len.c number_len_ull.c \
 	  ft_llutoa.c ft_lltoa.c ulltoa_base.c itoa_base.c ft_putnbr_max.c \
 	  to_uppercase.c  ft_ulltoa.c ft_is_minus_inf.c ft_isinf.c ft_isnan.c \
-	  ft_pow.c ft_pow_double.c ft_iswhitespace.c
+	  ft_pow.c ft_pow_double.c ft_iswhitespace.c ft_len_of_number_int.c
 
 
 OBJ = $(SRC:.c=.o)

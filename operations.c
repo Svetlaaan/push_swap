@@ -1,5 +1,50 @@
 #include "push_swap.h"
-#include <stdio.h>
+
+int		find_min(t_num **stack, int i)
+{
+	t_num	*tmp;
+	t_num	*min;
+	int		minimum;
+
+	if (NULL == (*stack))
+		return (0);
+	tmp = (*stack);
+	min = (*stack);
+	minimum = (*stack)->index;
+	while (tmp)
+	{
+		if (tmp->index < minimum && tmp->sort == 0 && tmp->flag_st_b == i)
+		{
+			minimum = tmp->index;
+			min = tmp;
+		}
+		tmp = tmp->next;
+	}
+	return (min->index);
+}
+
+int		find_max(t_num **stack, int i)
+{
+	t_num	*tmp;
+	t_num	*max;
+	int		maxi;
+
+	if ((*stack) == NULL)
+		return (0);
+	tmp = (*stack);
+	max = (*stack);
+	maxi = (*stack)->index;
+	while (tmp)
+	{
+		if (tmp->index > maxi && tmp->sort == 0 && tmp->flag_st_b == i)
+		{
+			maxi = tmp->index;
+			max = tmp;
+		}
+		tmp = tmp->next;
+	}
+	return (max->index);
+}
 
 int push(char c, t_what **storage)
 {
@@ -30,7 +75,10 @@ int push(char c, t_what **storage)
 			(*to)->prev = NULL;
 			(*to)->next = NULL;
 			*from = tmp_next;
-			(*storage)->tail_b = (*to);
+			/*if ((*storage)->stack_b == 1)
+				(*storage)->tail_b = (*storage)->head_b;
+			if ((*storage)->stack_a == 1)
+				(*storage)->tail_a = (*storage)->head_a;*/
 		}
 		else
 		{
@@ -56,6 +104,10 @@ int push(char c, t_what **storage)
 			if ((*storage)->stack_a == 0)
 				(*storage)->tail_a = NULL;
 		}
+		if ((*storage)->stack_b == 1)
+			(*storage)->tail_b = (*storage)->head_b;
+		if ((*storage)->stack_a == 1)
+			(*storage)->tail_a = (*storage)->head_a;
 		(*storage)->flag_kol_op += 1;
 	}
     if ((*storage)->flag_v == 1)
@@ -75,23 +127,23 @@ void	print_stacks(t_num *head_a, t_num *head_b)
     {
         if (tmp_b == NULL && tmp_a)
         {
-            printf("%13i | %7c\n", tmp_a->num, ' '); ///
+			ft_printf("%13i | %7c\n", tmp_a->num, ' '); ///
             tmp_a = tmp_a->next;
         }
         else if (tmp_a == NULL && tmp_b)
         {
-            printf("%13c | %7i\n", ' ', tmp_b->num); ///
+			ft_printf("%13c | %1i\n", ' ', tmp_b->num); ///
             tmp_b = tmp_b->next;
         }
         else if (tmp_a && tmp_b)
         {
-            printf("%7i | %7i\n", tmp_a->num, tmp_b->num); ///
+			ft_printf("%13i | %1i\n", tmp_a->num, tmp_b->num); ///
             tmp_a = tmp_a->next;
             tmp_b = tmp_b->next;
         }
 
     }
-    printf("%13s | %7s\n", "stack A", "stack B");
+	ft_printf("%13s | %7s\n", "stack A", "stack B");
 }
 
 int s_swap(t_num **head, t_what **storage, char c)

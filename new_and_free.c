@@ -1,6 +1,25 @@
 #include "push_swap.h"
-#include <stdio.h>
-#include <libft/libft.h>
+
+void	free_num(t_num *tmp, t_num *tmp_prev)
+{
+	while (tmp)
+	{
+		(tmp_prev) = (tmp)->prev;
+		(tmp)->sign = 0;
+		(tmp)->num = 0;
+		(tmp)->index = 0;
+		(tmp)->flag = 0;
+		(tmp)->sort = 0;
+		(tmp)->flag_st_b = 0;
+		if ((tmp)->next)
+			(tmp)->next = NULL;
+		(tmp)->prev = NULL;
+		free(tmp);  // нужно фришить когда push_swap.c
+		(tmp) = (tmp_prev);
+	}
+	free(tmp);
+	free(tmp_prev);
+}
 
 void 	final_free(t_what **storage, t_num **num)
 {
@@ -21,21 +40,7 @@ void 	final_free(t_what **storage, t_num **num)
 			tmp = (*storage)->tail_a;
 		else
 			tmp = (*storage)->head_a;
-		while (tmp)
-		{
-			tmp_prev = tmp->prev;
-			tmp->sign = 0;
-			tmp->num = 0;
-			tmp->index = 0;
-			tmp->flag = 0;
-			if (tmp->next)
-				tmp->next = NULL;
-			tmp->prev = NULL;
-			free(tmp);  // нужно фришить когда push_swap.c
-			tmp = tmp_prev;
-		}
-		free(tmp);
-		free(tmp_prev);
+		free_num(tmp, tmp_prev);
 	}
 	if ((*storage)->head_b)
 	{
@@ -43,27 +48,15 @@ void 	final_free(t_what **storage, t_num **num)
 			tmp = (*storage)->tail_b;
 		else
 			tmp = (*storage)->head_b;
-		while (tmp)
-		{
-			tmp_prev = tmp->prev;
-			tmp->sign = 0;
-			tmp->num = 0;
-			tmp->index = 0;
-			tmp->flag = 0;
-			if (tmp->next)
-				tmp->next = NULL;
-			tmp->prev = NULL;
-			free(tmp); // нужно фришить когда push_swap.c
-			tmp = tmp_prev;
-		}
-		free(tmp);
-		free(tmp_prev);
+		free_num(tmp, tmp_prev);
 	}
 	else if ((*storage)->head_a == NULL && (*storage)->head_b == NULL)
 	{
-		(*num)->num = -1;
+		(*num)->num = 0;
 		(*num)->sign = 0;
-		(*num)->index = -1;
+		(*num)->index = 0;
+		(*num)->sort = 0;
+		(*num)->flag_st_b = 0;
 		(*num)->next = NULL;
 		(*num)->prev = NULL;
         (*num)->flag = 0;
@@ -74,6 +67,11 @@ void 	final_free(t_what **storage, t_num **num)
 	(*storage)->stack_a = 0;
 	(*storage)->stack_b = 0;
 	(*storage)->curr_stack = 0;
+	(*storage)->next = 0;
+	(*storage)->max = 0;
+	(*storage)->mid = 0;
+	(*storage)->flag = 0;
+	(*storage)->argc = 0;
 	free(*storage);
 }
 
@@ -87,7 +85,6 @@ t_num		*new_num(void)
 	new->num = -1;
 	new->sign = 0;
 	new->index = -1;
-	///new->block = 0;
 	new->next = NULL;
 	new->prev = NULL;
 	new->sort = 0;
@@ -179,10 +176,10 @@ int save_argv(const char *argv, t_num **num, t_what **storage)
 				if ((*num)->num < 0)
 					flag += 1;
 			}
-			printf("save num = %d\n", (*num)->num);
+			ft_printf("save num = %d\n", (*num)->num);
 			if (flag > 1) //////////////////
 				flag = 0;
-			argv += (ft_len_of_number((*num)->num) + flag); // добавила условие в функцию для чисел > 0
+			argv += (ft_len_of_number_int((*num)->num) + flag); // добавила условие в функцию для чисел > 0
 			(*storage)->stack_a += 1;
 			while (ft_iswhitespace(*argv))
 				argv += 1;

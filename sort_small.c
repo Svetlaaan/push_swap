@@ -70,7 +70,7 @@ int 	sorting_three(t_what **storage)
 		if (sort_3_mov(&(*storage), &(*head_tmp), &(*tail_tmp)) == -1)
 			return (-1);
 	}
-	else if ((*storage)->curr_stack == 'B')// && is_sorted((*storage)->head_a) == -1))
+	else if ((*storage)->curr_stack == 'B')
 	{
 		head_tmp = &(*storage)->head_b;
 		tail_tmp = &(*storage)->tail_b;
@@ -131,27 +131,3 @@ int 	sorting_five(t_what **storage)
 		return (1);
 	return (-1);
 }
-
-/*
-int 	sorting_five(t_what **storage) // переписать корректно
-{
-	t_num *tmp = (*storage)->head_a;
-
-	while (tmp)
-	{
-		if (tmp->index == 1 || tmp->index == 2)
-			push('b', &(*storage));
-		tmp = tmp->next;
-	}
-	if ((*storage)->head_b->index < (*storage)->tail_b->index)
-		s_swap(&(*storage)->head_b, &(*storage), 'b');
-	if ((*storage)->curr_stack == 'A' && (*storage)->stack_a == 3)
-		while ((*storage)->stack_b > 0)
-			push('a', &(*storage));
-	if ((*storage)->curr_stack == 'A')
-	{
-		if (is_sorted((*storage)->head_a) == 1)
-			return (1);
-	}
-	return (-1);
-}*/

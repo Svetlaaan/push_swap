@@ -1,12 +1,12 @@
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
-#include "../printf/inc/ft_printf.h"
+#include "./printf/inc/ft_printf.h"
 
 typedef struct 		s_num{
     int             num;
     int             index;
     int				sign;
-    int             flag;
+    int             flag; // если отрицательное
     int 			sort;
     int 			flag_st_b; // сколько раз число было в стеке В
 
@@ -41,7 +41,7 @@ void	    print_stacks(t_num *head_a, t_num *head_b);
 void 		final_free(t_what **storage, t_num **num);
 int 		index_array(t_num **head);
 int     	check_char(char c);
-void    	set_block(t_what **storage);
+void    	split_stack(t_what **storage);
 
 /* operations */
 int 		s_swap(t_num **head, t_what **storage, char c);
@@ -68,7 +68,7 @@ int			how_much_nonsort(t_what **storage, int i);
 int			push_from_b_if_sort(t_what **storage);
 
 int 		sorting_al(t_what **storage);
-void    	what_curr_and_max_min(t_what **storage, int *i);//, int *mid);
+void    	what_curr_and_max_min(t_what **strg, int *i);//, int *mid);
 
 int 		new_num_storage(t_num **num, t_what **storage);
 int			sort(t_what **storage);
@@ -77,7 +77,8 @@ int 		sort_al_small(t_what **storage);
 void 		rotate_while_heada_next(t_what **storage);
 void		rotate_if_next(t_what **storage, t_num **tmp);
 void		if_small_block_in_a(t_what **storage, int count, t_num *tmp);
-void		usual_set_block(t_what **storage, int count, t_num *tmp);
-
+void		usual_split_stack(t_what **strg, int count, t_num *tmp);
+int 		argv_save(t_what **storage, char **argv, int i, t_num **num);
+void		if_small_index_in_usual_alg_split(t_what **strg, t_num **tmp);
 
 #endif
