@@ -123,87 +123,6 @@ push_swap/fast:
 	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/build
 .PHONY : push_swap/fast
 
-check_smthng.o: check_smthng.c.o
-
-.PHONY : check_smthng.o
-
-# target to build an object file
-check_smthng.c.o:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/check_smthng.c.o
-.PHONY : check_smthng.c.o
-
-check_smthng.i: check_smthng.c.i
-
-.PHONY : check_smthng.i
-
-# target to preprocess a source file
-check_smthng.c.i:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/check_smthng.c.i
-.PHONY : check_smthng.c.i
-
-check_smthng.s: check_smthng.c.s
-
-.PHONY : check_smthng.s
-
-# target to generate assembly for a file
-check_smthng.c.s:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/check_smthng.c.s
-.PHONY : check_smthng.c.s
-
-new_and_free.o: new_and_free.c.o
-
-.PHONY : new_and_free.o
-
-# target to build an object file
-new_and_free.c.o:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/new_and_free.c.o
-.PHONY : new_and_free.c.o
-
-new_and_free.i: new_and_free.c.i
-
-.PHONY : new_and_free.i
-
-# target to preprocess a source file
-new_and_free.c.i:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/new_and_free.c.i
-.PHONY : new_and_free.c.i
-
-new_and_free.s: new_and_free.c.s
-
-.PHONY : new_and_free.s
-
-# target to generate assembly for a file
-new_and_free.c.s:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/new_and_free.c.s
-.PHONY : new_and_free.c.s
-
-operations.o: operations.c.o
-
-.PHONY : operations.o
-
-# target to build an object file
-operations.c.o:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/operations.c.o
-.PHONY : operations.c.o
-
-operations.i: operations.c.i
-
-.PHONY : operations.i
-
-# target to preprocess a source file
-operations.c.i:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/operations.c.i
-.PHONY : operations.c.i
-
-operations.s: operations.c.s
-
-.PHONY : operations.s
-
-# target to generate assembly for a file
-operations.c.s:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/operations.c.s
-.PHONY : operations.c.s
-
 printf/libft/ft_atoi.o: printf/libft/ft_atoi.c.o
 
 .PHONY : printf/libft/ft_atoi.o
@@ -2904,113 +2823,194 @@ printf/src/print_check.c.s:
 	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/printf/src/print_check.c.s
 .PHONY : printf/src/print_check.c.s
 
-push_swap.o: push_swap.c.o
+src/check_smthng.o: src/check_smthng.c.o
 
-.PHONY : push_swap.o
-
-# target to build an object file
-push_swap.c.o:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/push_swap.c.o
-.PHONY : push_swap.c.o
-
-push_swap.i: push_swap.c.i
-
-.PHONY : push_swap.i
-
-# target to preprocess a source file
-push_swap.c.i:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/push_swap.c.i
-.PHONY : push_swap.c.i
-
-push_swap.s: push_swap.c.s
-
-.PHONY : push_swap.s
-
-# target to generate assembly for a file
-push_swap.c.s:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/push_swap.c.s
-.PHONY : push_swap.c.s
-
-set_index.o: set_index.c.o
-
-.PHONY : set_index.o
+.PHONY : src/check_smthng.o
 
 # target to build an object file
-set_index.c.o:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/set_index.c.o
-.PHONY : set_index.c.o
+src/check_smthng.c.o:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/check_smthng.c.o
+.PHONY : src/check_smthng.c.o
 
-set_index.i: set_index.c.i
+src/check_smthng.i: src/check_smthng.c.i
 
-.PHONY : set_index.i
+.PHONY : src/check_smthng.i
 
 # target to preprocess a source file
-set_index.c.i:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/set_index.c.i
-.PHONY : set_index.c.i
+src/check_smthng.c.i:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/check_smthng.c.i
+.PHONY : src/check_smthng.c.i
 
-set_index.s: set_index.c.s
+src/check_smthng.s: src/check_smthng.c.s
 
-.PHONY : set_index.s
+.PHONY : src/check_smthng.s
 
 # target to generate assembly for a file
-set_index.c.s:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/set_index.c.s
-.PHONY : set_index.c.s
+src/check_smthng.c.s:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/check_smthng.c.s
+.PHONY : src/check_smthng.c.s
 
-sort_small.o: sort_small.c.o
+src/new_and_free.o: src/new_and_free.c.o
 
-.PHONY : sort_small.o
+.PHONY : src/new_and_free.o
 
 # target to build an object file
-sort_small.c.o:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/sort_small.c.o
-.PHONY : sort_small.c.o
+src/new_and_free.c.o:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/new_and_free.c.o
+.PHONY : src/new_and_free.c.o
 
-sort_small.i: sort_small.c.i
+src/new_and_free.i: src/new_and_free.c.i
 
-.PHONY : sort_small.i
+.PHONY : src/new_and_free.i
 
 # target to preprocess a source file
-sort_small.c.i:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/sort_small.c.i
-.PHONY : sort_small.c.i
+src/new_and_free.c.i:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/new_and_free.c.i
+.PHONY : src/new_and_free.c.i
 
-sort_small.s: sort_small.c.s
+src/new_and_free.s: src/new_and_free.c.s
 
-.PHONY : sort_small.s
+.PHONY : src/new_and_free.s
 
 # target to generate assembly for a file
-sort_small.c.s:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/sort_small.c.s
-.PHONY : sort_small.c.s
+src/new_and_free.c.s:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/new_and_free.c.s
+.PHONY : src/new_and_free.c.s
 
-sorting_al.o: sorting_al.c.o
+src/operations.o: src/operations.c.o
 
-.PHONY : sorting_al.o
+.PHONY : src/operations.o
 
 # target to build an object file
-sorting_al.c.o:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/sorting_al.c.o
-.PHONY : sorting_al.c.o
+src/operations.c.o:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/operations.c.o
+.PHONY : src/operations.c.o
 
-sorting_al.i: sorting_al.c.i
+src/operations.i: src/operations.c.i
 
-.PHONY : sorting_al.i
+.PHONY : src/operations.i
 
 # target to preprocess a source file
-sorting_al.c.i:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/sorting_al.c.i
-.PHONY : sorting_al.c.i
+src/operations.c.i:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/operations.c.i
+.PHONY : src/operations.c.i
 
-sorting_al.s: sorting_al.c.s
+src/operations.s: src/operations.c.s
 
-.PHONY : sorting_al.s
+.PHONY : src/operations.s
 
 # target to generate assembly for a file
-sorting_al.c.s:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/sorting_al.c.s
-.PHONY : sorting_al.c.s
+src/operations.c.s:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/operations.c.s
+.PHONY : src/operations.c.s
+
+src/push_swap.o: src/push_swap.c.o
+
+.PHONY : src/push_swap.o
+
+# target to build an object file
+src/push_swap.c.o:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/push_swap.c.o
+.PHONY : src/push_swap.c.o
+
+src/push_swap.i: src/push_swap.c.i
+
+.PHONY : src/push_swap.i
+
+# target to preprocess a source file
+src/push_swap.c.i:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/push_swap.c.i
+.PHONY : src/push_swap.c.i
+
+src/push_swap.s: src/push_swap.c.s
+
+.PHONY : src/push_swap.s
+
+# target to generate assembly for a file
+src/push_swap.c.s:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/push_swap.c.s
+.PHONY : src/push_swap.c.s
+
+src/set_index.o: src/set_index.c.o
+
+.PHONY : src/set_index.o
+
+# target to build an object file
+src/set_index.c.o:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/set_index.c.o
+.PHONY : src/set_index.c.o
+
+src/set_index.i: src/set_index.c.i
+
+.PHONY : src/set_index.i
+
+# target to preprocess a source file
+src/set_index.c.i:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/set_index.c.i
+.PHONY : src/set_index.c.i
+
+src/set_index.s: src/set_index.c.s
+
+.PHONY : src/set_index.s
+
+# target to generate assembly for a file
+src/set_index.c.s:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/set_index.c.s
+.PHONY : src/set_index.c.s
+
+src/sort_small.o: src/sort_small.c.o
+
+.PHONY : src/sort_small.o
+
+# target to build an object file
+src/sort_small.c.o:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/sort_small.c.o
+.PHONY : src/sort_small.c.o
+
+src/sort_small.i: src/sort_small.c.i
+
+.PHONY : src/sort_small.i
+
+# target to preprocess a source file
+src/sort_small.c.i:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/sort_small.c.i
+.PHONY : src/sort_small.c.i
+
+src/sort_small.s: src/sort_small.c.s
+
+.PHONY : src/sort_small.s
+
+# target to generate assembly for a file
+src/sort_small.c.s:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/sort_small.c.s
+.PHONY : src/sort_small.c.s
+
+src/sorting_al.o: src/sorting_al.c.o
+
+.PHONY : src/sorting_al.o
+
+# target to build an object file
+src/sorting_al.c.o:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/sorting_al.c.o
+.PHONY : src/sorting_al.c.o
+
+src/sorting_al.i: src/sorting_al.c.i
+
+.PHONY : src/sorting_al.i
+
+# target to preprocess a source file
+src/sorting_al.c.i:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/sorting_al.c.i
+.PHONY : src/sorting_al.c.i
+
+src/sorting_al.s: src/sorting_al.c.s
+
+.PHONY : src/sorting_al.s
+
+# target to generate assembly for a file
+src/sorting_al.c.s:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/sorting_al.c.s
+.PHONY : src/sorting_al.c.s
 
 # Help Target
 help:
@@ -3021,15 +3021,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... push_swap"
-	@echo "... check_smthng.o"
-	@echo "... check_smthng.i"
-	@echo "... check_smthng.s"
-	@echo "... new_and_free.o"
-	@echo "... new_and_free.i"
-	@echo "... new_and_free.s"
-	@echo "... operations.o"
-	@echo "... operations.i"
-	@echo "... operations.s"
 	@echo "... printf/libft/ft_atoi.o"
 	@echo "... printf/libft/ft_atoi.i"
 	@echo "... printf/libft/ft_atoi.s"
@@ -3330,18 +3321,27 @@ help:
 	@echo "... printf/src/print_check.o"
 	@echo "... printf/src/print_check.i"
 	@echo "... printf/src/print_check.s"
-	@echo "... push_swap.o"
-	@echo "... push_swap.i"
-	@echo "... push_swap.s"
-	@echo "... set_index.o"
-	@echo "... set_index.i"
-	@echo "... set_index.s"
-	@echo "... sort_small.o"
-	@echo "... sort_small.i"
-	@echo "... sort_small.s"
-	@echo "... sorting_al.o"
-	@echo "... sorting_al.i"
-	@echo "... sorting_al.s"
+	@echo "... src/check_smthng.o"
+	@echo "... src/check_smthng.i"
+	@echo "... src/check_smthng.s"
+	@echo "... src/new_and_free.o"
+	@echo "... src/new_and_free.i"
+	@echo "... src/new_and_free.s"
+	@echo "... src/operations.o"
+	@echo "... src/operations.i"
+	@echo "... src/operations.s"
+	@echo "... src/push_swap.o"
+	@echo "... src/push_swap.i"
+	@echo "... src/push_swap.s"
+	@echo "... src/set_index.o"
+	@echo "... src/set_index.i"
+	@echo "... src/set_index.s"
+	@echo "... src/sort_small.o"
+	@echo "... src/sort_small.i"
+	@echo "... src/sort_small.s"
+	@echo "... src/sorting_al.o"
+	@echo "... src/sorting_al.i"
+	@echo "... src/sorting_al.s"
 .PHONY : help
 
 

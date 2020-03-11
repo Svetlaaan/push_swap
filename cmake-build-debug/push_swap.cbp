@@ -44,7 +44,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/fboggs/Desktop/push_swap/."/>
+					<Add directory="/Users/fboggs/Desktop/push_swap/inc"/>
 					<Add directory="/Users/fboggs/Desktop/push_swap/printf/inc"/>
 					<Add directory="/Users/fboggs/Desktop/push_swap/printf/libft"/>
 					<Add directory="/usr/local/include"/>
@@ -68,7 +68,7 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/fboggs/Desktop/push_swap/."/>
+					<Add directory="/Users/fboggs/Desktop/push_swap/inc"/>
 					<Add directory="/Users/fboggs/Desktop/push_swap/printf/inc"/>
 					<Add directory="/Users/fboggs/Desktop/push_swap/printf/libft"/>
 					<Add directory="/usr/local/include"/>
@@ -86,13 +86,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/fboggs/Desktop/push_swap/check_smthng.c">
-			<Option target="push_swap"/>
-		</Unit>
-		<Unit filename="/Users/fboggs/Desktop/push_swap/new_and_free.c">
-			<Option target="push_swap"/>
-		</Unit>
-		<Unit filename="/Users/fboggs/Desktop/push_swap/operations.c">
+		<Unit filename="/Users/fboggs/Desktop/push_swap/inc/push_swap.h">
 			<Option target="push_swap"/>
 		</Unit>
 		<Unit filename="/Users/fboggs/Desktop/push_swap/printf/inc/ft_printf.h">
@@ -401,19 +395,25 @@
 		<Unit filename="/Users/fboggs/Desktop/push_swap/printf/src/print_check.c">
 			<Option target="push_swap"/>
 		</Unit>
-		<Unit filename="/Users/fboggs/Desktop/push_swap/push_swap.c">
+		<Unit filename="/Users/fboggs/Desktop/push_swap/src/check_smthng.c">
 			<Option target="push_swap"/>
 		</Unit>
-		<Unit filename="/Users/fboggs/Desktop/push_swap/push_swap.h">
+		<Unit filename="/Users/fboggs/Desktop/push_swap/src/new_and_free.c">
 			<Option target="push_swap"/>
 		</Unit>
-		<Unit filename="/Users/fboggs/Desktop/push_swap/set_index.c">
+		<Unit filename="/Users/fboggs/Desktop/push_swap/src/operations.c">
 			<Option target="push_swap"/>
 		</Unit>
-		<Unit filename="/Users/fboggs/Desktop/push_swap/sort_small.c">
+		<Unit filename="/Users/fboggs/Desktop/push_swap/src/push_swap.c">
 			<Option target="push_swap"/>
 		</Unit>
-		<Unit filename="/Users/fboggs/Desktop/push_swap/sorting_al.c">
+		<Unit filename="/Users/fboggs/Desktop/push_swap/src/set_index.c">
+			<Option target="push_swap"/>
+		</Unit>
+		<Unit filename="/Users/fboggs/Desktop/push_swap/src/sort_small.c">
+			<Option target="push_swap"/>
+		</Unit>
+		<Unit filename="/Users/fboggs/Desktop/push_swap/src/sorting_al.c">
 			<Option target="push_swap"/>
 		</Unit>
 		<Unit filename="/Users/fboggs/Desktop/push_swap/CMakeLists.txt">

@@ -1,51 +1,54 @@
 CHECKER = checker
-
 PUSH_SWAP = push_swap
 
-CC = gcc -g -Wall -Wextra -Werror
-
-SRC_DIR = src/
-
-PRINTF_DIR = printf/
-
+HEADER_NAME = push_swap.h
 PRINTF_A = printf/libftprintf.a
 
-OBJ_DIR = obj/
+INC_DIR = ./inc/
+INC_PRINTF = ./printf/inc/
+SRC_DIR = ./src/
+OBJ_DIR = ./obj/
 
-PS_SRC = push_swap.c new_and_free.c operations.c set_index.c \
+PS_SRC_NAME = push_swap.c new_and_free.c operations.c set_index.c \
 sort_small.c sorting_al.c check_smthng.c
 
-CHECKER_SRC = checker.c check_smthng.c new_and_free.c operations.c set_index.c \
-check_smthng.c
+CHECKER_SRC_NAME = checker.c check_smthng.c new_and_free.c operations.c set_index.c \
+sorting_al.c sort_small.c
 
-CHECKER_OBJ = ${CHECKER_SRC:c=o}
+HEADER = $(addprefix $(INC_DIR), $(HEADER_NAME))
 
-PS_OBJ = ${PS_SRC:c=o}
+SRC_PS = $(addprefix $(SRC_DIR), $(PS_SRC_NAME))
+SRC_CHECK = $(addprefix $(SRC_DIR), $(PS_SRC_NAME))
+OBJ_CHECKER = $(addprefix $(OBJ_DIR), $(CHECKER_SRC_NAME:.c=.o))
+OBJ_PS = $(addprefix $(OBJ_DIR), $(PS_SRC_NAME:.c=.o))
+
+CC = gcc
+FLAGS = -Wall -Wextra -Werror
+GCC_PRINTF = -L ./printf -l ftprintf
 
 all: $(CHECKER) $(PUSH_SWAP)
 
-$(addprefix $(OBJ_DIR), %.o): $(SRC_DIR)%.c
-	mkdir -p $(OBJ_DIR)
-	$(CC) -I printf/ -I include/ -c -o $@ $^
+$(PUSH_SWAP): $(OBJ_DIR) $(OBJ_PS) $(PRINTF_A) $(HEADER)
+	$(CC) $(GCC_PRINTF) $(addprefix -I, $(INC_DIR)) $(OBJ_PS) $(FLAGS) -o $(PUSH_SWAP)
 
-$(CHECKER): $(addprefix $(OBJ_DIR), $(CHECKER_OBJ))
-	make -C printf/
-	$(CC) $(addprefix $(OBJ_DIR), $(CHECKER_OBJ)) $(PRINTF_DIR)libftprintf.a -I printf/ -I includes/ -o $(CHECKER)
-	echo "\033[34m$(CHECKER)   was compiled\033[m"
+$(CHECKER): $(OBJ_DIR) $(OBJ_CHECKER) $(PRINTF_A) $(HEADER)
+	$(CC) $(GCC_PRINTF) $(addprefix -I, $(INC_DIR)) $(OBJ_CHECKER) $(FLAGS) -o $(CHECKER)
 
-$(PUSH_SWAP): $(PRINTF_A) $(addprefix $(OBJ_DIR), $(PS_OBJ)) printf/libftprintf.a
-	$(CC) $(addprefix $(OBJ_DIR), $(PS_OBJ)) $(PRINTF_DIR)libftprintf.a -I printf/ -o $(PUSH_SWAP)
-	echo "\033[34m$(PUSH_SWAP) was compiled\033[m"
+$(OBJ_DIR):
+	@mkdir -p obj
 
 $(PRINTF_A):
-    $(MAKE) -C $(PRINTF_DIR)
+	@make -C printf/
+
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(HEADER)
+	$(CC) -c -I $(INC_DIR) -I $(INC_PRINTF) $(FLAGS) $< -o $@
 
 clean:
-	make -C $(PRINTF_DIR) clean
+	make -C ./printf clean
 	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	make -C $(PRINTF_DIR) fclean
+	make -C ./printf fclean
 	rm -f $(CHECKER)
 	echo "\033[31m$(CHECKER)   was deleted"
 	rm -f $(PUSH_SWAP)

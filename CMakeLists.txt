@@ -3,11 +3,12 @@ project(push_swap C)
 
 set(CMAKE_C_STANDARD 11)
 
-include_directories(.)
+include_directories(inc)
 include_directories(printf/inc)
 include_directories(printf/libft)
 
 add_executable(push_swap
+        inc/push_swap.h
         printf/inc/ft_printf.h
         printf/libft/ft_atoi.c
         printf/libft/ft_atoi_base.c
@@ -110,12 +111,10 @@ add_executable(push_swap
         printf/src/pf_free.c
         printf/src/pf_lib.c
         printf/src/print_check.c
-        check_smthng.c
-        #checker.c
-        new_and_free.c
-        operations.c
-        push_swap.c
-        push_swap.h
-        set_index.c
-        sort_small.c
-        sorting_al.c)
+        src/check_smthng.c
+        src/new_and_free.c
+        src/operations.c
+        src/push_swap.c
+        src/set_index.c
+        src/sort_small.c
+        src/sorting_al.c)

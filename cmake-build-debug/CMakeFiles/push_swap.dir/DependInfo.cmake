@@ -4,9 +4,6 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/fboggs/Desktop/push_swap/check_smthng.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/check_smthng.c.o"
-  "/Users/fboggs/Desktop/push_swap/new_and_free.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/new_and_free.c.o"
-  "/Users/fboggs/Desktop/push_swap/operations.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/operations.c.o"
   "/Users/fboggs/Desktop/push_swap/printf/libft/ft_atoi.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/printf/libft/ft_atoi.c.o"
   "/Users/fboggs/Desktop/push_swap/printf/libft/ft_atoi_base.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/printf/libft/ft_atoi_base.c.o"
   "/Users/fboggs/Desktop/push_swap/printf/libft/ft_bzero.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/printf/libft/ft_bzero.c.o"
@@ -107,16 +104,19 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/fboggs/Desktop/push_swap/printf/src/pf_free.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/printf/src/pf_free.c.o"
   "/Users/fboggs/Desktop/push_swap/printf/src/pf_lib.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/printf/src/pf_lib.c.o"
   "/Users/fboggs/Desktop/push_swap/printf/src/print_check.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/printf/src/print_check.c.o"
-  "/Users/fboggs/Desktop/push_swap/push_swap.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/push_swap.c.o"
-  "/Users/fboggs/Desktop/push_swap/set_index.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/set_index.c.o"
-  "/Users/fboggs/Desktop/push_swap/sort_small.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/sort_small.c.o"
-  "/Users/fboggs/Desktop/push_swap/sorting_al.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/sorting_al.c.o"
+  "/Users/fboggs/Desktop/push_swap/src/check_smthng.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/src/check_smthng.c.o"
+  "/Users/fboggs/Desktop/push_swap/src/new_and_free.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/src/new_and_free.c.o"
+  "/Users/fboggs/Desktop/push_swap/src/operations.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/src/operations.c.o"
+  "/Users/fboggs/Desktop/push_swap/src/push_swap.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/src/push_swap.c.o"
+  "/Users/fboggs/Desktop/push_swap/src/set_index.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/src/set_index.c.o"
+  "/Users/fboggs/Desktop/push_swap/src/sort_small.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/src/sort_small.c.o"
+  "/Users/fboggs/Desktop/push_swap/src/sorting_al.c" "/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/push_swap.dir/src/sorting_al.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
-  "../."
+  "../inc"
   "../printf/inc"
   "../printf/libft"
   )
