@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operations.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fboggs <fboggs@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/03/12 19:49:06 by fboggs            #+#    #+#             */
+/*   Updated: 2020/03/12 20:00:28 by fboggs           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/push_swap.h"
 
 int		find_min(t_num **stack, int i)
@@ -46,6 +58,49 @@ int		find_max(t_num **stack, int i)
 	return (max->index);
 }
 
+void	push_alg(t_num **to, t_num **from, t_num *tmp_next, t_num *tmp)
+{
+	if (*to == NULL)
+	{
+		*to = *from;
+		if (tmp_next)
+			tmp_next->prev = NULL;
+		(*to)->prev = NULL;
+		(*to)->next = NULL;
+		*from = tmp_next;
+	}
+	else
+	{
+		if (tmp_next)
+			tmp_next->prev = NULL;
+		tmp->prev = NULL;
+		tmp->next = *to;
+		(*to)->prev = tmp;
+		*to = tmp;
+		*from = tmp_next;
+	}
+}
+
+void	push_alg2(char c, t_what **storage)
+{
+	if (c == 'a')
+	{
+		(*storage)->stack_a += 1;
+		(*storage)->stack_b -= 1;
+		if ((*storage)->stack_b == 0)
+			(*storage)->tail_b = NULL;
+		ft_printf("pa\n");
+	}
+	else if (c == 'b')
+	{
+		(*storage)->stack_a -= 1;
+		(*storage)->stack_b += 1;
+		if ((*storage)->stack_a == 0)
+			(*storage)->tail_a = NULL;
+		ft_printf("pb\n");
+	}
+}
+
 int push(char c, t_what **storage)
 {
     t_num **from;
@@ -53,59 +108,14 @@ int push(char c, t_what **storage)
     t_num *tmp;
     t_num *tmp_next;
 
-    if (c == 'a')
-    {
-        from = &(*storage)->head_b;
-        to = &(*storage)->head_a;
-    }
-    else
-    {
-        from = &(*storage)->head_a;
-        to = &(*storage)->head_b;
-    }
+	from = ((c == 'a') ? (&(*storage)->head_b) : &(*storage)->head_a);
+	to = ((c == 'a') ? (&(*storage)->head_a) : &(*storage)->head_b);
     if (*from)
 	{
 		tmp = *from;
 		tmp_next = (*from)->next;
-		if (*to == NULL)
-		{
-			*to = *from;
-			if (tmp_next)
-				tmp_next->prev = NULL;
-			(*to)->prev = NULL;
-			(*to)->next = NULL;
-			*from = tmp_next;
-			/*if ((*storage)->stack_b == 1)
-				(*storage)->tail_b = (*storage)->head_b;
-			if ((*storage)->stack_a == 1)
-				(*storage)->tail_a = (*storage)->head_a;*/
-		}
-		else
-		{
-			if (tmp_next)
-				tmp_next->prev = NULL;
-			tmp->prev = NULL;
-			tmp->next = *to;
-			(*to)->prev = tmp;
-			*to = tmp;
-			*from = tmp_next;
-		}
-		if (c == 'a')
-		{
-			(*storage)->stack_a += 1;
-			(*storage)->stack_b -= 1;
-			if ((*storage)->stack_b == 0)
-				(*storage)->tail_b = NULL;
-			ft_printf("pa\n");
-		}
-		else if (c == 'b')
-		{
-			(*storage)->stack_a -= 1;
-			(*storage)->stack_b += 1;
-			if ((*storage)->stack_a == 0)
-				(*storage)->tail_a = NULL;
-			ft_printf("pb\n");
-		}
+		push_alg(&(*to), &(*from), tmp_next, tmp);
+		push_alg2(c, &(*storage));
 		if ((*storage)->stack_b == 1)
 			(*storage)->tail_b = (*storage)->head_b;
 		if ((*storage)->stack_a == 1)
@@ -143,7 +153,6 @@ void	print_stacks(t_num *head_a, t_num *head_b)
             tmp_a = tmp_a->next;
             tmp_b = tmp_b->next;
         }
-
     }
 	ft_printf("%13s | %7s\n", "stack A", "stack B");
 }
@@ -181,6 +190,8 @@ int r_rotate(t_num **head, t_num **tail, t_what **storage)
 	t_num *tmp;
 
 	tmp = *head;
+	if ((*storage)->curr_stack == 0)
+		(*storage)->curr_stack = 'A'; ///
 	if ((*head) && (*head)->next)
 	{
 		*head = (*head)->next;
@@ -193,7 +204,7 @@ int r_rotate(t_num **head, t_num **tail, t_what **storage)
 	}
 	if ((*storage)->flag_v == 1)
 		print_stacks((*storage)->head_a, (*storage)->head_b);
-	((*storage)->curr_stack == 'A') ? (ft_printf("ra\n")) : (ft_printf("rb\n"));
+	((*storage)->curr_stack == 'A') ? (ft_printf("ra\n")) : (ft_printf("rb\n")); // error ra = rb. prob with curr_stack
 	return (1);
 }
 

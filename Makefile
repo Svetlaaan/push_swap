@@ -50,8 +50,6 @@ clean:
 fclean: clean
 	make -C ./printf fclean
 	rm -f $(CHECKER)
-	echo "\033[31m$(CHECKER)   was deleted"
 	rm -f $(PUSH_SWAP)
-	echo "$(PUSH_SWAP) was deleted\033[m"
 
 re: fclean all

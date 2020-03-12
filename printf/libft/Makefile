@@ -32,6 +32,7 @@ SRC = ft_putchar.c ft_putstr.c ft_strcmp.c ft_strcpy.c ft_strdup.c \
 	  to_uppercase.c  ft_ulltoa.c ft_is_minus_inf.c ft_isinf.c ft_isnan.c \
 	  ft_pow.c ft_pow_double.c ft_iswhitespace.c ft_len_of_number_int.c \
 
+HEADER = libft.h
 
 OBJ = $(SRC:.c=.o)
 
@@ -39,8 +40,8 @@ FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME):
-				gcc $(FLAGS) -I libft.h -c $(SRC)
+$(NAME): $(HEADER) $(OBJ)
+				gcc $(FLAGS) -I $(HEADER) -c $(SRC)
 				ar rc $(NAME) $(OBJ)
 				ranlib $(NAME)
 

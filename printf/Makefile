@@ -6,7 +6,7 @@
 #    By: tamarant <tamarant@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/17 18:16:44 by tamarant          #+#    #+#              #
-#    Updated: 2019/12/17 20:33:51 by tamarant         ###   ########.fr        #
+#    Updated: 2020/03/12 17:59:46 by fboggs           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,9 +50,10 @@ obj/%.o: src/%.c
 	@mkdir -p obj/
 	@gcc $(FLAGS) -I $(INC) -o $@ -c $<
 
-$(NAME): $(OBJ) check_lib
-	cp $(LIB) $(NAME)
-	ar rc $(NAME) $(OBJ)
+$(NAME): $(OBJ) check_lib $(INC)
+	@cp $(LIB) $(NAME)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
 
 clean:
 	$(MAKE) -C $(LIBFT_DIR) clean

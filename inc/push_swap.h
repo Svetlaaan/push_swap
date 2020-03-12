@@ -5,7 +5,7 @@
 typedef struct 		s_num{
     int             num;
     int             index;
-    int				sign;
+    int				sign; // случай когда число -1
     int             flag; // если отрицательное
     int 			sort;
     int 			flag_st_b; // сколько раз число было в стеке В
@@ -39,14 +39,23 @@ t_what      *new_what();
 t_num		*new_num(void);
 void	    print_stacks(t_num *head_a, t_num *head_b);
 void 		final_free(t_what **storage, t_num **num);
+void		free_stack_a(t_what **storage);
+void		free_num(t_num *tmp, t_num *tmp_prev);
+void		free_stack_b(t_what **storage);
 int 		index_array(t_num **head);
 int     	check_char(char c);
 void    	split_stack(t_what **storage);
+int			save_correct_av(t_what **strg, t_num **num, const char **av, int flag);
+int			save_if_not_empty(t_num **n, const char **av, int *flag, t_what **strg);
+int			save_av_if_empty(t_what **strg, const char **av, int *flag, t_num **num);
+int			what_do_to_save_av(t_what **strg, t_num **n, const char **av, int flag);
 
 /* operations */
 int 		s_swap(t_num **head, t_what **storage, char c);
 int         r_rotate(t_num **head, t_num **tail, t_what **storage);
 int         push(char c, t_what **storage);
+void		push_alg(t_num **to, t_num **from, t_num *tmp_next, t_num *tmp);
+void		push_alg2(char c, t_what **storage);
 int 		rr_reverse(t_num **head, t_num **tail, t_what **storage);
 
 /* check sort */

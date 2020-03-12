@@ -76,10 +76,7 @@ int 	main(int argc, char **argv)
 	int i = 1;
 
 	if (argc < 2)
-	{
-		//ft_putstr("\n");
 		return (0);
-	}
 	else
 	{
 		if (!(new = new_num()))

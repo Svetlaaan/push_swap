@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   new_and_free.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fboggs <fboggs@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/03/12 18:16:14 by fboggs            #+#    #+#             */
+/*   Updated: 2020/03/12 19:48:35 by fboggs           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/push_swap.h"
 
 void	free_num(t_num *tmp, t_num *tmp_prev)
@@ -14,21 +26,24 @@ void	free_num(t_num *tmp, t_num *tmp_prev)
 		if ((tmp)->next)
 			(tmp)->next = NULL;
 		(tmp)->prev = NULL;
-		free(tmp);  // нужно фришить когда push_swap.c
+		free(tmp);
 		(tmp) = (tmp_prev);
 	}
 	free(tmp);
 	free(tmp_prev);
 }
 
-void 	final_free(t_what **storage, t_num **num)
+void	free_stack_a(t_what **storage)
 {
-	t_num *tmp = NULL;
-	t_num *tmp_prev = NULL;
+	t_num *tmp;
+	t_num *tmp_prev;
 
+	tmp = NULL;
+	tmp_prev = NULL;
 	if ((*storage)->head_a)
 	{
-		if ((*storage)->tail_a && (*storage)->tail_a->next && (*storage)->tail_a->next->num == -1)
+		if ((*storage)->tail_a && (*storage)->tail_a->next &&
+		(*storage)->tail_a->next->num == -1)
 		{
 			(*storage)->tail_a->next->num = 0;
 			(*storage)->tail_a->next->index = 0;
@@ -42,6 +57,15 @@ void 	final_free(t_what **storage, t_num **num)
 			tmp = (*storage)->head_a;
 		free_num(tmp, tmp_prev);
 	}
+}
+
+void	free_stack_b(t_what **storage)
+{
+	t_num *tmp;
+	t_num *tmp_prev;
+
+	tmp = NULL;
+	tmp_prev = NULL;
 	if ((*storage)->head_b)
 	{
 		if ((*storage)->tail_b)
@@ -50,18 +74,16 @@ void 	final_free(t_what **storage, t_num **num)
 			tmp = (*storage)->head_b;
 		free_num(tmp, tmp_prev);
 	}
+}
+
+void	final_free(t_what **storage, t_num **num)
+{
+	if ((*storage)->head_a)
+		free_stack_a(&(*storage));
+	if ((*storage)->head_b)
+		free_stack_b(&(*storage));
 	else if ((*storage)->head_a == NULL && (*storage)->head_b == NULL)
-	{
-		(*num)->num = 0;
-		(*num)->sign = 0;
-		(*num)->index = 0;
-		(*num)->sort = 0;
-		(*num)->flag_st_b = 0;
-		(*num)->next = NULL;
-		(*num)->prev = NULL;
-        (*num)->flag = 0;
 		free(*num);
-	}
 	(*storage)->flag_v = 0;
 	(*storage)->flag_kol_op = 0;
 	(*storage)->stack_a = 0;
@@ -75,8 +97,7 @@ void 	final_free(t_what **storage, t_num **num)
 	free(*storage);
 }
 
-
-t_num		*new_num(void)
+t_num	*new_num(void)
 {
 	t_num *new;
 
@@ -93,12 +114,12 @@ t_num		*new_num(void)
 	return (new);
 }
 
-t_what *new_what()
+t_what	*new_what(void)
 {
 	t_what *storage;
 
-	if(!(storage = (t_what*)malloc(sizeof(t_what))))
-		return(NULL);
+	if (!(storage = (t_what*)malloc(sizeof(t_what))))
+		return (NULL);
 	storage->head_a = NULL;
 	storage->head_b = NULL;
 	storage->tail_a = NULL;
@@ -116,76 +137,96 @@ t_what *new_what()
 	return (storage);
 }
 
-int save_argv(const char *argv, t_num **num, t_what **storage)
+int		save_av_if_empty(t_what **strg, const char **av, int *flag, t_num **num)
+{
+	if ((*num)->num == -1 && (*num)->sign == 0)
+	{
+		if (**av == '-')
+		{
+			*flag += 1;
+			*av += 1;
+		}
+		if (((*num)->num = ft_atoi(*av)) == -1)
+		{
+			ft_printf("Error\n");
+			return (-1);
+		}
+		if ((*flag) == 1)
+			(*num)->num *= -1;
+		if ((*num)->num == -1)
+			(*num)->sign = 1;
+		(*strg)->tail_a = (*num);
+		if ((*num)->num < 0)
+			*flag += 1;
+	}
+	return (1);
+}
+
+int		save_if_not_empty(t_num **n, const char **av, int *flag, t_what **strg)
 {
 	t_num *tmp;
-	int flag = 0;
 
-	if (argv == NULL || *num == NULL)
+	if (!((*n)->next = new_num()))
 		return (-1);
-	while (*argv != '\0')
+	tmp = *n;
+	*n = (*n)->next;
+	(*n)->prev = tmp;
+	if (**av == '-')
 	{
-		while (*argv == ' ' || *argv == '\t')
-			argv += 1;
-		if (check_char(*argv)) //нужна ли проверка на пробелы и тд?
+		*flag += 1;
+		*av += 1;
+	}
+	if (((*n)->num = ft_atoi(*av)) == -1)
+	{
+		ft_printf("Error\n");
+		return (-1);
+	}
+	if (*flag == 1)
+		(*n)->num *= -1;
+	if ((*n)->num == -1)
+		(*n)->sign = 1;
+	(*strg)->tail_a = (*n);
+	if ((*n)->num < 0)
+		*flag += 1;
+	return (1);
+}
+
+int		save_correct_av(t_what **strg, t_num **num, const char **av, int flag)
+{
+	if ((*strg)->head_a == NULL)
+		(*strg)->head_a = *num;
+	if ((*num)->num == -1 && (*num)->sign == 0)
+	{
+		if (save_av_if_empty(&(*strg), (&(*av)), &flag, &(*num)) == -1)
+			return (-1);
+	}
+	else
+	{
+		if (save_if_not_empty(&(*num), (&(*av)), &flag, &(*strg)) == -1)
+			return (-1);
+	}
+	if (flag > 1)
+		flag = 0;
+	(*av) += (ft_len_of_number_int((*num)->num) + flag);
+	(*strg)->stack_a += 1;
+	while (ft_iswhitespace(**av))
+		(*av) += 1;
+	return (1);
+}
+
+int		what_do_to_save_av(t_what **strg, t_num **n, const char **av, int flag)
+{
+	while (*av != '\0')
+	{
+		while (ft_iswhitespace(**av))
+			*av += 1;
+		if (check_char(**av))
 		{
-			if ((*storage)->head_a == NULL)
-				(*storage)->head_a = *num;
-			if ((*num)->num == -1 && (*num)->sign == 0)
+			if (save_correct_av(&(*strg), &(*n), &(*av), flag) == -1)
+				return (-1);
+			if (**av == '\0')
 			{
-				if (*argv == '-') ////////////
-				{
-					flag += 1;
-					argv += 1;
-				}
-				if(((*num)->num = ft_atoi(argv)) == -1) ///
-				{
-					printf("Error\n"); //
-					return (-1);
-				}
-				if (flag == 1) ////////////
-					(*num)->num *= -1;
-				if ((*num)->num == -1)
-					(*num)->sign = 1;
-				(*storage)->tail_a = (*num);
-				if ((*num)->num < 0)
-					flag += 1;
-			}
-			else
-			{
-				if (!((*num)->next = new_num()))
-					return (-1);
-				tmp = *num;
-				*num = (*num)->next;
-				(*num)->prev = tmp;
-				if (*argv == '-') ////////////
-				{
-					flag += 1;
-					argv += 1;
-				}
-				if(((*num)->num = ft_atoi(argv)) == -1) //// -1 argv
-				{
-					ft_printf("Error\n"); //
-					return (-1);
-				}
-				if (flag == 1)
-					(*num)->num *= -1;
-				if ((*num)->num == -1)
-					(*num)->sign = 1;
-				(*storage)->tail_a = (*num);
-				if ((*num)->num < 0)
-					flag += 1;
-			}
-			//ft_printf("save num = %d\n", (*num)->num);
-			if (flag > 1) //////////////////
-				flag = 0;
-			argv += (ft_len_of_number_int((*num)->num) + flag); // добавила условие в функцию для чисел > 0
-			(*storage)->stack_a += 1;
-			while (ft_iswhitespace(*argv))
-				argv += 1;
-			if (*argv == '\0')
-			{
-				(*storage)->tail_a = *num;
+				(*strg)->tail_a = *n;
 				break ;
 			}
 		}
@@ -195,5 +236,17 @@ int save_argv(const char *argv, t_num **num, t_what **storage)
 			return (-1);
 		}
 	}
-	return(0); ///
+	return (1);
+}
+
+int		save_argv(const char *argv, t_num **num, t_what **storage)
+{
+	int		flag;
+
+	flag = 0;
+	if (argv == NULL || *num == NULL)
+		return (-1);
+	if (what_do_to_save_av(&(*storage), &(*num), &argv, flag) == -1)
+		return (-1);
+	return (1);
 }
