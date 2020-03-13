@@ -6,7 +6,7 @@
 /*   By: fboggs <fboggs@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/12 18:16:14 by fboggs            #+#    #+#             */
-/*   Updated: 2020/03/12 19:48:35 by fboggs           ###   ########.fr       */
+/*   Updated: 2020/03/13 18:56:51 by fboggs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,7 @@ t_what	*new_what(void)
 	storage->next = 1;
 	storage->flag = 0;
 	storage->argc = 0;
+	storage->push_swap = 0;
 	return (storage);
 }
 
@@ -220,8 +221,13 @@ int		what_do_to_save_av(t_what **strg, t_num **n, const char **av, int flag)
 	{
 		while (ft_iswhitespace(**av))
 			*av += 1;
-		if (check_char(**av))
+		if (check_char(**av, n))
 		{
+			if (**av == '-' && *(*av + 1) == '-')
+			{
+				write(1, "Error\n", 6);
+				return (-1);
+			}
 			if (save_correct_av(&(*strg), &(*n), &(*av), flag) == -1)
 				return (-1);
 			if (**av == '\0')
@@ -247,6 +253,15 @@ int		save_argv(const char *argv, t_num **num, t_what **storage)
 	if (argv == NULL || *num == NULL)
 		return (-1);
 	if (what_do_to_save_av(&(*storage), &(*num), &argv, flag) == -1)
+		return (-1);
+	return (1);
+}
+
+int		new_num_storage(t_num **num, t_what **storage)
+{
+	if (!((*num) = new_num()))
+		return (-1);
+	if (!((*storage) = new_what()))
 		return (-1);
 	return (1);
 }

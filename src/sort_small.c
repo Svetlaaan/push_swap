@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_small.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fboggs <fboggs@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/03/13 17:40:52 by fboggs            #+#    #+#             */
+/*   Updated: 2020/03/13 17:40:56 by fboggs           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/push_swap.h"
 
-int 	sorting_two(t_what **storage)
+int		sorting_two(t_what **storage)
 {
 	if ((*storage)->stack_b == 2)
 	{
@@ -19,7 +31,41 @@ int 	sorting_two(t_what **storage)
 	return (-1);
 }
 
-int 	sort_3_mov(t_what **storage, t_num **head_tmp, t_num **tail_tmp)
+void	three_two_one(t_what **storage, t_num **head_tmp, t_num **tail_tmp)
+{
+	if ((*storage)->curr_stack == 'A')
+		s_swap(&(*head_tmp), &(*storage), 'a');
+	else if ((*storage)->curr_stack == 'B')
+		s_swap(&(*head_tmp), &(*storage), 'b');
+	r_rotate(&(*head_tmp), &(*tail_tmp), &(*storage));
+}
+
+void	sort_three_case_frst(t_what **strg, t_num **head_tmp, t_num **tail_tmp)
+{
+	int	head_tmp_next_i;
+	int	head_tmp_i;
+
+	head_tmp_i = (*head_tmp)->index;
+	head_tmp_next_i = (*head_tmp)->next->index;
+	if (head_tmp_i > head_tmp_next_i && head_tmp_i < (*tail_tmp)->index)
+		s_swap(&(*head_tmp), &(*strg), 'a');
+	else if (head_tmp_i > head_tmp_next_i && head_tmp_i > (*tail_tmp)->index)
+	{
+		if ((*tail_tmp)->index < (*tail_tmp)->prev->index)
+		{
+			s_swap(&(*head_tmp), &(*strg), 'a');
+			rr_reverse(&(*head_tmp), &(*tail_tmp), &(*strg));
+		}
+		else if ((*tail_tmp)->index > (*tail_tmp)->prev->index)
+			r_rotate(&(*head_tmp), &(*tail_tmp), &(*strg));
+	}
+	else if (head_tmp_i < head_tmp_next_i && (*tail_tmp)->index < head_tmp_i)
+		rr_reverse(&(*head_tmp), &(*tail_tmp), &(*strg));
+	else if (head_tmp_i < head_tmp_next_i && (*tail_tmp)->index > head_tmp_i)
+		three_two_one(&(*strg), &(*head_tmp), &(*tail_tmp));
+}
+
+int		sort_3_mov(t_what **storage, t_num **head_tmp, t_num **tail_tmp)
 {
 	if ((*storage)->curr_stack == 'A')
 	{
@@ -31,38 +77,19 @@ int 	sort_3_mov(t_what **storage, t_num **head_tmp, t_num **tail_tmp)
 		if (is_sorted((*storage)->head_b) == 1)
 			return (1);
 	}
-	if ((*head_tmp)->index > (*head_tmp)->next->index && (*head_tmp)->index < (*tail_tmp)->index)
-		s_swap(&(*head_tmp), &(*storage), 'a');
-	else if ((*head_tmp)->index > (*head_tmp)->next->index && (*head_tmp)->index > (*tail_tmp)->index)
-	{
-		if ((*tail_tmp)->index < (*tail_tmp)->prev->index)
-		{
-			s_swap(&(*head_tmp), &(*storage), 'a');
-			rr_reverse(&(*head_tmp), &(*tail_tmp), &(*storage));
-		}
-		else if ((*tail_tmp)->index > (*tail_tmp)->prev->index)
-			r_rotate(&(*head_tmp), &(*tail_tmp), &(*storage));
-	}
-	else if ((*head_tmp)->index < (*head_tmp)->next->index && (*tail_tmp)->index < (*head_tmp)->index)
-		rr_reverse(&(*head_tmp), &(*tail_tmp), &(*storage));
-	else if ((*head_tmp)->index < (*head_tmp)->next->index && (*tail_tmp)->index > (*head_tmp)->index)
-	{
-		if ((*storage)->curr_stack == 'A')
-			s_swap(&(*head_tmp), &(*storage), 'a');
-		else if ((*storage)->curr_stack == 'B')
-			s_swap(&(*head_tmp), &(*storage), 'b');
-		r_rotate(&(*head_tmp), &(*tail_tmp), &(*storage));
-	}
+	sort_three_case_frst(&(*storage), &(*head_tmp), &(*tail_tmp));
 	if (is_sorted(*head_tmp) == 1)
 		return (1);
 	return (-1);
 }
 
-int 	sorting_three(t_what **storage)
+int		sorting_three(t_what **storage)
 {
-	t_num **head_tmp = NULL;
-	t_num **tail_tmp = NULL;
+	t_num **head_tmp;
+	t_num **tail_tmp;
 
+	head_tmp = NULL;
+	tail_tmp = NULL;
 	if ((*storage)->curr_stack == 'A')
 	{
 		head_tmp = &(*storage)->head_a;
@@ -80,7 +107,7 @@ int 	sorting_three(t_what **storage)
 	return (1);
 }
 
-int 	sorting_four(t_what **storage)
+int		sorting_four(t_what **storage)
 {
 	while ((*storage)->head_a)
 	{
@@ -105,7 +132,7 @@ int 	sorting_four(t_what **storage)
 	return (-1);
 }
 
-int 	sorting_five(t_what **storage)
+int		sorting_five(t_what **storage)
 {
 	push('b', &(*storage));
 	push('b', &(*storage));

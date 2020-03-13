@@ -102,7 +102,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/push_swap.dir/src/check_smthng.c.o"
   "CMakeFiles/push_swap.dir/src/new_and_free.c.o"
   "CMakeFiles/push_swap.dir/src/operations.c.o"
-  "CMakeFiles/push_swap.dir/src/checker.c.o"
+  "CMakeFiles/push_swap.dir/src/push_swap.c.o"
   "CMakeFiles/push_swap.dir/src/set_index.c.o"
   "CMakeFiles/push_swap.dir/src/sort_small.c.o"
   "CMakeFiles/push_swap.dir/src/sorting_al.c.o"

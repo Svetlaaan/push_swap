@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fboggs <fboggs@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/03/13 18:18:37 by fboggs            #+#    #+#             */
+/*   Updated: 2020/03/13 19:34:36 by fboggs           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/push_swap.h"
 
 int 	parse_args(t_what *storage, char *line)
@@ -42,7 +54,6 @@ int 	parse_args(t_what *storage, char *line)
 	return (1);
 }
 
-
 int 	valid_and_parse_args(t_what *storage)
 {
 	int 	res;
@@ -58,7 +69,7 @@ int 	valid_and_parse_args(t_what *storage)
 		if (parse_args(storage, line) == -1)
 		{
 			free(line);
-			printf("Error\n");
+			ft_printf("Error\n");
 			return (0);
 		}
 		ft_putendl(line);
@@ -68,70 +79,73 @@ int 	valid_and_parse_args(t_what *storage)
 	return ((is_sorted_final(storage) == 1) ? 1 : -1);
 }
 
+int		argv_save_checker(t_what **storage, char **argv, int i, t_num **new)
+{
+	while ((*storage)->argc > 1)
+	{
+		if ((*storage)->flag_v == 0 && (!(ft_strcmp(argv[i], "-v"))))
+		{
+			(*storage)->flag_v = 1;
+			(*storage)->argc -= 1;
+			i++;
+			if ((*storage)->argc < 2)
+			{
+				final_free(&(*storage), &(*new));
+				return (-1);
+			}
+		}
+		if (save_argv(argv[i], &(*new), &(*storage)) == -1)
+			return (-1);
+		(*storage)->argc -= 1;
+		i++;
+	}
+	return (1);
+}
+
+int		main_alg_checker(t_what **storage, t_num **num, int argc, char **argv)
+{
+	int i;
+
+	i = 1;
+	if (new_num_storage(&(*num), &(*storage)) == -1)
+	{
+		final_free(&(*storage), &(*num));
+		return (-1);
+	}
+	(*storage)->argc = argc;
+	if (argv_save_checker(&(*storage), &(*argv), i, &(*num)) == -1)
+	{
+		final_free(&(*storage), &(*num));
+		return (-1);
+	}
+	if (index_array(&(*storage)->head_a) == -1)
+	{
+		final_free(&(*storage), &(*num));
+		return (-1);
+	}
+	return (1);
+}
+
 int 	main(int argc, char **argv)
 {
 	t_num 	*new;
 	t_what 	*storage;
-	int tmp = 0;
-	int i = 1;
+	int tmp;
 
+	tmp = 0;
 	if (argc < 2)
 		return (0);
 	else
 	{
-		if (!(new = new_num()))
-		{
-			final_free(&storage, &new);
+		if (main_alg_checker(&(storage), &(new), argc, argv) == -1)
 			return (-1);
-		}
-		if (!(storage = new_what()))
-		{
-			final_free(&storage, &new);
-			return (-1);
-		}
-		while (argc > 1)
-		{
-			if (storage->flag_v == 0 && (!(ft_strcmp(argv[i], "-v"))))
-			{
-				storage->flag_v = 1;
-				argc--;
-				i++;
-				if (argc < 2)
-				{
-					final_free(&storage, &new);
-					return (-1);
-				}
-			}
-			if (save_argv(argv[i], &new, &storage) == -1)
-			{
-				final_free(&storage, &new);
-				return (-1);
-			}
-			argc--;
-			i++;
-		}
-		if (index_array(&storage->head_a) == -1)
-		{
-			final_free(&storage, &new);
-			return (-1);
-		}
 	}
-	print_stacks(storage->head_a, storage->head_b);
 	if ((tmp = valid_and_parse_args(storage)) == 1)
-	{
-		print_stacks(storage->head_a, storage->head_b);
-		ft_printf("\nfinal operations: %d\n", storage->flag_kol_op);
 		ft_printf("OK\n");
-	}
 	else if (tmp == -1)
-	{
-		print_stacks(storage->head_a, storage->head_b);
-		ft_printf("\nfinal operations: %d\n", storage->flag_kol_op);
 		ft_printf("KO\n");
-	} ///
 	final_free(&storage, &new);
 	return (0);
 }
 
-/// при запуске теста из сабджекта 3 2 1 0 теряется '3' - DONE - добавлено условие связывания 3 элемента с предыдущим, до этого связь оставалась со старым элементом
-/// течет storage - DONE вроде как -> надо еще потестить!
+//ft_printf("\nfinal operations: %d\n", storage->flag_kol_op);

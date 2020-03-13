@@ -114,8 +114,8 @@ add_executable(push_swap
         src/check_smthng.c
         src/new_and_free.c
         src/operations.c
-        #src/push_swap.c
-        src/checker.c
+        src/push_swap.c
+        # src/checker.c
         src/set_index.c
         src/sort_small.c
         src/sorting_al.c)

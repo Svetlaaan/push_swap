@@ -398,13 +398,13 @@
 		<Unit filename="/Users/fboggs/Desktop/push_swap/src/check_smthng.c">
 			<Option target="push_swap"/>
 		</Unit>
-		<Unit filename="/Users/fboggs/Desktop/push_swap/src/checker.c">
-			<Option target="push_swap"/>
-		</Unit>
 		<Unit filename="/Users/fboggs/Desktop/push_swap/src/new_and_free.c">
 			<Option target="push_swap"/>
 		</Unit>
 		<Unit filename="/Users/fboggs/Desktop/push_swap/src/operations.c">
+			<Option target="push_swap"/>
+		</Unit>
+		<Unit filename="/Users/fboggs/Desktop/push_swap/src/push_swap.c">
 			<Option target="push_swap"/>
 		</Unit>
 		<Unit filename="/Users/fboggs/Desktop/push_swap/src/set_index.c">

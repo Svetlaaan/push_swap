@@ -322,11 +322,6 @@ CMakeFiles/push_swap.dir/src/check_smthng.c.o: ../printf/libft/libft.h
 CMakeFiles/push_swap.dir/src/check_smthng.c.o: ../inc/push_swap.h
 CMakeFiles/push_swap.dir/src/check_smthng.c.o: ../src/check_smthng.c
 
-CMakeFiles/push_swap.dir/src/checker.c.o: ../printf/inc/ft_printf.h
-CMakeFiles/push_swap.dir/src/checker.c.o: ../printf/libft/libft.h
-CMakeFiles/push_swap.dir/src/checker.c.o: ../inc/push_swap.h
-CMakeFiles/push_swap.dir/src/checker.c.o: ../src/checker.c
-
 CMakeFiles/push_swap.dir/src/new_and_free.c.o: ../printf/inc/ft_printf.h
 CMakeFiles/push_swap.dir/src/new_and_free.c.o: ../printf/libft/libft.h
 CMakeFiles/push_swap.dir/src/new_and_free.c.o: ../inc/push_swap.h
@@ -336,6 +331,11 @@ CMakeFiles/push_swap.dir/src/operations.c.o: ../printf/inc/ft_printf.h
 CMakeFiles/push_swap.dir/src/operations.c.o: ../printf/libft/libft.h
 CMakeFiles/push_swap.dir/src/operations.c.o: ../inc/push_swap.h
 CMakeFiles/push_swap.dir/src/operations.c.o: ../src/operations.c
+
+CMakeFiles/push_swap.dir/src/push_swap.c.o: ../printf/inc/ft_printf.h
+CMakeFiles/push_swap.dir/src/push_swap.c.o: ../printf/libft/libft.h
+CMakeFiles/push_swap.dir/src/push_swap.c.o: ../inc/push_swap.h
+CMakeFiles/push_swap.dir/src/push_swap.c.o: ../src/push_swap.c
 
 CMakeFiles/push_swap.dir/src/set_index.c.o: ../printf/inc/ft_printf.h
 CMakeFiles/push_swap.dir/src/set_index.c.o: ../printf/libft/libft.h

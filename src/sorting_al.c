@@ -6,7 +6,7 @@
 /*   By: fboggs <fboggs@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 19:35:03 by fboggs            #+#    #+#             */
-/*   Updated: 2020/03/11 19:35:03 by fboggs           ###   ########.fr       */
+/*   Updated: 2020/03/13 17:47:22 by fboggs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		is_sorted_final(t_what *storage)
 {
 	t_num	*tmp;
-	int 	prev_index;
+	int		prev_index;
 
 	if (storage->head_b != NULL)
 		return (-1);
@@ -33,10 +33,10 @@ int		is_sorted_final(t_what *storage)
 	return (1);
 }
 
-int 	is_sorted(t_num *head)
+int		is_sorted(t_num *head)
 {
 	t_num	*tmp;
-	int 	prev_index;
+	int		prev_index;
 
 	tmp = head->next;
 	prev_index = head->index;
@@ -50,10 +50,10 @@ int 	is_sorted(t_num *head)
 	return (1);
 }
 
-int how_much_nonsort(t_what **storage, int i)
+int		how_much_nonsort(t_what **storage, int i)
 {
-	t_num 	*tmp;
-	int 	len;
+	t_num	*tmp;
+	int		len;
 
 	len = 0;
 	tmp = (*storage)->curr_stack == 'A' ? (*storage)->head_a :
@@ -67,32 +67,32 @@ int how_much_nonsort(t_what **storage, int i)
 	return (len);
 }
 
-void    what_curr_and_max_min(t_what **strg, int *i)
+void	what_curr_and_max_min(t_what **strg, int *i)
 {
-    if ((*strg)->curr_stack == 0 || (*strg)->stack_b == 0)
-    {
-        (*strg)->curr_stack = 'A';
-        if ((*strg)->flag > 0)
-            (*i) = (*strg)->head_a->flag_st_b;
-        (*strg)->next = find_min(&(*strg)->head_a, *i);
-        (*strg)->max = find_max(&(*strg)->head_a, *i);
-        if ((*strg)->flag == 0)
+	if ((*strg)->curr_stack == 0 || (*strg)->stack_b == 0)
+	{
+		(*strg)->curr_stack = 'A';
+		if ((*strg)->flag > 0)
+			(*i) = (*strg)->head_a->flag_st_b;
+		(*strg)->next = find_min(&(*strg)->head_a, *i);
+		(*strg)->max = find_max(&(*strg)->head_a, *i);
+		if ((*strg)->flag == 0)
 			(*strg)->mid = ((*strg)->max / 2) + (*strg)->next;
-        else
+		else
 			(*strg)->mid = ((*strg)->max - (*strg)->next) / 2 + (*strg)->next;
-    }
-    else if ((*strg)->curr_stack != 0)
-    {
-        (*strg)->curr_stack = 'B';
-        (*i) = (*strg)->head_b->flag_st_b;
-        (*strg)->next = find_min(&(*strg)->head_b, *i);////
-        (*strg)->max = find_max(&(*strg)->head_b, *i);
-        if ((*strg)->flag > 0)
+	}
+	else if ((*strg)->curr_stack != 0)
+	{
+		(*strg)->curr_stack = 'B';
+		(*i) = (*strg)->head_b->flag_st_b;
+		(*strg)->next = find_min(&(*strg)->head_b, *i);
+		(*strg)->max = find_max(&(*strg)->head_b, *i);
+		if ((*strg)->flag > 0)
 			(*strg)->mid = ((*strg)->max - (*strg)->next) / 2 + (*strg)->next;
-        else
+		else
 			(*strg)->mid = ((*strg)->max / 2) + (*strg)->next;
-        (*strg)->flag += 1;
-    }
+		(*strg)->flag += 1;
+	}
 }
 
 void	rotate_if_next(t_what **storage, t_num **tmp)
@@ -103,7 +103,7 @@ void	rotate_if_next(t_what **storage, t_num **tmp)
 		push('b', &(*storage));
 }
 
-void 	rotate_while_heada_next(t_what **storage)
+void	rotate_while_heada_next(t_what **storage)
 {
 	r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
 	(*storage)->tail_a->sort = 1;
@@ -159,14 +159,14 @@ void	if_small_block_in_a(t_what **storage, int count, t_num *tmp)
 	}
 }
 
-void    split_stack(t_what **storage)
+void	split_stack(t_what **storage)
 {
-	t_num   *tmp;
-	int     i;
-	int     count;
+	t_num	*tmp;
+	int		i;
+	int		count;
 
 	i = 0;
-    what_curr_and_max_min(&(*storage), &i);
+	what_curr_and_max_min(&(*storage), &i);
 	tmp = ((*storage)->curr_stack == 'A') ? ((*storage)->head_a) :
 			((*storage)->head_b);
 	count = how_much_nonsort(&(*storage), i);
@@ -178,8 +178,8 @@ void    split_stack(t_what **storage)
 		{
 			if ((tmp->flag_st_b == i || tmp->flag_st_b == 0) && tmp->sort == 0)
 				rotate_if_next(&(*storage), &(tmp));
-            tmp = ((*storage)->curr_stack == 'A') ? ((*storage)->head_a) :
-            		((*storage)->head_b);
+			tmp = ((*storage)->curr_stack == 'A') ? ((*storage)->head_a) :
+				((*storage)->head_b);
 		}
 		while ((*storage)->head_a->index == (*storage)->next)
 			rotate_while_heada_next(&(*storage));
@@ -188,21 +188,21 @@ void    split_stack(t_what **storage)
 		usual_split_stack(&(*storage), count, tmp);
 }
 
-int	push_from_b_if_sort(t_what **storage)
+int		push_from_b_if_sort(t_what **storage)
 {
-    t_num *tmp;
+	t_num *tmp;
 
 	if (is_sorted((*storage)->head_b) == 1)
 	{
 		while ((*storage)->stack_b > 0)
 		{
 			push('a', &(*storage));
-            (*storage)->head_a->flag_st_b = (*storage)->flag;
-            tmp = (*storage)->head_a;
-            while (tmp->index == (*storage)->next)
+			(*storage)->head_a->flag_st_b = (*storage)->flag;
+			tmp = (*storage)->head_a;
+			while (tmp->index == (*storage)->next)
 			{
 				rotate_while_heada_next(&(*storage));
-                tmp = (*storage)->head_a;
+				tmp = (*storage)->head_a;
 			}
 		}
 	}
@@ -211,7 +211,7 @@ int	push_from_b_if_sort(t_what **storage)
 	return (1);
 }
 
-int 	sort_al_small(t_what **storage)
+int		sort_al_small(t_what **storage)
 {
 	if ((*storage)->stack_b == 3)
 	{
@@ -234,7 +234,7 @@ int 	sort_al_small(t_what **storage)
 	return (1);
 }
 
-int 	sorting_al(t_what **storage)
+int		sorting_al(t_what **storage)
 {
 	if ((*storage)->stack_a <= 5)
 	{

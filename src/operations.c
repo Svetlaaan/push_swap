@@ -6,7 +6,7 @@
 /*   By: fboggs <fboggs@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/12 19:49:06 by fboggs            #+#    #+#             */
-/*   Updated: 2020/03/12 20:00:28 by fboggs           ###   ########.fr       */
+/*   Updated: 2020/03/13 15:31:14 by fboggs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	push_alg2(char c, t_what **storage)
 		(*storage)->stack_b -= 1;
 		if ((*storage)->stack_b == 0)
 			(*storage)->tail_b = NULL;
-		ft_printf("pa\n");
+		((*storage)->push_swap == 1) ? ft_printf("pa\n") : 0;
 	}
 	else if (c == 'b')
 	{
@@ -97,20 +97,20 @@ void	push_alg2(char c, t_what **storage)
 		(*storage)->stack_b += 1;
 		if ((*storage)->stack_a == 0)
 			(*storage)->tail_a = NULL;
-		ft_printf("pb\n");
+		((*storage)->push_swap == 1) ? ft_printf("pb\n") : 0;
 	}
 }
 
-int push(char c, t_what **storage)
+int		push(char c, t_what **storage)
 {
-    t_num **from;
-    t_num **to;
-    t_num *tmp;
-    t_num *tmp_next;
+	t_num **from;
+	t_num **to;
+	t_num *tmp;
+	t_num *tmp_next;
 
 	from = ((c == 'a') ? (&(*storage)->head_b) : &(*storage)->head_a);
 	to = ((c == 'a') ? (&(*storage)->head_a) : &(*storage)->head_b);
-    if (*from)
+	if (*from)
 	{
 		tmp = *from;
 		tmp_next = (*from)->next;
@@ -122,45 +122,44 @@ int push(char c, t_what **storage)
 			(*storage)->tail_a = (*storage)->head_a;
 		(*storage)->flag_kol_op += 1;
 	}
-    if ((*storage)->flag_v == 1)
+	if ((*storage)->flag_v == 1)
 		print_stacks((*storage)->head_a, (*storage)->head_b);
-    return (1);
+	return (1);
 }
 
 void	print_stacks(t_num *head_a, t_num *head_b)
 {
-    t_num *tmp_a;
-    t_num *tmp_b;
+	t_num *tmp_a;
+	t_num *tmp_b;
 
-    tmp_a = head_a;
-    tmp_b = head_b;
-    printf("\n"); ///
-    while (tmp_a || tmp_b)
-    {
-        if (tmp_b == NULL && tmp_a)
-        {
-			ft_printf("%13i | %7c\n", tmp_a->num, ' '); ///
-            tmp_a = tmp_a->next;
-        }
-        else if (tmp_a == NULL && tmp_b)
-        {
-			ft_printf("%13c | %1i\n", ' ', tmp_b->num); ///
-            tmp_b = tmp_b->next;
-        }
-        else if (tmp_a && tmp_b)
-        {
-			ft_printf("%13i | %1i\n", tmp_a->num, tmp_b->num); ///
-            tmp_a = tmp_a->next;
-            tmp_b = tmp_b->next;
-        }
-    }
+	tmp_a = head_a;
+	tmp_b = head_b;
+	while (tmp_a || tmp_b)
+	{
+		if (tmp_b == NULL && tmp_a)
+		{
+			ft_printf("%13i | %7c\n", tmp_a->num, ' ');
+			tmp_a = tmp_a->next;
+		}
+		else if (tmp_a == NULL && tmp_b)
+		{
+			ft_printf("%13c | %1i\n", ' ', tmp_b->num);
+			tmp_b = tmp_b->next;
+		}
+		else if (tmp_a && tmp_b)
+		{
+			ft_printf("%13i | %1i\n", tmp_a->num, tmp_b->num);
+			tmp_a = tmp_a->next;
+			tmp_b = tmp_b->next;
+		}
+	}
 	ft_printf("%13s | %7s\n", "stack A", "stack B");
 }
 
-int s_swap(t_num **head, t_what **storage, char c)
+int		s_swap(t_num **head, t_what **storage, char c)
 {
 	t_num	*tmp;
-	t_num 	*tmp_next;
+	t_num	*tmp_next;
 
 	if ((*head) && (*head)->next)
 	{
@@ -181,17 +180,18 @@ int s_swap(t_num **head, t_what **storage, char c)
 	}
 	if ((*storage)->flag_v == 1)
 		print_stacks((*storage)->head_a, (*storage)->head_b);
-	(c == 'a') ? (ft_printf("sa\n")) : (ft_printf("sb\n"));
+	if ((*storage)->push_swap == 1)
+		(c == 'a') ? (ft_printf("sa\n")) : (ft_printf("sb\n"));
 	return (1);
 }
 
-int r_rotate(t_num **head, t_num **tail, t_what **storage)
+int		r_rotate(t_num **head, t_num **tail, t_what **storage)
 {
 	t_num *tmp;
 
 	tmp = *head;
 	if ((*storage)->curr_stack == 0)
-		(*storage)->curr_stack = 'A'; ///
+		(*storage)->curr_stack = 'A';
 	if ((*head) && (*head)->next)
 	{
 		*head = (*head)->next;
@@ -204,18 +204,18 @@ int r_rotate(t_num **head, t_num **tail, t_what **storage)
 	}
 	if ((*storage)->flag_v == 1)
 		print_stacks((*storage)->head_a, (*storage)->head_b);
-	((*storage)->curr_stack == 'A') ? (ft_printf("ra\n")) : (ft_printf("rb\n")); // error ra = rb. prob with curr_stack
+	if ((*storage)->push_swap == 1)
+		((*storage)->curr_stack == 'A') ? (ft_printf("ra\n")) : (ft_printf("rb\n"));
 	return (1);
 }
 
-int rr_reverse(t_num **head, t_num **tail, t_what **storage)
+int		rr_reverse(t_num **head, t_num **tail, t_what **storage)
 {
 	t_num *tmp;
 
 	if ((*head) && (*head)->next)
 	{
 		tmp = (*tail);
-
 		*tail = (*tail)->prev;
 		(*tail)->next = NULL;
 		(*head)->prev = tmp;
@@ -226,6 +226,8 @@ int rr_reverse(t_num **head, t_num **tail, t_what **storage)
 	}
 	if ((*storage)->flag_v == 1)
 		print_stacks((*storage)->head_a, (*storage)->head_b);
-	((*storage)->curr_stack == 'A') ? (ft_printf("rra\n")) : (ft_printf("rrb\n"));
+	if ((*storage)->push_swap == 1)
+		((*storage)->curr_stack == 'A') ? (ft_printf("rra\n")) :
+			(ft_printf("rrb\n"));
 	return (1);
 }

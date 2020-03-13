@@ -2850,33 +2850,6 @@ src/check_smthng.c.s:
 	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/check_smthng.c.s
 .PHONY : src/check_smthng.c.s
 
-src/checker.o: src/checker.c.o
-
-.PHONY : src/checker.o
-
-# target to build an object file
-src/checker.c.o:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/checker.c.o
-.PHONY : src/checker.c.o
-
-src/checker.i: src/checker.c.i
-
-.PHONY : src/checker.i
-
-# target to preprocess a source file
-src/checker.c.i:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/checker.c.i
-.PHONY : src/checker.c.i
-
-src/checker.s: src/checker.c.s
-
-.PHONY : src/checker.s
-
-# target to generate assembly for a file
-src/checker.c.s:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/checker.c.s
-.PHONY : src/checker.c.s
-
 src/new_and_free.o: src/new_and_free.c.o
 
 .PHONY : src/new_and_free.o
@@ -2930,6 +2903,33 @@ src/operations.s: src/operations.c.s
 src/operations.c.s:
 	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/operations.c.s
 .PHONY : src/operations.c.s
+
+src/push_swap.o: src/push_swap.c.o
+
+.PHONY : src/push_swap.o
+
+# target to build an object file
+src/push_swap.c.o:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/push_swap.c.o
+.PHONY : src/push_swap.c.o
+
+src/push_swap.i: src/push_swap.c.i
+
+.PHONY : src/push_swap.i
+
+# target to preprocess a source file
+src/push_swap.c.i:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/push_swap.c.i
+.PHONY : src/push_swap.c.i
+
+src/push_swap.s: src/push_swap.c.s
+
+.PHONY : src/push_swap.s
+
+# target to generate assembly for a file
+src/push_swap.c.s:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/push_swap.c.s
+.PHONY : src/push_swap.c.s
 
 src/set_index.o: src/set_index.c.o
 
@@ -3324,15 +3324,15 @@ help:
 	@echo "... src/check_smthng.o"
 	@echo "... src/check_smthng.i"
 	@echo "... src/check_smthng.s"
-	@echo "... src/checker.o"
-	@echo "... src/checker.i"
-	@echo "... src/checker.s"
 	@echo "... src/new_and_free.o"
 	@echo "... src/new_and_free.i"
 	@echo "... src/new_and_free.s"
 	@echo "... src/operations.o"
 	@echo "... src/operations.i"
 	@echo "... src/operations.s"
+	@echo "... src/push_swap.o"
+	@echo "... src/push_swap.i"
+	@echo "... src/push_swap.s"
 	@echo "... src/set_index.o"
 	@echo "... src/set_index.i"
 	@echo "... src/set_index.s"

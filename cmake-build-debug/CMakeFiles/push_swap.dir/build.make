@@ -1396,18 +1396,18 @@ CMakeFiles/push_swap.dir/src/operations.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/push_swap.dir/src/operations.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/fboggs/Desktop/push_swap/src/operations.c -o CMakeFiles/push_swap.dir/src/operations.c.s
 
-CMakeFiles/push_swap.dir/src/checker.c.o: CMakeFiles/push_swap.dir/flags.make
-CMakeFiles/push_swap.dir/src/checker.c.o: ../src/checker.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Building C object CMakeFiles/push_swap.dir/src/checker.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/push_swap.dir/src/checker.c.o   -c /Users/fboggs/Desktop/push_swap/src/checker.c
+CMakeFiles/push_swap.dir/src/push_swap.c.o: CMakeFiles/push_swap.dir/flags.make
+CMakeFiles/push_swap.dir/src/push_swap.c.o: ../src/push_swap.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Building C object CMakeFiles/push_swap.dir/src/push_swap.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/push_swap.dir/src/push_swap.c.o   -c /Users/fboggs/Desktop/push_swap/src/push_swap.c
 
-CMakeFiles/push_swap.dir/src/checker.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/push_swap.dir/src/checker.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/fboggs/Desktop/push_swap/src/checker.c > CMakeFiles/push_swap.dir/src/checker.c.i
+CMakeFiles/push_swap.dir/src/push_swap.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/push_swap.dir/src/push_swap.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/fboggs/Desktop/push_swap/src/push_swap.c > CMakeFiles/push_swap.dir/src/push_swap.c.i
 
-CMakeFiles/push_swap.dir/src/checker.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/push_swap.dir/src/checker.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/fboggs/Desktop/push_swap/src/checker.c -o CMakeFiles/push_swap.dir/src/checker.c.s
+CMakeFiles/push_swap.dir/src/push_swap.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/push_swap.dir/src/push_swap.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/fboggs/Desktop/push_swap/src/push_swap.c -o CMakeFiles/push_swap.dir/src/push_swap.c.s
 
 CMakeFiles/push_swap.dir/src/set_index.c.o: CMakeFiles/push_swap.dir/flags.make
 CMakeFiles/push_swap.dir/src/set_index.c.o: ../src/set_index.c
@@ -1553,7 +1553,7 @@ push_swap_OBJECTS = \
 "CMakeFiles/push_swap.dir/src/check_smthng.c.o" \
 "CMakeFiles/push_swap.dir/src/new_and_free.c.o" \
 "CMakeFiles/push_swap.dir/src/operations.c.o" \
-"CMakeFiles/push_swap.dir/src/checker.c.o" \
+"CMakeFiles/push_swap.dir/src/push_swap.c.o" \
 "CMakeFiles/push_swap.dir/src/set_index.c.o" \
 "CMakeFiles/push_swap.dir/src/sort_small.c.o" \
 "CMakeFiles/push_swap.dir/src/sorting_al.c.o"
@@ -1664,7 +1664,7 @@ push_swap: CMakeFiles/push_swap.dir/printf/src/print_check.c.o
 push_swap: CMakeFiles/push_swap.dir/src/check_smthng.c.o
 push_swap: CMakeFiles/push_swap.dir/src/new_and_free.c.o
 push_swap: CMakeFiles/push_swap.dir/src/operations.c.o
-push_swap: CMakeFiles/push_swap.dir/src/checker.c.o
+push_swap: CMakeFiles/push_swap.dir/src/push_swap.c.o
 push_swap: CMakeFiles/push_swap.dir/src/set_index.c.o
 push_swap: CMakeFiles/push_swap.dir/src/sort_small.c.o
 push_swap: CMakeFiles/push_swap.dir/src/sorting_al.c.o

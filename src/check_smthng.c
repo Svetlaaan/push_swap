@@ -6,15 +6,15 @@
 /*   By: fboggs <fboggs@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/12 18:02:17 by fboggs            #+#    #+#             */
-/*   Updated: 2020/03/12 18:05:37 by fboggs           ###   ########.fr       */
+/*   Updated: 2020/03/13 18:53:56 by fboggs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int		check_char(char c)
+int		check_char(char c, t_num **num)
 {
-	if ((c >= '0' && c <= '9') || c == '-')
+	if ((c >= '0' && c <= '9') || ( c == '-' && (*num)->flag == 0))
 		return (1);
 	return (0);
 }
