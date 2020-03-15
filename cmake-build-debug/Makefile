@@ -2850,32 +2850,86 @@ src/check_smthng.c.s:
 	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/check_smthng.c.s
 .PHONY : src/check_smthng.c.s
 
-src/new_and_free.o: src/new_and_free.c.o
+src/delete.o: src/delete.c.o
 
-.PHONY : src/new_and_free.o
+.PHONY : src/delete.o
 
 # target to build an object file
-src/new_and_free.c.o:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/new_and_free.c.o
-.PHONY : src/new_and_free.c.o
+src/delete.c.o:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/delete.c.o
+.PHONY : src/delete.c.o
 
-src/new_and_free.i: src/new_and_free.c.i
+src/delete.i: src/delete.c.i
 
-.PHONY : src/new_and_free.i
+.PHONY : src/delete.i
 
 # target to preprocess a source file
-src/new_and_free.c.i:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/new_and_free.c.i
-.PHONY : src/new_and_free.c.i
+src/delete.c.i:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/delete.c.i
+.PHONY : src/delete.c.i
 
-src/new_and_free.s: src/new_and_free.c.s
+src/delete.s: src/delete.c.s
 
-.PHONY : src/new_and_free.s
+.PHONY : src/delete.s
 
 # target to generate assembly for a file
-src/new_and_free.c.s:
-	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/new_and_free.c.s
-.PHONY : src/new_and_free.c.s
+src/delete.c.s:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/delete.c.s
+.PHONY : src/delete.c.s
+
+src/help_func.o: src/help_func.c.o
+
+.PHONY : src/help_func.o
+
+# target to build an object file
+src/help_func.c.o:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/help_func.c.o
+.PHONY : src/help_func.c.o
+
+src/help_func.i: src/help_func.c.i
+
+.PHONY : src/help_func.i
+
+# target to preprocess a source file
+src/help_func.c.i:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/help_func.c.i
+.PHONY : src/help_func.c.i
+
+src/help_func.s: src/help_func.c.s
+
+.PHONY : src/help_func.s
+
+# target to generate assembly for a file
+src/help_func.c.s:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/help_func.c.s
+.PHONY : src/help_func.c.s
+
+src/new.o: src/new.c.o
+
+.PHONY : src/new.o
+
+# target to build an object file
+src/new.c.o:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/new.c.o
+.PHONY : src/new.c.o
+
+src/new.i: src/new.c.i
+
+.PHONY : src/new.i
+
+# target to preprocess a source file
+src/new.c.i:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/new.c.i
+.PHONY : src/new.c.i
+
+src/new.s: src/new.c.s
+
+.PHONY : src/new.s
+
+# target to generate assembly for a file
+src/new.c.s:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/new.c.s
+.PHONY : src/new.c.s
 
 src/operations.o: src/operations.c.o
 
@@ -2931,6 +2985,60 @@ src/push_swap.c.s:
 	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/push_swap.c.s
 .PHONY : src/push_swap.c.s
 
+src/rotate_if.o: src/rotate_if.c.o
+
+.PHONY : src/rotate_if.o
+
+# target to build an object file
+src/rotate_if.c.o:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/rotate_if.c.o
+.PHONY : src/rotate_if.c.o
+
+src/rotate_if.i: src/rotate_if.c.i
+
+.PHONY : src/rotate_if.i
+
+# target to preprocess a source file
+src/rotate_if.c.i:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/rotate_if.c.i
+.PHONY : src/rotate_if.c.i
+
+src/rotate_if.s: src/rotate_if.c.s
+
+.PHONY : src/rotate_if.s
+
+# target to generate assembly for a file
+src/rotate_if.c.s:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/rotate_if.c.s
+.PHONY : src/rotate_if.c.s
+
+src/save_argv.o: src/save_argv.c.o
+
+.PHONY : src/save_argv.o
+
+# target to build an object file
+src/save_argv.c.o:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/save_argv.c.o
+.PHONY : src/save_argv.c.o
+
+src/save_argv.i: src/save_argv.c.i
+
+.PHONY : src/save_argv.i
+
+# target to preprocess a source file
+src/save_argv.c.i:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/save_argv.c.i
+.PHONY : src/save_argv.c.i
+
+src/save_argv.s: src/save_argv.c.s
+
+.PHONY : src/save_argv.s
+
+# target to generate assembly for a file
+src/save_argv.c.s:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/save_argv.c.s
+.PHONY : src/save_argv.c.s
+
 src/set_index.o: src/set_index.c.o
 
 .PHONY : src/set_index.o
@@ -2957,6 +3065,33 @@ src/set_index.s: src/set_index.c.s
 src/set_index.c.s:
 	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/set_index.c.s
 .PHONY : src/set_index.c.s
+
+src/sort_help.o: src/sort_help.c.o
+
+.PHONY : src/sort_help.o
+
+# target to build an object file
+src/sort_help.c.o:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/sort_help.c.o
+.PHONY : src/sort_help.c.o
+
+src/sort_help.i: src/sort_help.c.i
+
+.PHONY : src/sort_help.i
+
+# target to preprocess a source file
+src/sort_help.c.i:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/sort_help.c.i
+.PHONY : src/sort_help.c.i
+
+src/sort_help.s: src/sort_help.c.s
+
+.PHONY : src/sort_help.s
+
+# target to generate assembly for a file
+src/sort_help.c.s:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/sort_help.c.s
+.PHONY : src/sort_help.c.s
 
 src/sort_small.o: src/sort_small.c.o
 
@@ -3324,18 +3459,33 @@ help:
 	@echo "... src/check_smthng.o"
 	@echo "... src/check_smthng.i"
 	@echo "... src/check_smthng.s"
-	@echo "... src/new_and_free.o"
-	@echo "... src/new_and_free.i"
-	@echo "... src/new_and_free.s"
+	@echo "... src/delete.o"
+	@echo "... src/delete.i"
+	@echo "... src/delete.s"
+	@echo "... src/help_func.o"
+	@echo "... src/help_func.i"
+	@echo "... src/help_func.s"
+	@echo "... src/new.o"
+	@echo "... src/new.i"
+	@echo "... src/new.s"
 	@echo "... src/operations.o"
 	@echo "... src/operations.i"
 	@echo "... src/operations.s"
 	@echo "... src/push_swap.o"
 	@echo "... src/push_swap.i"
 	@echo "... src/push_swap.s"
+	@echo "... src/rotate_if.o"
+	@echo "... src/rotate_if.i"
+	@echo "... src/rotate_if.s"
+	@echo "... src/save_argv.o"
+	@echo "... src/save_argv.i"
+	@echo "... src/save_argv.s"
 	@echo "... src/set_index.o"
 	@echo "... src/set_index.i"
 	@echo "... src/set_index.s"
+	@echo "... src/sort_help.o"
+	@echo "... src/sort_help.i"
+	@echo "... src/sort_help.s"
 	@echo "... src/sort_small.o"
 	@echo "... src/sort_small.i"
 	@echo "... src/sort_small.s"

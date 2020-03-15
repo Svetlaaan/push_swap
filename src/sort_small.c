@@ -6,7 +6,7 @@
 /*   By: fboggs <fboggs@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 17:40:52 by fboggs            #+#    #+#             */
-/*   Updated: 2020/03/13 17:40:56 by fboggs           ###   ########.fr       */
+/*   Updated: 2020/03/15 15:10:41 by fboggs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,6 @@ int		sorting_two(t_what **storage)
 			return (1);
 	}
 	return (-1);
-}
-
-void	three_two_one(t_what **storage, t_num **head_tmp, t_num **tail_tmp)
-{
-	if ((*storage)->curr_stack == 'A')
-		s_swap(&(*head_tmp), &(*storage), 'a');
-	else if ((*storage)->curr_stack == 'B')
-		s_swap(&(*head_tmp), &(*storage), 'b');
-	r_rotate(&(*head_tmp), &(*tail_tmp), &(*storage));
 }
 
 void	sort_three_case_frst(t_what **strg, t_num **head_tmp, t_num **tail_tmp)
@@ -63,24 +54,6 @@ void	sort_three_case_frst(t_what **strg, t_num **head_tmp, t_num **tail_tmp)
 		rr_reverse(&(*head_tmp), &(*tail_tmp), &(*strg));
 	else if (head_tmp_i < head_tmp_next_i && (*tail_tmp)->index > head_tmp_i)
 		three_two_one(&(*strg), &(*head_tmp), &(*tail_tmp));
-}
-
-int		sort_3_mov(t_what **storage, t_num **head_tmp, t_num **tail_tmp)
-{
-	if ((*storage)->curr_stack == 'A')
-	{
-		if (is_sorted((*storage)->head_a) == 1)
-			return (1);
-	}
-	else if ((*storage)->curr_stack == 'B')
-	{
-		if (is_sorted((*storage)->head_b) == 1)
-			return (1);
-	}
-	sort_three_case_frst(&(*storage), &(*head_tmp), &(*tail_tmp));
-	if (is_sorted(*head_tmp) == 1)
-		return (1);
-	return (-1);
 }
 
 int		sorting_three(t_what **storage)

@@ -198,12 +198,6 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 ProcessorCount_cmd_sysctl:FILEPATH=/usr/sbin/sysctl
 
 //Value Computed by CMake
-cmake-build-debug/push_swap_BINARY_DIR:STATIC=/Users/fboggs/Desktop/push_swap/cmake-build-debug
-
-//Value Computed by CMake
-cmake-build-debug/push_swap_SOURCE_DIR:STATIC=/Users/fboggs/Desktop/push_swap
-
-//Value Computed by CMake
 push_swap_BINARY_DIR:STATIC=/Users/fboggs/Desktop/push_swap/cmake-build-debug
 
 //Value Computed by CMake

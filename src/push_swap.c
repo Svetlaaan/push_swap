@@ -58,6 +58,7 @@ int		main_alg(t_what **storage, t_num **num, int argc, char **argv)
 			final_free(&(*storage), &(*num));
 			return (-1);
 		}
+		ft_printf("\nOK");
 		final_free(&(*storage), &(*num));
 		return (1);
 	}

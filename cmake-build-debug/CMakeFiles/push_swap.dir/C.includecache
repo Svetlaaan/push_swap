@@ -34,6 +34,10 @@ limits.h
 ft_printf.h
 /Users/fboggs/Desktop/push_swap/inc/ft_printf.h
 
+/Users/fboggs/Desktop/push_swap/src/operations.c
+../inc/push_swap.h
+/Users/fboggs/Desktop/push_swap/inc/push_swap.h
+
 /Users/fboggs/Desktop/push_swap/src/push_swap.c
 ../inc/push_swap.h
 /Users/fboggs/Desktop/push_swap/inc/push_swap.h

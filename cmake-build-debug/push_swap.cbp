@@ -398,7 +398,13 @@
 		<Unit filename="/Users/fboggs/Desktop/push_swap/src/check_smthng.c">
 			<Option target="push_swap"/>
 		</Unit>
-		<Unit filename="/Users/fboggs/Desktop/push_swap/src/new_and_free.c">
+		<Unit filename="/Users/fboggs/Desktop/push_swap/src/delete.c">
+			<Option target="push_swap"/>
+		</Unit>
+		<Unit filename="/Users/fboggs/Desktop/push_swap/src/help_func.c">
+			<Option target="push_swap"/>
+		</Unit>
+		<Unit filename="/Users/fboggs/Desktop/push_swap/src/new.c">
 			<Option target="push_swap"/>
 		</Unit>
 		<Unit filename="/Users/fboggs/Desktop/push_swap/src/operations.c">
@@ -407,7 +413,16 @@
 		<Unit filename="/Users/fboggs/Desktop/push_swap/src/push_swap.c">
 			<Option target="push_swap"/>
 		</Unit>
+		<Unit filename="/Users/fboggs/Desktop/push_swap/src/rotate_if.c">
+			<Option target="push_swap"/>
+		</Unit>
+		<Unit filename="/Users/fboggs/Desktop/push_swap/src/save_argv.c">
+			<Option target="push_swap"/>
+		</Unit>
 		<Unit filename="/Users/fboggs/Desktop/push_swap/src/set_index.c">
+			<Option target="push_swap"/>
+		</Unit>
+		<Unit filename="/Users/fboggs/Desktop/push_swap/src/sort_help.c">
 			<Option target="push_swap"/>
 		</Unit>
 		<Unit filename="/Users/fboggs/Desktop/push_swap/src/sort_small.c">

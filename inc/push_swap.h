@@ -6,14 +6,13 @@
 /*   By: fboggs <fboggs@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 17:59:01 by fboggs            #+#    #+#             */
-/*   Updated: 2020/03/13 18:52:04 by fboggs           ###   ########.fr       */
+/*   Updated: 2020/03/15 17:21:57 by fboggs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "ft_printf.h"
-
 
 typedef struct		s_num{
 	int				num;
@@ -44,7 +43,7 @@ typedef struct		s_what{
 	int				mid;
 	int				flag;
 	int				argc;
-	int 			push_swap;
+	int				push_swap;
 }					t_what;
 
 int					save_argv(const char *argv, t_num **num, t_what **storage);
@@ -60,7 +59,7 @@ int					indexing(t_num **tmp, t_num **head, int *index,
 		long long *tmp_min);
 int					check_dup(long long *min, long long *t_mn,
 		t_num **n_mn, int *i);
-int					check_char(char c, t_num **num);
+int					check_char(char c, const char **av);
 void				split_stack(t_what **storage);
 int					save_correct_av(t_what **strg, t_num **n, const char **av,
 		int f);
@@ -115,5 +114,17 @@ int					argv_save(t_what **storage, char **argv, int i,
 		t_num **num);
 void				if_small_index_in_usual_alg_split(t_what **strg,
 		t_num **tmp);
+
+int					parse_args_if_swap(char **line, t_what **storage);
+int					parse_args_if_rotate(char **line, t_what **strg);
+int					parse_args_if_rev_rotate(char **line, t_what **strg);
+int					parse_args(t_what *strg, char *line);
+int					valid_and_parse_args(t_what *storage);
+int					argv_save_checker(t_what **storage, char **argv, int i,
+		t_num **new);
+int					main_alg_checker(t_what **storage, t_num **num, int argc,
+		char **argv);
+int					ps_atoi(const char *str, int minus);
+void				save_if_minus(const char **av, int *flag, int *minus);
 
 #endif

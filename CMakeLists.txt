@@ -112,10 +112,15 @@ add_executable(push_swap
         printf/src/pf_lib.c
         printf/src/print_check.c
         src/check_smthng.c
-        src/new_and_free.c
+        # src/checker.c
+        src/delete.c
+        src/help_func.c
+        src/new.c
         src/operations.c
         src/push_swap.c
-        # src/checker.c
+        src/rotate_if.c
+        src/save_argv.c
         src/set_index.c
+        src/sort_help.c
         src/sort_small.c
         src/sorting_al.c)

@@ -6,7 +6,7 @@
 /*   By: fboggs <fboggs@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 16:46:47 by fboggs            #+#    #+#             */
-/*   Updated: 2020/03/11 19:07:27 by fboggs           ###   ########.fr       */
+/*   Updated: 2020/03/15 17:26:26 by fboggs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int		gnl_line(char **text, char **line, const int fd)
 	else if (text[fd][len] == '\n')
 	{
 		if (!(*line = ft_strsub(text[fd], 0, len)))
-			return (-1); ///
+			return (-1);
 		tmp = ft_strdup(text[fd] + len + 1);
 		ft_memdel((void **)&text[fd]);
 		text[fd] = tmp;

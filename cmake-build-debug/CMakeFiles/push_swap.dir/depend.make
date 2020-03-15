@@ -322,10 +322,20 @@ CMakeFiles/push_swap.dir/src/check_smthng.c.o: ../printf/libft/libft.h
 CMakeFiles/push_swap.dir/src/check_smthng.c.o: ../inc/push_swap.h
 CMakeFiles/push_swap.dir/src/check_smthng.c.o: ../src/check_smthng.c
 
-CMakeFiles/push_swap.dir/src/new_and_free.c.o: ../printf/inc/ft_printf.h
-CMakeFiles/push_swap.dir/src/new_and_free.c.o: ../printf/libft/libft.h
-CMakeFiles/push_swap.dir/src/new_and_free.c.o: ../inc/push_swap.h
-CMakeFiles/push_swap.dir/src/new_and_free.c.o: ../src/new_and_free.c
+CMakeFiles/push_swap.dir/src/delete.c.o: ../inc/push_swap.h
+CMakeFiles/push_swap.dir/src/delete.c.o: ../printf/inc/ft_printf.h
+CMakeFiles/push_swap.dir/src/delete.c.o: ../printf/libft/libft.h
+CMakeFiles/push_swap.dir/src/delete.c.o: ../src/delete.c
+
+CMakeFiles/push_swap.dir/src/help_func.c.o: ../printf/inc/ft_printf.h
+CMakeFiles/push_swap.dir/src/help_func.c.o: ../printf/libft/libft.h
+CMakeFiles/push_swap.dir/src/help_func.c.o: ../inc/push_swap.h
+CMakeFiles/push_swap.dir/src/help_func.c.o: ../src/help_func.c
+
+CMakeFiles/push_swap.dir/src/new.c.o: ../printf/inc/ft_printf.h
+CMakeFiles/push_swap.dir/src/new.c.o: ../printf/libft/libft.h
+CMakeFiles/push_swap.dir/src/new.c.o: ../inc/push_swap.h
+CMakeFiles/push_swap.dir/src/new.c.o: ../src/new.c
 
 CMakeFiles/push_swap.dir/src/operations.c.o: ../printf/inc/ft_printf.h
 CMakeFiles/push_swap.dir/src/operations.c.o: ../printf/libft/libft.h
@@ -337,10 +347,25 @@ CMakeFiles/push_swap.dir/src/push_swap.c.o: ../printf/libft/libft.h
 CMakeFiles/push_swap.dir/src/push_swap.c.o: ../inc/push_swap.h
 CMakeFiles/push_swap.dir/src/push_swap.c.o: ../src/push_swap.c
 
+CMakeFiles/push_swap.dir/src/rotate_if.c.o: ../printf/inc/ft_printf.h
+CMakeFiles/push_swap.dir/src/rotate_if.c.o: ../printf/libft/libft.h
+CMakeFiles/push_swap.dir/src/rotate_if.c.o: ../inc/push_swap.h
+CMakeFiles/push_swap.dir/src/rotate_if.c.o: ../src/rotate_if.c
+
+CMakeFiles/push_swap.dir/src/save_argv.c.o: ../printf/inc/ft_printf.h
+CMakeFiles/push_swap.dir/src/save_argv.c.o: ../printf/libft/libft.h
+CMakeFiles/push_swap.dir/src/save_argv.c.o: ../inc/push_swap.h
+CMakeFiles/push_swap.dir/src/save_argv.c.o: ../src/save_argv.c
+
 CMakeFiles/push_swap.dir/src/set_index.c.o: ../printf/inc/ft_printf.h
 CMakeFiles/push_swap.dir/src/set_index.c.o: ../printf/libft/libft.h
 CMakeFiles/push_swap.dir/src/set_index.c.o: ../inc/push_swap.h
 CMakeFiles/push_swap.dir/src/set_index.c.o: ../src/set_index.c
+
+CMakeFiles/push_swap.dir/src/sort_help.c.o: ../printf/inc/ft_printf.h
+CMakeFiles/push_swap.dir/src/sort_help.c.o: ../printf/libft/libft.h
+CMakeFiles/push_swap.dir/src/sort_help.c.o: ../inc/push_swap.h
+CMakeFiles/push_swap.dir/src/sort_help.c.o: ../src/sort_help.c
 
 CMakeFiles/push_swap.dir/src/sort_small.c.o: ../printf/inc/ft_printf.h
 CMakeFiles/push_swap.dir/src/sort_small.c.o: ../printf/libft/libft.h

@@ -6,58 +6,36 @@
 /*   By: fboggs <fboggs@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 18:18:37 by fboggs            #+#    #+#             */
-/*   Updated: 2020/03/13 19:34:36 by fboggs           ###   ########.fr       */
+/*   Updated: 2020/03/15 16:12:07 by fboggs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int 	parse_args(t_what *storage, char *line)
+int		parse_args(t_what *strg, char *line)
 {
 	if (line == NULL)
 		return (0);
-	if (!(ft_strcmp("sa", line)))
-		return (s_swap(&storage->head_a, &storage, 'a'));
-	else if (!(ft_strcmp("sb", line)))
-		return (s_swap(&storage->head_b, &storage, 'b'));
-	else if (!(ft_strcmp("ss", line)))
-	{
-		if (s_swap(&storage->head_a, &storage, 'a') && s_swap(&storage->head_b, &storage, 'b'))
-			return (1);
-	}
+	if (!(ft_strcmp("sa", line)) || !(ft_strcmp("sb", line)) ||
+		!(ft_strcmp("ss", line)))
+		return (parse_args_if_swap(&line, &(strg)));
 	else if (!(ft_strcmp("pa", line)))
-		return (push('a', &storage));
+		return (push('a', &strg));
 	else if (!(ft_strcmp("pb", line)))
-		return (push('b', &storage));
-	else if (!(ft_strcmp("ra", line)))
-		return (r_rotate(&storage->head_a, &storage->tail_a, &storage));
-	else if (!(ft_strcmp("rb", line)))
-		return (r_rotate(&storage->head_b, &storage->tail_b, &storage));
-	else if (!(ft_strcmp("rr", line)))
-	{
-		if (r_rotate(&storage->head_a, &storage->tail_a, &storage)
-			&& r_rotate(&storage->head_b, &storage->tail_b, &storage))
-			return (1);
-	}
-	else if (!(ft_strcmp("rra", line)))
-		return (rr_reverse(&storage->head_a, &storage->tail_a, &storage));
-	else if (!(ft_strcmp("rrb", line)))
-		return (rr_reverse(&storage->head_b, &storage->tail_b, &storage));
-	else if (!(ft_strcmp("rrr", line)))
-	{
-		if (rr_reverse(&storage->head_a, &storage->tail_a, &storage)
-			&& rr_reverse(&storage->head_b, &storage->tail_b, &storage))
-			return (1);
-	}
-	else
-		return (-1);
-	return (1);
+		return (push('b', &strg));
+	else if (!(ft_strcmp("ra", line)) || !(ft_strcmp("rb", line)) ||
+		!(ft_strcmp("rr", line)))
+		return (parse_args_if_rotate(&line, &(strg)));
+	else if (!(ft_strcmp("rra", line)) || !(ft_strcmp("rrb", line)) ||
+		!(ft_strcmp("rrr", line)))
+		return (parse_args_if_rev_rotate(&line, &(strg)));
+	return (-1);
 }
 
-int 	valid_and_parse_args(t_what *storage)
+int		valid_and_parse_args(t_what *storage)
 {
-	int 	res;
-	char 	*line;
+	int		res;
+	char	*line;
 
 	while ((res = get_next_line(0, &line)) > 0)
 	{
@@ -72,7 +50,6 @@ int 	valid_and_parse_args(t_what *storage)
 			ft_printf("Error\n");
 			return (0);
 		}
-		ft_putendl(line);
 		free(line);
 		line = NULL;
 	}
@@ -126,11 +103,11 @@ int		main_alg_checker(t_what **storage, t_num **num, int argc, char **argv)
 	return (1);
 }
 
-int 	main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
-	t_num 	*new;
-	t_what 	*storage;
-	int tmp;
+	t_num	*new;
+	t_what	*storage;
+	int		tmp;
 
 	tmp = 0;
 	if (argc < 2)
@@ -147,5 +124,3 @@ int 	main(int argc, char **argv)
 	final_free(&storage, &new);
 	return (0);
 }
-
-//ft_printf("\nfinal operations: %d\n", storage->flag_kol_op);
