@@ -6,7 +6,7 @@
 /*   By: fboggs <fboggs@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 17:59:01 by fboggs            #+#    #+#             */
-/*   Updated: 2020/03/15 17:21:57 by fboggs           ###   ########.fr       */
+/*   Updated: 2020/03/16 19:59:12 by fboggs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,5 +126,8 @@ int					main_alg_checker(t_what **storage, t_num **num, int argc,
 		char **argv);
 int					ps_atoi(const char *str, int minus);
 void				save_if_minus(const char **av, int *flag, int *minus);
+void				print_a_b_stacks(t_num *head_a, t_num *head_b);
+void				output_stacks(t_what **storage);
+void				sorting_alg_five(t_what **storage);
 
 #endif

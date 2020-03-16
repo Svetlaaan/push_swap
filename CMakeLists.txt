@@ -123,4 +123,5 @@ add_executable(push_swap
         src/set_index.c
         src/sort_help.c
         src/sort_small.c
+        src/help_sort.c
         src/sorting_al.c)

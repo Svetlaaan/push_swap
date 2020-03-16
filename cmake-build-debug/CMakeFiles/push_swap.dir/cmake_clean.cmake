@@ -110,6 +110,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/push_swap.dir/src/set_index.c.o"
   "CMakeFiles/push_swap.dir/src/sort_help.c.o"
   "CMakeFiles/push_swap.dir/src/sort_small.c.o"
+  "CMakeFiles/push_swap.dir/src/help_sort.c.o"
   "CMakeFiles/push_swap.dir/src/sorting_al.c.o"
   "push_swap.pdb"
   "push_swap"

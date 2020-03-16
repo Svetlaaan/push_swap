@@ -48,10 +48,10 @@ RM = /Users/fboggs/Desktop/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/fboggs/Desktop/push_swap
+CMAKE_SOURCE_DIR = /Users/fboggs/Desktop/new_push_swap
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/fboggs/Desktop/push_swap/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/fboggs/Desktop/new_push_swap/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles /Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/fboggs/Desktop/new_push_swap/cmake-build-debug/CMakeFiles /Users/fboggs/Desktop/new_push_swap/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/fboggs/Desktop/push_swap/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/fboggs/Desktop/new_push_swap/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -2904,6 +2904,33 @@ src/help_func.c.s:
 	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/help_func.c.s
 .PHONY : src/help_func.c.s
 
+src/help_sort.o: src/help_sort.c.o
+
+.PHONY : src/help_sort.o
+
+# target to build an object file
+src/help_sort.c.o:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/help_sort.c.o
+.PHONY : src/help_sort.c.o
+
+src/help_sort.i: src/help_sort.c.i
+
+.PHONY : src/help_sort.i
+
+# target to preprocess a source file
+src/help_sort.c.i:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/help_sort.c.i
+.PHONY : src/help_sort.c.i
+
+src/help_sort.s: src/help_sort.c.s
+
+.PHONY : src/help_sort.s
+
+# target to generate assembly for a file
+src/help_sort.c.s:
+	$(MAKE) -f CMakeFiles/push_swap.dir/build.make CMakeFiles/push_swap.dir/src/help_sort.c.s
+.PHONY : src/help_sort.c.s
+
 src/new.o: src/new.c.o
 
 .PHONY : src/new.o
@@ -3465,6 +3492,9 @@ help:
 	@echo "... src/help_func.o"
 	@echo "... src/help_func.i"
 	@echo "... src/help_func.s"
+	@echo "... src/help_sort.o"
+	@echo "... src/help_sort.i"
+	@echo "... src/help_sort.s"
 	@echo "... src/new.o"
 	@echo "... src/new.i"
 	@echo "... src/new.s"

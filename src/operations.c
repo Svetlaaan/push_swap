@@ -6,7 +6,7 @@
 /*   By: fboggs <fboggs@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/12 19:49:06 by fboggs            #+#    #+#             */
-/*   Updated: 2020/03/15 20:52:09 by fboggs           ###   ########.fr       */
+/*   Updated: 2020/03/16 20:00:34 by fboggs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		push(char c, t_what **storage)
 		(*storage)->flag_kol_op += 1;
 	}
 	if ((*storage)->flag_v == 1)
-		print_stacks((*storage)->head_a, (*storage)->head_b);
+		output_stacks(&(*storage));
 	return (1);
 }
 
@@ -83,21 +83,22 @@ int		s_swap(t_num **head, t_what **storage, char c)
 			(c == 'a') ? (ft_printf("sa\n")) : (ft_printf("sb\n"));
 	}
 	if ((*storage)->flag_v == 1)
-		print_stacks((*storage)->head_a, (*storage)->head_b);
+		output_stacks(&(*storage));
 	return (1);
 }
 
 int		r_rotate(t_num **head, t_num **tail, t_what **storage)
 {
 	t_num	*tmp;
-	int 	curr;
+	int		curr;
 
 	tmp = *head;
-	curr = ((*storage)->head_a->index == (*head)->index && (*storage)->tail_a->index == (*tail)->index) ? 1 : 2;
 	if ((*storage)->curr_stack == 0)
 		(*storage)->curr_stack = 'A';
 	if ((*head) && (*head)->next)
 	{
+		curr = ((*storage)->head_a->index == (*head)->index &&
+				(*storage)->tail_a->index == (*tail)->index) ? 1 : 2;
 		*head = (*head)->next;
 		(*head)->prev = NULL;
 		(*tail)->next = tmp;
@@ -105,23 +106,24 @@ int		r_rotate(t_num **head, t_num **tail, t_what **storage)
 		tmp->next = NULL;
 		*tail = tmp;
 		(*storage)->flag_kol_op += 1;
-		if ((*storage)->push_swap == 1) ////
+		if ((*storage)->push_swap == 1)
 			(curr == 1) ? (ft_printf("ra\n")) :
 			(ft_printf("rb\n"));
 	}
 	if ((*storage)->flag_v == 1)
-		print_stacks((*storage)->head_a, (*storage)->head_b);
+		output_stacks(&(*storage));
 	return (1);
 }
 
 int		rr_reverse(t_num **head, t_num **tail, t_what **storage)
 {
 	t_num	*tmp;
-	int 	curr;
+	int		curr;
 
-	curr = ((*storage)->head_a->index == (*head)->index && (*storage)->tail_a->index == (*tail)->index) ? 1 : 2;
 	if ((*head) && (*head)->next)
 	{
+		curr = ((*storage)->head_a->index == (*head)->index &&
+				(*storage)->tail_a->index == (*tail)->index) ? 1 : 2;
 		tmp = (*tail);
 		*tail = (*tail)->prev;
 		(*tail)->next = NULL;
@@ -135,10 +137,6 @@ int		rr_reverse(t_num **head, t_num **tail, t_what **storage)
 			(ft_printf("rrb\n"));
 	}
 	if ((*storage)->flag_v == 1)
-		print_stacks((*storage)->head_a, (*storage)->head_b);
+		output_stacks(&(*storage));
 	return (1);
 }
-
-
-/// зацикливается сортировка на 5
-/// выводятся не те команды

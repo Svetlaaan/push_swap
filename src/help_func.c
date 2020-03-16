@@ -6,7 +6,7 @@
 /*   By: fboggs <fboggs@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 15:03:18 by fboggs            #+#    #+#             */
-/*   Updated: 2020/03/15 15:05:20 by fboggs           ###   ########.fr       */
+/*   Updated: 2020/03/16 20:03:30 by fboggs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int		find_max(t_num **stack, int i)
 	return (max->index);
 }
 
-void	print_stacks(t_num *head_a, t_num *head_b)
+void	print_a_b_stacks(t_num *head_a, t_num *head_b)
 {
 	t_num *tmp_a;
 	t_num *tmp_b;
@@ -84,46 +84,22 @@ void	print_stacks(t_num *head_a, t_num *head_b)
 			tmp_b = tmp_b->next;
 		}
 	}
+}
+
+void	print_stacks(t_num *head_a, t_num *head_b)
+{
+	write(1, "\033[0d\033[2J", 8);
+	print_a_b_stacks(head_a, head_b);
+	ft_printf("-----------------------------\n");
 	ft_printf("%13s | %7s\n", "stack A", "stack B");
+	ft_printf("-----------------------------\n");
 }
 
-void	push_alg(t_num **to, t_num **from, t_num *tmp_next, t_num *tmp)
+void	output_stacks(t_what **storage)
 {
-	if (*to == NULL)
+	if ((*storage)->flag_v == 1)
 	{
-		*to = *from;
-		if (tmp_next)
-			tmp_next->prev = NULL;
-		(*to)->prev = NULL;
-		(*to)->next = NULL;
-		*from = tmp_next;
+		usleep(100500);
+		print_stacks((*storage)->head_a, (*storage)->head_b);
 	}
-	else
-	{
-		if (tmp_next)
-			tmp_next->prev = NULL;
-		tmp->prev = NULL;
-		tmp->next = *to;
-		(*to)->prev = tmp;
-		*to = tmp;
-		*from = tmp_next;
-	}
-}
-
-int		sort_3_mov(t_what **storage, t_num **head_tmp, t_num **tail_tmp)
-{
-	if ((*storage)->curr_stack == 'A')
-	{
-		if (is_sorted((*storage)->head_a) == 1)
-			return (1);
-	}
-	else if ((*storage)->curr_stack == 'B')
-	{
-		if (is_sorted((*storage)->head_b) == 1)
-			return (1);
-	}
-	sort_three_case_frst(&(*storage), &(*head_tmp), &(*tail_tmp));
-	if (is_sorted(*head_tmp) == 1)
-		return (1);
-	return (-1);
 }

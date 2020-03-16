@@ -6,7 +6,7 @@
 /*   By: fboggs <fboggs@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 17:40:52 by fboggs            #+#    #+#             */
-/*   Updated: 2020/03/15 15:10:41 by fboggs           ###   ########.fr       */
+/*   Updated: 2020/03/16 20:00:34 by fboggs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,20 @@ int		sorting_two(t_what **storage)
 
 void	sort_three_case_frst(t_what **strg, t_num **head_tmp, t_num **tail_tmp)
 {
-	int	head_tmp_next_i;
-	int	head_tmp_i;
+	char	c;
+	int		head_tmp_next_i;
+	int		head_tmp_i;
 
+	c = ((*strg)->curr_stack == 'A') ? 'a' : 'b';
 	head_tmp_i = (*head_tmp)->index;
 	head_tmp_next_i = (*head_tmp)->next->index;
 	if (head_tmp_i > head_tmp_next_i && head_tmp_i < (*tail_tmp)->index)
-		s_swap(&(*head_tmp), &(*strg), 'a');
+		s_swap(&(*head_tmp), &(*strg), c);
 	else if (head_tmp_i > head_tmp_next_i && head_tmp_i > (*tail_tmp)->index)
 	{
 		if ((*tail_tmp)->index < (*tail_tmp)->prev->index)
 		{
-			s_swap(&(*head_tmp), &(*strg), 'a');
+			s_swap(&(*head_tmp), &(*strg), c);
 			rr_reverse(&(*head_tmp), &(*tail_tmp), &(*strg));
 		}
 		else if ((*tail_tmp)->index > (*tail_tmp)->prev->index)
@@ -111,22 +113,15 @@ int		sorting_five(t_what **storage)
 	push('b', &(*storage));
 	if (sorting_three(&(*storage)) == -1)
 		return (-1);
-	if ((*storage)->head_b->index > (*storage)->tail_b->index)
-		s_swap(&(*storage)->head_b, &(*storage), 'b');
-	while ((*storage)->stack_b > 0)
+	sorting_alg_five(&(*storage));
+	if ((*storage)->tail_a->index < 3)
 	{
-		if ((*storage)->head_b->index == (*storage)->head_a->index - 1)
-			push('a', &(*storage));
-		else if ((*storage)->head_b->index == (*storage)->tail_a->index + 1)
-		{
-			push('a', &(*storage));
-			r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
-		}
-		else
-			r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
+		while (is_sorted((*storage)->head_a) == -1)
+			rr_reverse(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
 	}
-	while (is_sorted((*storage)->head_a) == -1)
-		r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
+	else
+		while (is_sorted((*storage)->head_a) == -1)
+			r_rotate(&(*storage)->head_a, &(*storage)->tail_a, &(*storage));
 	if (is_sorted((*storage)->head_a) == 1)
 		return (1);
 	return (-1);

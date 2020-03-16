@@ -6,7 +6,7 @@
 /*   By: fboggs <fboggs@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 14:51:37 by fboggs            #+#    #+#             */
-/*   Updated: 2020/03/15 17:21:57 by fboggs           ###   ########.fr       */
+/*   Updated: 2020/03/16 20:22:42 by fboggs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		save_av_if_empty(t_what **strg, const char **av, int *flag, t_num **num)
 		}
 		if (((*num)->num = ps_atoi(*av, minus)) == -1)
 		{
-			ft_printf("Error\n");
+			write(2, "Error\n", 6);
 			return (-1);
 		}
 		if ((*flag) == 1)
@@ -55,7 +55,7 @@ int		save_if_not_empty(t_num **n, const char **av, int *flag, t_what **strg)
 	save_if_minus(av, flag, &minus);
 	if (((*n)->num = ps_atoi(*av, minus)) == -1)
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 		return (-1);
 	}
 	if (*flag == 1)
@@ -109,7 +109,7 @@ int		what_do_to_save_av(t_what **strg, t_num **n, const char **av, int flag)
 		}
 		else
 		{
-			write(1, "Error\n", 6);
+			write(2, "Error\n", 6);
 			return (-1);
 		}
 	}

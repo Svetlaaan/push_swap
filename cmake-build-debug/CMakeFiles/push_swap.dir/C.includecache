@@ -30,15 +30,15 @@ fcntl.h
 limits.h
 -
 
-/Users/fboggs/Desktop/push_swap/inc/push_swap.h
+/Users/fboggs/Desktop/new_push_swap/inc/push_swap.h
 ft_printf.h
-/Users/fboggs/Desktop/push_swap/inc/ft_printf.h
+/Users/fboggs/Desktop/new_push_swap/inc/ft_printf.h
 
-/Users/fboggs/Desktop/push_swap/src/operations.c
+/Users/fboggs/Desktop/new_push_swap/src/help_func.c
 ../inc/push_swap.h
-/Users/fboggs/Desktop/push_swap/inc/push_swap.h
+/Users/fboggs/Desktop/new_push_swap/inc/push_swap.h
 
-/Users/fboggs/Desktop/push_swap/src/push_swap.c
+/Users/fboggs/Desktop/new_push_swap/src/sort_small.c
 ../inc/push_swap.h
-/Users/fboggs/Desktop/push_swap/inc/push_swap.h
+/Users/fboggs/Desktop/new_push_swap/inc/push_swap.h
 

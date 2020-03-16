@@ -6,7 +6,7 @@
 /*   By: fboggs <fboggs@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 15:49:48 by fboggs            #+#    #+#             */
-/*   Updated: 2020/03/13 16:46:37 by fboggs           ###   ########.fr       */
+/*   Updated: 2020/03/16 20:22:42 by fboggs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		check_dup(long long *min, long long *tmp_min, t_num **num_min, int *i)
 {
 	if ((*min) == (*tmp_min))
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 		return (-1);
 	}
 	(*num_min)->index = *i;

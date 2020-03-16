@@ -23,11 +23,11 @@ OBJ_DIR = ./obj/
 
 PS_SRC_NAME = push_swap.c operations.c set_index.c \
 sort_small.c sorting_al.c check_smthng.c delete.c save_argv.c help_func.c \
-new.c sort_help.c rotate_if.c
+new.c sort_help.c rotate_if.c help_sort.c
 
 CHECKER_SRC_NAME = checker.c check_smthng.c operations.c set_index.c \
 sorting_al.c sort_small.c delete.c save_argv.c help_func.c new.c sort_help.c \
-rotate_if.c
+rotate_if.c help_sort.c
 
 HEADER = $(addprefix $(INC_DIR), $(HEADER_NAME))
 

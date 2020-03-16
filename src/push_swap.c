@@ -6,7 +6,7 @@
 /*   By: fboggs <fboggs@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 15:31:34 by fboggs            #+#    #+#             */
-/*   Updated: 2020/03/13 19:57:30 by fboggs           ###   ########.fr       */
+/*   Updated: 2020/03/16 18:05:26 by fboggs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ int		main_alg(t_what **storage, t_num **num, int argc, char **argv)
 			final_free(&(*storage), &(*num));
 			return (-1);
 		}
-		ft_printf("\nOK");
 		final_free(&(*storage), &(*num));
 		return (1);
 	}

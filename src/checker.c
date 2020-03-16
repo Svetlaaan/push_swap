@@ -6,7 +6,7 @@
 /*   By: fboggs <fboggs@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/13 18:18:37 by fboggs            #+#    #+#             */
-/*   Updated: 2020/03/15 16:12:07 by fboggs           ###   ########.fr       */
+/*   Updated: 2020/03/16 18:33:27 by fboggs           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,11 @@ int		valid_and_parse_args(t_what *storage)
 		if (parse_args(storage, line) == -1)
 		{
 			free(line);
-			ft_printf("Error\n");
+			write(2, "Error\n", 6);
 			return (0);
 		}
+		if ((storage)->flag_v == 1)
+			ft_printf("Current operation: %s\n", line);
 		free(line);
 		line = NULL;
 	}
