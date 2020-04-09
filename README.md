@@ -51,9 +51,15 @@ Error
 ### How to use these two programs together?  
 _Example:_  
 `ARG="6 5 7"; ./push_swap $ARG | ./checker $ARG`  
-You can use flag `-v`(debug) for showштп the stack status after each operation 
-_Example:_  
-`ARG="6 5 7 1 -1 0"; ./push_swap $ARG | ./checker -v $ARG`
+You can use flag `-v`(debug) for showing the stack status after each operation  
+  
+  _Example:_  
+`ARG="6 5 7"; ./push_swap $ARG | ./checker -v $ARG`  
+
+To see push_swap in action, run `make` and then the following script:
+```
+python3 pyviz.py `ruby -e "puts (1..20).to_a.shuffle.join(' ')"`
+```
 
 
 
