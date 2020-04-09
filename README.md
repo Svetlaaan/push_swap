@@ -51,9 +51,7 @@ Error
 ### How to use these two programs together?  
 _Example:_  
 `ARG="6 5 7"; ./push_swap $ARG | ./checker $ARG`  
-
-### What's about visualization?  
-You can use flag `-v` for a simple visualization of sort process  
+You can use flag `-v`(debug) for showштп the stack status after each operation 
 _Example:_  
 `ARG="6 5 7 1 -1 0"; ./push_swap $ARG | ./checker -v $ARG`
 
